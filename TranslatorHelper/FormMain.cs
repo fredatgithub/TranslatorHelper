@@ -107,6 +107,11 @@ namespace TranslatorHelper
       SaveWindowValue();
     }
 
+    private void ButtonConvertClick(object sender, EventArgs e)
+    {
+
+    }
+
 
   }
 }
