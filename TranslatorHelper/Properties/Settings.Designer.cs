@@ -70,5 +70,173 @@ namespace TranslatorHelper.Properties {
                 this["WindowLeft"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fichier")]
+        public string FR_File {
+            get {
+                return ((string)(this["FR_File"]));
+            }
+            set {
+                this["FR_File"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("File")]
+        public string US_File {
+            get {
+                return ((string)(this["US_File"]));
+            }
+            set {
+                this["US_File"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Langage")]
+        public string FR_Language {
+            get {
+                return ((string)(this["FR_Language"]));
+            }
+            set {
+                this["FR_Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Language")]
+        public string US_Language {
+            get {
+                return ((string)(this["US_Language"]));
+            }
+            set {
+                this["US_Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Français")]
+        public string FR_French {
+            get {
+                return ((string)(this["FR_French"]));
+            }
+            set {
+                this["FR_French"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("French")]
+        public string US_French {
+            get {
+                return ((string)(this["US_French"]));
+            }
+            set {
+                this["US_French"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Anglais")]
+        public string FR_English {
+            get {
+                return ((string)(this["FR_English"]));
+            }
+            set {
+                this["FR_English"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("English")]
+        public string US_English {
+            get {
+                return ((string)(this["US_English"]));
+            }
+            set {
+                this["US_English"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Quitter")]
+        public string FR_Quit {
+            get {
+                return ((string)(this["FR_Quit"]));
+            }
+            set {
+                this["FR_Quit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Quit")]
+        public string US_Quit {
+            get {
+                return ((string)(this["US_Quit"]));
+            }
+            set {
+                this["US_Quit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Aide")]
+        public string FR_Help {
+            get {
+                return ((string)(this["FR_Help"]));
+            }
+            set {
+                this["FR_Help"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Help")]
+        public string US_Help {
+            get {
+                return ((string)(this["US_Help"]));
+            }
+            set {
+                this["US_Help"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("A propos de")]
+        public string FR_About {
+            get {
+                return ((string)(this["FR_About"]));
+            }
+            set {
+                this["FR_About"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("About")]
+        public string US_About {
+            get {
+                return ((string)(this["US_About"]));
+            }
+            set {
+                this["US_About"] = value;
+            }
+        }
     }
 }

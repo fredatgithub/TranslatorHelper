@@ -112,6 +112,46 @@ namespace TranslatorHelper
 
     }
 
+    private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
+    {
+      MenuLanguageTo(Language.French);
+    }
+
+    private void MenuLanguageTo(Language language)
+    {
+      if (language == Language.French)
+      {
+        frenchToolStripMenuItem.Checked = true;
+        englishToolStripMenuItem.Checked = false;
+        fileToolStripMenuItem.Text = Settings.Default.FR_File;
+        quitToolStripMenuItem.Text = Settings.Default.FR_Quit;
+        languageToolStripMenuItem.Text = Settings.Default.FR_Language;
+        frenchToolStripMenuItem.Text = Settings.Default.FR_French;
+        englishToolStripMenuItem.Text = Settings.Default.FR_English;
+        helpToolStripMenuItem.Text = Settings.Default.FR_Help;
+        aboutToolStripMenuItem.Text = Settings.Default.FR_About;
+
+        return;
+      }
+
+      if (language == Language.English)
+      {
+        frenchToolStripMenuItem.Checked = false;
+        englishToolStripMenuItem.Checked = true;
+        fileToolStripMenuItem.Text = Settings.Default.US_File;
+        quitToolStripMenuItem.Text = Settings.Default.US_Quit;
+        languageToolStripMenuItem.Text = Settings.Default.US_Language;
+        frenchToolStripMenuItem.Text = Settings.Default.US_French;
+        englishToolStripMenuItem.Text = Settings.Default.US_English;
+        helpToolStripMenuItem.Text = Settings.Default.US_Help;
+        aboutToolStripMenuItem.Text = Settings.Default.US_About;
+      }
+    }
+
+    private void EnglishToolStripMenuItemClick(object sender, EventArgs e)
+    {
+      MenuLanguageTo(Language.English);
+    }
 
   }
 }

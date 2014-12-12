@@ -14,5 +14,47 @@
     <Setting Name="WindowLeft" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="FR_File" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fichier</Value>
+    </Setting>
+    <Setting Name="US_File" Type="System.String" Scope="User">
+      <Value Profile="(Default)">File</Value>
+    </Setting>
+    <Setting Name="FR_Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Langage</Value>
+    </Setting>
+    <Setting Name="US_Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Language</Value>
+    </Setting>
+    <Setting Name="FR_French" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Français</Value>
+    </Setting>
+    <Setting Name="US_French" Type="System.String" Scope="User">
+      <Value Profile="(Default)">French</Value>
+    </Setting>
+    <Setting Name="FR_English" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Anglais</Value>
+    </Setting>
+    <Setting Name="US_English" Type="System.String" Scope="User">
+      <Value Profile="(Default)">English</Value>
+    </Setting>
+    <Setting Name="FR_Quit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Quitter</Value>
+    </Setting>
+    <Setting Name="US_Quit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Quit</Value>
+    </Setting>
+    <Setting Name="FR_Help" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Aide</Value>
+    </Setting>
+    <Setting Name="US_Help" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Help</Value>
+    </Setting>
+    <Setting Name="FR_About" Type="System.String" Scope="User">
+      <Value Profile="(Default)">A propos de</Value>
+    </Setting>
+    <Setting Name="US_About" Type="System.String" Scope="User">
+      <Value Profile="(Default)">About</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
