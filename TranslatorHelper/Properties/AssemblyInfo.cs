@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("TranslatorHelper")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Translator Helper")]
+[assembly: AssemblyDescription("This application helps any translator to record what have already translated for future use.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TranslatorHelper")]
+[assembly: AssemblyCompany("Freddy Juhel")]
+[assembly: AssemblyProduct("Translator Helper")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

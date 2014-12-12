@@ -54,25 +54,22 @@
       this.personnaliserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.sommaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPageMain = new System.Windows.Forms.TabPage();
-      this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.buttonConvert = new System.Windows.Forms.Button();
+      this.labelTranslatedFileName = new System.Windows.Forms.Label();
+      this.textBoxTranslatedFileName = new System.Windows.Forms.TextBox();
+      this.textBoxSuffixeFileName = new System.Windows.Forms.TextBox();
+      this.labelSuffixeFileName = new System.Windows.Forms.Label();
       this.buttonChooseFile = new System.Windows.Forms.Button();
       this.labelFilePath = new System.Windows.Forms.Label();
       this.textBoxfilePath = new System.Windows.Forms.TextBox();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.labelSuffixeFileName = new System.Windows.Forms.Label();
-      this.textBoxSuffixeFileName = new System.Windows.Forms.TextBox();
-      this.labelTranslatedFileName = new System.Windows.Forms.Label();
-      this.textBoxTranslatedFileName = new System.Windows.Forms.TextBox();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
-      this.tabPage2.SuspendLayout();
+      this.tabPageMain.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
@@ -273,43 +270,17 @@
       // aideToolStripMenuItem
       // 
       this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sommaireToolStripMenuItem,
-            this.indexToolStripMenuItem,
-            this.rechercherToolStripMenuItem,
-            this.toolStripSeparator5,
             this.àproposdeToolStripMenuItem});
       this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
       this.aideToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
       this.aideToolStripMenuItem.Text = "&Aide";
-      // 
-      // sommaireToolStripMenuItem
-      // 
-      this.sommaireToolStripMenuItem.Name = "sommaireToolStripMenuItem";
-      this.sommaireToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
-      this.sommaireToolStripMenuItem.Text = "&Sommaire";
-      // 
-      // indexToolStripMenuItem
-      // 
-      this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-      this.indexToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
-      this.indexToolStripMenuItem.Text = "&Index";
-      // 
-      // rechercherToolStripMenuItem
-      // 
-      this.rechercherToolStripMenuItem.Name = "rechercherToolStripMenuItem";
-      this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
-      this.rechercherToolStripMenuItem.Text = "&Rechercher";
-      // 
-      // toolStripSeparator5
-      // 
-      this.toolStripSeparator5.Name = "toolStripSeparator5";
-      this.toolStripSeparator5.Size = new System.Drawing.Size(166, 6);
       // 
       // àproposdeToolStripMenuItem
       // 
       this.àproposdeToolStripMenuItem.Name = "àproposdeToolStripMenuItem";
       this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
       this.àproposdeToolStripMenuItem.Text = "À &propos de...";
+      this.àproposdeToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
       // 
       // tabControl1
       // 
@@ -323,6 +294,14 @@
       // 
       // tabPageMain
       // 
+      this.tabPageMain.Controls.Add(this.buttonConvert);
+      this.tabPageMain.Controls.Add(this.labelTranslatedFileName);
+      this.tabPageMain.Controls.Add(this.textBoxTranslatedFileName);
+      this.tabPageMain.Controls.Add(this.textBoxSuffixeFileName);
+      this.tabPageMain.Controls.Add(this.labelSuffixeFileName);
+      this.tabPageMain.Controls.Add(this.buttonChooseFile);
+      this.tabPageMain.Controls.Add(this.labelFilePath);
+      this.tabPageMain.Controls.Add(this.textBoxfilePath);
       this.tabPageMain.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tabPageMain.Location = new System.Drawing.Point(4, 25);
       this.tabPageMain.Name = "tabPageMain";
@@ -333,15 +312,79 @@
       this.tabPageMain.UseVisualStyleBackColor = true;
       this.tabPageMain.Click += new System.EventHandler(this.TabPageMainClick);
       // 
+      // buttonConvert
+      // 
+      this.buttonConvert.Location = new System.Drawing.Point(745, 174);
+      this.buttonConvert.Name = "buttonConvert";
+      this.buttonConvert.Size = new System.Drawing.Size(93, 23);
+      this.buttonConvert.TabIndex = 14;
+      this.buttonConvert.Text = "Convert";
+      this.buttonConvert.UseVisualStyleBackColor = true;
+      // 
+      // labelTranslatedFileName
+      // 
+      this.labelTranslatedFileName.AutoSize = true;
+      this.labelTranslatedFileName.Location = new System.Drawing.Point(31, 122);
+      this.labelTranslatedFileName.Name = "labelTranslatedFileName";
+      this.labelTranslatedFileName.Size = new System.Drawing.Size(145, 17);
+      this.labelTranslatedFileName.TabIndex = 13;
+      this.labelTranslatedFileName.Text = "Translated File name:";
+      // 
+      // textBoxTranslatedFileName
+      // 
+      this.textBoxTranslatedFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxTranslatedFileName.Location = new System.Drawing.Point(193, 122);
+      this.textBoxTranslatedFileName.Name = "textBoxTranslatedFileName";
+      this.textBoxTranslatedFileName.ReadOnly = true;
+      this.textBoxTranslatedFileName.Size = new System.Drawing.Size(645, 22);
+      this.textBoxTranslatedFileName.TabIndex = 12;
+      // 
+      // textBoxSuffixeFileName
+      // 
+      this.textBoxSuffixeFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxSuffixeFileName.Location = new System.Drawing.Point(193, 75);
+      this.textBoxSuffixeFileName.Name = "textBoxSuffixeFileName";
+      this.textBoxSuffixeFileName.Size = new System.Drawing.Size(201, 22);
+      this.textBoxSuffixeFileName.TabIndex = 11;
+      this.textBoxSuffixeFileName.Text = "_ENG";
+      // 
+      // labelSuffixeFileName
+      // 
+      this.labelSuffixeFileName.AutoSize = true;
+      this.labelSuffixeFileName.Location = new System.Drawing.Point(31, 75);
+      this.labelSuffixeFileName.Name = "labelSuffixeFileName";
+      this.labelSuffixeFileName.Size = new System.Drawing.Size(156, 17);
+      this.labelSuffixeFileName.TabIndex = 10;
+      this.labelSuffixeFileName.Text = "Sufixe du fichier traduit:";
+      // 
+      // buttonChooseFile
+      // 
+      this.buttonChooseFile.Location = new System.Drawing.Point(859, 27);
+      this.buttonChooseFile.Name = "buttonChooseFile";
+      this.buttonChooseFile.Size = new System.Drawing.Size(38, 23);
+      this.buttonChooseFile.TabIndex = 9;
+      this.buttonChooseFile.Text = "...";
+      this.buttonChooseFile.UseVisualStyleBackColor = true;
+      // 
+      // labelFilePath
+      // 
+      this.labelFilePath.AutoSize = true;
+      this.labelFilePath.Location = new System.Drawing.Point(31, 28);
+      this.labelFilePath.Name = "labelFilePath";
+      this.labelFilePath.Size = new System.Drawing.Size(66, 17);
+      this.labelFilePath.TabIndex = 8;
+      this.labelFilePath.Text = "File path:";
+      // 
+      // textBoxfilePath
+      // 
+      this.textBoxfilePath.Location = new System.Drawing.Point(100, 28);
+      this.textBoxfilePath.Name = "textBoxfilePath";
+      this.textBoxfilePath.Size = new System.Drawing.Size(738, 22);
+      this.textBoxfilePath.TabIndex = 7;
+      this.textBoxfilePath.Text = "D:\\MesDoc";
+      // 
       // tabPage2
       // 
-      this.tabPage2.Controls.Add(this.labelTranslatedFileName);
-      this.tabPage2.Controls.Add(this.textBoxTranslatedFileName);
-      this.tabPage2.Controls.Add(this.textBoxSuffixeFileName);
-      this.tabPage2.Controls.Add(this.labelSuffixeFileName);
-      this.tabPage2.Controls.Add(this.buttonChooseFile);
-      this.tabPage2.Controls.Add(this.labelFilePath);
-      this.tabPage2.Controls.Add(this.textBoxfilePath);
       this.tabPage2.Location = new System.Drawing.Point(4, 25);
       this.tabPage2.Name = "tabPage2";
       this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -350,71 +393,9 @@
       this.tabPage2.Text = "Input";
       this.tabPage2.UseVisualStyleBackColor = true;
       // 
-      // buttonChooseFile
-      // 
-      this.buttonChooseFile.Location = new System.Drawing.Point(863, 43);
-      this.buttonChooseFile.Name = "buttonChooseFile";
-      this.buttonChooseFile.Size = new System.Drawing.Size(38, 23);
-      this.buttonChooseFile.TabIndex = 2;
-      this.buttonChooseFile.Text = "...";
-      this.buttonChooseFile.UseVisualStyleBackColor = true;
-      this.buttonChooseFile.Click += new System.EventHandler(this.ButtonChooseFileClick);
-      // 
-      // labelFilePath
-      // 
-      this.labelFilePath.AutoSize = true;
-      this.labelFilePath.Location = new System.Drawing.Point(35, 44);
-      this.labelFilePath.Name = "labelFilePath";
-      this.labelFilePath.Size = new System.Drawing.Size(66, 17);
-      this.labelFilePath.TabIndex = 1;
-      this.labelFilePath.Text = "File path:";
-      // 
-      // textBoxfilePath
-      // 
-      this.textBoxfilePath.Location = new System.Drawing.Point(104, 44);
-      this.textBoxfilePath.Name = "textBoxfilePath";
-      this.textBoxfilePath.Size = new System.Drawing.Size(738, 22);
-      this.textBoxfilePath.TabIndex = 0;
-      this.textBoxfilePath.Text = "D:\\MesDoc";
-      // 
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
-      // 
-      // labelSuffixeFileName
-      // 
-      this.labelSuffixeFileName.AutoSize = true;
-      this.labelSuffixeFileName.Location = new System.Drawing.Point(35, 91);
-      this.labelSuffixeFileName.Name = "labelSuffixeFileName";
-      this.labelSuffixeFileName.Size = new System.Drawing.Size(156, 17);
-      this.labelSuffixeFileName.TabIndex = 3;
-      this.labelSuffixeFileName.Text = "Sufixe du fichier traduit:";
-      // 
-      // textBoxSuffixeFileName
-      // 
-      this.textBoxSuffixeFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxSuffixeFileName.Location = new System.Drawing.Point(197, 91);
-      this.textBoxSuffixeFileName.Name = "textBoxSuffixeFileName";
-      this.textBoxSuffixeFileName.Size = new System.Drawing.Size(201, 22);
-      this.textBoxSuffixeFileName.TabIndex = 4;
-      this.textBoxSuffixeFileName.Text = "_ENG";
-      // 
-      // labelTranslatedFileName
-      // 
-      this.labelTranslatedFileName.AutoSize = true;
-      this.labelTranslatedFileName.Location = new System.Drawing.Point(35, 138);
-      this.labelTranslatedFileName.Name = "labelTranslatedFileName";
-      this.labelTranslatedFileName.Size = new System.Drawing.Size(145, 17);
-      this.labelTranslatedFileName.TabIndex = 6;
-      this.labelTranslatedFileName.Text = "Translated File name:";
-      // 
-      // textBoxTranslatedFileName
-      // 
-      this.textBoxTranslatedFileName.Location = new System.Drawing.Point(197, 138);
-      this.textBoxTranslatedFileName.Name = "textBoxTranslatedFileName";
-      this.textBoxTranslatedFileName.ReadOnly = true;
-      this.textBoxTranslatedFileName.Size = new System.Drawing.Size(645, 22);
-      this.textBoxTranslatedFileName.TabIndex = 5;
       // 
       // FormMain
       // 
@@ -426,11 +407,13 @@
       this.MainMenuStrip = this.menuStrip1;
       this.Name = "FormMain";
       this.Text = "Translator Helper";
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainFormClosing);
+      this.Load += new System.EventHandler(this.FormMainLoad);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       this.tabControl1.ResumeLayout(false);
-      this.tabPage2.ResumeLayout(false);
-      this.tabPage2.PerformLayout();
+      this.tabPageMain.ResumeLayout(false);
+      this.tabPageMain.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -463,22 +446,19 @@
     private System.Windows.Forms.ToolStripMenuItem personnaliserToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem sommaireToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripMenuItem àproposdeToolStripMenuItem;
     private System.Windows.Forms.TabControl tabControl1;
     private System.Windows.Forms.TabPage tabPageMain;
     private System.Windows.Forms.TabPage tabPage2;
+    private System.Windows.Forms.OpenFileDialog openFileDialog1;
+    private System.Windows.Forms.Button buttonConvert;
+    private System.Windows.Forms.Label labelTranslatedFileName;
+    private System.Windows.Forms.TextBox textBoxTranslatedFileName;
+    private System.Windows.Forms.TextBox textBoxSuffixeFileName;
+    private System.Windows.Forms.Label labelSuffixeFileName;
     private System.Windows.Forms.Button buttonChooseFile;
     private System.Windows.Forms.Label labelFilePath;
     private System.Windows.Forms.TextBox textBoxfilePath;
-    private System.Windows.Forms.OpenFileDialog openFileDialog1;
-    private System.Windows.Forms.TextBox textBoxSuffixeFileName;
-    private System.Windows.Forms.Label labelSuffixeFileName;
-    private System.Windows.Forms.Label labelTranslatedFileName;
-    private System.Windows.Forms.TextBox textBoxTranslatedFileName;
   }
 }
 
