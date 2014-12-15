@@ -58,7 +58,7 @@
       this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tabControl1 = new System.Windows.Forms.TabControl();
-      this.tabPageMain = new System.Windows.Forms.TabPage();
+      this.tabPageTranslation = new System.Windows.Forms.TabPage();
       this.buttonConvert = new System.Windows.Forms.Button();
       this.labelTranslatedFileName = new System.Windows.Forms.Label();
       this.textBoxTranslatedFileName = new System.Windows.Forms.TextBox();
@@ -67,11 +67,22 @@
       this.buttonChooseFile = new System.Windows.Forms.Button();
       this.labelFilePath = new System.Windows.Forms.Label();
       this.textBoxfilePath = new System.Windows.Forms.TextBox();
-      this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.tabPageInput = new System.Windows.Forms.TabPage();
+      this.buttonAddToDictionary = new System.Windows.Forms.Button();
+      this.textBoxInputEnglish = new System.Windows.Forms.TextBox();
+      this.labelInputEnglish = new System.Windows.Forms.Label();
+      this.textBoxInputFrench = new System.Windows.Forms.TextBox();
+      this.labelInputFrench = new System.Windows.Forms.Label();
+      this.tabPageEditDictionary = new System.Windows.Forms.TabPage();
+      this.tabPageTool = new System.Windows.Forms.TabPage();
+      this.buttonWords = new System.Windows.Forms.Button();
+      this.buttonCountParagraph = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
-      this.tabPageMain.SuspendLayout();
+      this.tabPageTranslation.SuspendLayout();
+      this.tabPageInput.SuspendLayout();
+      this.tabPageTool.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
@@ -84,7 +95,7 @@
             this.helpToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(1188, 28);
+      this.menuStrip1.Size = new System.Drawing.Size(1449, 28);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -277,14 +288,14 @@
       this.frenchToolStripMenuItem.Checked = true;
       this.frenchToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
       this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
-      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
       this.frenchToolStripMenuItem.Text = "Français";
       this.frenchToolStripMenuItem.Click += new System.EventHandler(this.FrenchToolStripMenuItemClick);
       // 
       // englishToolStripMenuItem
       // 
       this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-      this.englishToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+      this.englishToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
       this.englishToolStripMenuItem.Text = "Anglais";
       this.englishToolStripMenuItem.Click += new System.EventHandler(this.EnglishToolStripMenuItemClick);
       // 
@@ -305,41 +316,43 @@
       // 
       // tabControl1
       // 
-      this.tabControl1.Controls.Add(this.tabPageMain);
-      this.tabControl1.Controls.Add(this.tabPage2);
+      this.tabControl1.Controls.Add(this.tabPageTranslation);
+      this.tabControl1.Controls.Add(this.tabPageInput);
+      this.tabControl1.Controls.Add(this.tabPageEditDictionary);
+      this.tabControl1.Controls.Add(this.tabPageTool);
       this.tabControl1.Location = new System.Drawing.Point(12, 41);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       this.tabControl1.Size = new System.Drawing.Size(1115, 427);
       this.tabControl1.TabIndex = 1;
       // 
-      // tabPageMain
+      // tabPageTranslation
       // 
-      this.tabPageMain.Controls.Add(this.buttonConvert);
-      this.tabPageMain.Controls.Add(this.labelTranslatedFileName);
-      this.tabPageMain.Controls.Add(this.textBoxTranslatedFileName);
-      this.tabPageMain.Controls.Add(this.textBoxSuffixeFileName);
-      this.tabPageMain.Controls.Add(this.labelSuffixeFileName);
-      this.tabPageMain.Controls.Add(this.buttonChooseFile);
-      this.tabPageMain.Controls.Add(this.labelFilePath);
-      this.tabPageMain.Controls.Add(this.textBoxfilePath);
-      this.tabPageMain.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tabPageMain.Location = new System.Drawing.Point(4, 25);
-      this.tabPageMain.Name = "tabPageMain";
-      this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPageMain.Size = new System.Drawing.Size(1107, 398);
-      this.tabPageMain.TabIndex = 0;
-      this.tabPageMain.Text = "Translation";
-      this.tabPageMain.UseVisualStyleBackColor = true;
-      this.tabPageMain.Click += new System.EventHandler(this.TabPageMainClick);
+      this.tabPageTranslation.Controls.Add(this.buttonConvert);
+      this.tabPageTranslation.Controls.Add(this.labelTranslatedFileName);
+      this.tabPageTranslation.Controls.Add(this.textBoxTranslatedFileName);
+      this.tabPageTranslation.Controls.Add(this.textBoxSuffixeFileName);
+      this.tabPageTranslation.Controls.Add(this.labelSuffixeFileName);
+      this.tabPageTranslation.Controls.Add(this.buttonChooseFile);
+      this.tabPageTranslation.Controls.Add(this.labelFilePath);
+      this.tabPageTranslation.Controls.Add(this.textBoxfilePath);
+      this.tabPageTranslation.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabPageTranslation.Location = new System.Drawing.Point(4, 25);
+      this.tabPageTranslation.Name = "tabPageTranslation";
+      this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPageTranslation.Size = new System.Drawing.Size(1107, 398);
+      this.tabPageTranslation.TabIndex = 0;
+      this.tabPageTranslation.Text = "Translation";
+      this.tabPageTranslation.UseVisualStyleBackColor = true;
+      this.tabPageTranslation.Click += new System.EventHandler(this.TabPageMainClick);
       // 
       // buttonConvert
       // 
-      this.buttonConvert.Location = new System.Drawing.Point(745, 174);
+      this.buttonConvert.Location = new System.Drawing.Point(987, 117);
       this.buttonConvert.Name = "buttonConvert";
-      this.buttonConvert.Size = new System.Drawing.Size(93, 23);
+      this.buttonConvert.Size = new System.Drawing.Size(93, 28);
       this.buttonConvert.TabIndex = 14;
-      this.buttonConvert.Text = "Convert";
+      this.buttonConvert.Text = "Translate";
       this.buttonConvert.UseVisualStyleBackColor = true;
       this.buttonConvert.Click += new System.EventHandler(this.ButtonConvertClick);
       // 
@@ -358,7 +371,7 @@
       this.textBoxTranslatedFileName.Location = new System.Drawing.Point(193, 122);
       this.textBoxTranslatedFileName.Name = "textBoxTranslatedFileName";
       this.textBoxTranslatedFileName.ReadOnly = true;
-      this.textBoxTranslatedFileName.Size = new System.Drawing.Size(645, 22);
+      this.textBoxTranslatedFileName.Size = new System.Drawing.Size(788, 22);
       this.textBoxTranslatedFileName.TabIndex = 12;
       // 
       // textBoxSuffixeFileName
@@ -381,12 +394,13 @@
       // 
       // buttonChooseFile
       // 
-      this.buttonChooseFile.Location = new System.Drawing.Point(859, 27);
+      this.buttonChooseFile.Location = new System.Drawing.Point(1042, 28);
       this.buttonChooseFile.Name = "buttonChooseFile";
       this.buttonChooseFile.Size = new System.Drawing.Size(38, 23);
       this.buttonChooseFile.TabIndex = 9;
       this.buttonChooseFile.Text = "...";
       this.buttonChooseFile.UseVisualStyleBackColor = true;
+      this.buttonChooseFile.Click += new System.EventHandler(this.ButtonChooseFileClick);
       // 
       // labelFilePath
       // 
@@ -401,19 +415,108 @@
       // 
       this.textBoxfilePath.Location = new System.Drawing.Point(100, 28);
       this.textBoxfilePath.Name = "textBoxfilePath";
-      this.textBoxfilePath.Size = new System.Drawing.Size(738, 22);
+      this.textBoxfilePath.Size = new System.Drawing.Size(936, 22);
       this.textBoxfilePath.TabIndex = 7;
       this.textBoxfilePath.Text = "D:\\MesDoc";
       // 
-      // tabPage2
+      // tabPageInput
       // 
-      this.tabPage2.Location = new System.Drawing.Point(4, 25);
-      this.tabPage2.Name = "tabPage2";
-      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage2.Size = new System.Drawing.Size(1107, 398);
-      this.tabPage2.TabIndex = 1;
-      this.tabPage2.Text = "Input";
-      this.tabPage2.UseVisualStyleBackColor = true;
+      this.tabPageInput.Controls.Add(this.buttonAddToDictionary);
+      this.tabPageInput.Controls.Add(this.textBoxInputEnglish);
+      this.tabPageInput.Controls.Add(this.labelInputEnglish);
+      this.tabPageInput.Controls.Add(this.textBoxInputFrench);
+      this.tabPageInput.Controls.Add(this.labelInputFrench);
+      this.tabPageInput.Location = new System.Drawing.Point(4, 25);
+      this.tabPageInput.Name = "tabPageInput";
+      this.tabPageInput.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPageInput.Size = new System.Drawing.Size(1107, 398);
+      this.tabPageInput.TabIndex = 1;
+      this.tabPageInput.Text = "Input Dictionary";
+      this.tabPageInput.UseVisualStyleBackColor = true;
+      // 
+      // buttonAddToDictionary
+      // 
+      this.buttonAddToDictionary.Location = new System.Drawing.Point(899, 369);
+      this.buttonAddToDictionary.Name = "buttonAddToDictionary";
+      this.buttonAddToDictionary.Size = new System.Drawing.Size(145, 23);
+      this.buttonAddToDictionary.TabIndex = 4;
+      this.buttonAddToDictionary.Text = "Add to dictionary";
+      this.buttonAddToDictionary.UseVisualStyleBackColor = true;
+      this.buttonAddToDictionary.Click += new System.EventHandler(this.ButtonAddToDictionaryClick);
+      // 
+      // textBoxInputEnglish
+      // 
+      this.textBoxInputEnglish.Location = new System.Drawing.Point(52, 237);
+      this.textBoxInputEnglish.Multiline = true;
+      this.textBoxInputEnglish.Name = "textBoxInputEnglish";
+      this.textBoxInputEnglish.Size = new System.Drawing.Size(992, 117);
+      this.textBoxInputEnglish.TabIndex = 3;
+      // 
+      // labelInputEnglish
+      // 
+      this.labelInputEnglish.AutoSize = true;
+      this.labelInputEnglish.Location = new System.Drawing.Point(49, 207);
+      this.labelInputEnglish.Name = "labelInputEnglish";
+      this.labelInputEnglish.Size = new System.Drawing.Size(58, 17);
+      this.labelInputEnglish.TabIndex = 2;
+      this.labelInputEnglish.Text = "English:";
+      // 
+      // textBoxInputFrench
+      // 
+      this.textBoxInputFrench.Location = new System.Drawing.Point(52, 74);
+      this.textBoxInputFrench.Multiline = true;
+      this.textBoxInputFrench.Name = "textBoxInputFrench";
+      this.textBoxInputFrench.Size = new System.Drawing.Size(992, 117);
+      this.textBoxInputFrench.TabIndex = 1;
+      // 
+      // labelInputFrench
+      // 
+      this.labelInputFrench.AutoSize = true;
+      this.labelInputFrench.Location = new System.Drawing.Point(49, 44);
+      this.labelInputFrench.Name = "labelInputFrench";
+      this.labelInputFrench.Size = new System.Drawing.Size(52, 17);
+      this.labelInputFrench.TabIndex = 0;
+      this.labelInputFrench.Text = "French";
+      // 
+      // tabPageEditDictionary
+      // 
+      this.tabPageEditDictionary.Location = new System.Drawing.Point(4, 25);
+      this.tabPageEditDictionary.Name = "tabPageEditDictionary";
+      this.tabPageEditDictionary.Size = new System.Drawing.Size(1107, 398);
+      this.tabPageEditDictionary.TabIndex = 3;
+      this.tabPageEditDictionary.Text = "Edit Dictionary";
+      this.tabPageEditDictionary.UseVisualStyleBackColor = true;
+      // 
+      // tabPageTool
+      // 
+      this.tabPageTool.Controls.Add(this.buttonWords);
+      this.tabPageTool.Controls.Add(this.buttonCountParagraph);
+      this.tabPageTool.Location = new System.Drawing.Point(4, 25);
+      this.tabPageTool.Name = "tabPageTool";
+      this.tabPageTool.Size = new System.Drawing.Size(1107, 398);
+      this.tabPageTool.TabIndex = 2;
+      this.tabPageTool.Text = "Tools";
+      this.tabPageTool.UseVisualStyleBackColor = true;
+      // 
+      // buttonWords
+      // 
+      this.buttonWords.Location = new System.Drawing.Point(44, 101);
+      this.buttonWords.Name = "buttonWords";
+      this.buttonWords.Size = new System.Drawing.Size(136, 27);
+      this.buttonWords.TabIndex = 1;
+      this.buttonWords.Text = "Count words";
+      this.buttonWords.UseVisualStyleBackColor = true;
+      this.buttonWords.Click += new System.EventHandler(this.ButtonWordsClick);
+      // 
+      // buttonCountParagraph
+      // 
+      this.buttonCountParagraph.Location = new System.Drawing.Point(44, 51);
+      this.buttonCountParagraph.Name = "buttonCountParagraph";
+      this.buttonCountParagraph.Size = new System.Drawing.Size(136, 27);
+      this.buttonCountParagraph.TabIndex = 0;
+      this.buttonCountParagraph.Text = "Count paragraph";
+      this.buttonCountParagraph.UseVisualStyleBackColor = true;
+      this.buttonCountParagraph.Click += new System.EventHandler(this.ButtonCountParagraphClick);
       // 
       // openFileDialog1
       // 
@@ -423,7 +526,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1188, 537);
+      this.ClientSize = new System.Drawing.Size(1449, 537);
       this.Controls.Add(this.tabControl1);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
@@ -434,8 +537,11 @@
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       this.tabControl1.ResumeLayout(false);
-      this.tabPageMain.ResumeLayout(false);
-      this.tabPageMain.PerformLayout();
+      this.tabPageTranslation.ResumeLayout(false);
+      this.tabPageTranslation.PerformLayout();
+      this.tabPageInput.ResumeLayout(false);
+      this.tabPageInput.PerformLayout();
+      this.tabPageTool.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -469,8 +575,8 @@
     private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     private System.Windows.Forms.TabControl tabControl1;
-    private System.Windows.Forms.TabPage tabPageMain;
-    private System.Windows.Forms.TabPage tabPage2;
+    private System.Windows.Forms.TabPage tabPageTranslation;
+    private System.Windows.Forms.TabPage tabPageInput;
     private System.Windows.Forms.OpenFileDialog openFileDialog1;
     private System.Windows.Forms.Button buttonConvert;
     private System.Windows.Forms.Label labelTranslatedFileName;
@@ -483,6 +589,15 @@
     private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem frenchToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+    private System.Windows.Forms.TabPage tabPageTool;
+    private System.Windows.Forms.Button buttonCountParagraph;
+    private System.Windows.Forms.Button buttonAddToDictionary;
+    private System.Windows.Forms.TextBox textBoxInputEnglish;
+    private System.Windows.Forms.Label labelInputEnglish;
+    private System.Windows.Forms.TextBox textBoxInputFrench;
+    private System.Windows.Forms.Label labelInputFrench;
+    private System.Windows.Forms.TabPage tabPageEditDictionary;
+    private System.Windows.Forms.Button buttonWords;
   }
 }
 

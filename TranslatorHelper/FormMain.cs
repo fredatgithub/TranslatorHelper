@@ -5,9 +5,11 @@ using Novacode;
 
 namespace TranslatorHelper
 {
+  using System.Collections.Generic;
   using System.Diagnostics;
   using System.IO;
   using System.Reflection;
+  using System.Text.RegularExpressions;
 
   using TranslatorHelper.Properties;
 
@@ -109,7 +111,18 @@ namespace TranslatorHelper
 
     private void ButtonConvertClick(object sender, EventArgs e)
     {
+      // first copy the file
+      try
+      {
+        File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
+      }
+      catch (Exception exception)
+      {
+        MessageBox.Show("Error while copying the source file: " + exception.Message);
+        return;
+      }
 
+      MessageBox.Show("end of operation");
     }
 
     private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
@@ -153,5 +166,69 @@ namespace TranslatorHelper
       MenuLanguageTo(Language.English);
     }
 
+    private void ButtonCountParagraphClick(object sender, EventArgs e)
+    {
+      string filename = string.Empty;
+      DialogResult result = openFileDialog1.ShowDialog();
+      if (result == DialogResult.OK)
+      {
+        filename = openFileDialog1.FileName;
+      }
+      else
+      {
+        MessageBox.Show("No file selected!");
+        return;
+      }
+
+      using (DocX document = DocX.Load(filename))
+      {
+        int i = document.Paragraphs.Count;
+        MessageBox.Show(string.Format("{0} has {1} paragraphs", filename, i));
+      }
+    }
+
+    private static void ReplaceLineBreaksWithBoo(string filename)
+    {
+      using (DocX document = DocX.Load(filename))
+      {
+        //lineBreaks = document.FindUniqueByPattern(Environment.NewLine, RegexOptions.None);
+        List<string> lineBreaks = document.FindUniqueByPattern("\r", RegexOptions.None);
+        if (lineBreaks.Count > 0)
+        {
+          foreach (string s in lineBreaks)
+          {
+            document.ReplaceText(s, "boo!");
+          }
+        }
+
+        document.Save();
+      }
+    }
+
+    private void ButtonAddToDictionaryClick(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ButtonWordsClick(object sender, EventArgs e)
+    {
+      string filename = string.Empty;
+      DialogResult result = openFileDialog1.ShowDialog();
+      if (result == DialogResult.OK)
+      {
+        filename = openFileDialog1.FileName;
+      }
+      else
+      {
+        MessageBox.Show("No file selected!");
+        return;
+      }
+
+      using (DocX document = DocX.Load(filename))
+      {
+        int i = document.Paragraphs.Count;
+        MessageBox.Show(string.Format("{0} has {1} paragraphs", filename, i));
+      }
+    }
   }
 }
