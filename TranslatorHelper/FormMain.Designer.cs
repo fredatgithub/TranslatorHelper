@@ -354,7 +354,7 @@
       this.tabPageTranslation.TabIndex = 0;
       this.tabPageTranslation.Text = "Translate";
       this.tabPageTranslation.UseVisualStyleBackColor = true;
-      this.tabPageTranslation.Click += new System.EventHandler(this.TabPageMainClick);
+      
       // 
       // buttonConvert
       // 

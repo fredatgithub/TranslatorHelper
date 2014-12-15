@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Windows.Forms;
-using Novacode;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using Novacode;
 using TranslatorHelper.Properties;
 
 namespace TranslatorHelper
 {
+  using System.Text;
+
   public partial class FormMain : Form
   {
     public FormMain()
@@ -21,16 +23,13 @@ namespace TranslatorHelper
     private const string Period = ".";
     private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
 
-    private Dictionary<string, string> sourceDictionary; 
+    private const string SourceDictionaryfileName = "MainDico.txt";
+
+    private Dictionary<string, string> sourceDictionary;
 
     private void QuitToolStripMenuItemClick(object sender, EventArgs e)
     {
       Application.Exit();
-    }
-
-    private void TabPageMainClick(object sender, EventArgs e)
-    {
-
     }
 
     private void ButtonChooseFileClick(object sender, EventArgs e)
@@ -75,6 +74,42 @@ namespace TranslatorHelper
       DisplayTitle();
       GetWindowValue();
       sourceDictionary = new Dictionary<string, string>();
+      // loading dictionary
+      if (sourceFileIsSmall)
+      {
+        if (!File.Exists(SourceDictionaryfileName))
+        {
+          using (StreamWriter sw = new StreamWriter(SourceDictionaryfileName, false, Encoding.UTF8))
+          {
+            // do nothing just create a new file
+            sourceDictionary = new Dictionary<string, string>();
+          }
+        }
+        else
+        {
+          // reading dictionary
+          sourceDictionary = new Dictionary<string, string>();
+          StreamReader sr = new StreamReader(SourceDictionaryfileName);
+          bool readingEnglishLine = true;
+          string line1 = string.Empty;
+          string line2 = string.Empty;
+          while (sr.Peek() >= 0)
+          {
+            string tmp = sr.ReadLine();
+            if (readingEnglishLine)
+            {
+              line1 = tmp;
+              readingEnglishLine = false;
+            }
+            else
+            {
+              line2 = tmp;
+              readingEnglishLine = true;
+              sourceDictionary.Add(line1, line2);
+            }
+          }
+        }
+      }
     }
 
     private void DisplayTitle()
@@ -86,11 +121,7 @@ namespace TranslatorHelper
 
     private void GetWindowValue()
     {
-      // Set this if you want a minimum width
-      //Width = Settings.Default.WindowWidth < 395 ? 395 : Settings.Default.WindowWidth;
       Width = Settings.Default.WindowWidth;
-      // Set this if you want a minimum Height
-      // Height = Settings.Default.WindowHeight < 180 ? 180 : Settings.Default.WindowHeight;
       Height = Settings.Default.WindowHeight;
       Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
       Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
@@ -115,7 +146,19 @@ namespace TranslatorHelper
       // first copy the file
       try
       {
-        File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
+        if (File.Exists(textBoxTranslatedFileName.Text))
+        {
+          const string Message = "The translated file already exists, do you want to overwrite it?";
+          const string Caption = "File already exists";
+          const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
+          DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+          if (result == DialogResult.Yes)
+          {
+            File.Delete(textBoxTranslatedFileName.Text);
+            File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
+          }
+        }
+        
       }
       catch (Exception exception)
       {
@@ -188,6 +231,24 @@ namespace TranslatorHelper
       }
     }
 
+    private static void ReplaceStrings(string filename)
+    {
+      using (DocX document = DocX.Load(filename))
+      {
+        //lineBreaks = document.FindUniqueByPattern(Environment.NewLine, RegexOptions.None);
+        List<string> lineBreaks = document.FindUniqueByPattern("\r", RegexOptions.None);
+        if (lineBreaks.Count > 0)
+        {
+          foreach (string s in lineBreaks)
+          {
+            document.ReplaceText(s, "boo!");
+          }
+        }
+
+        document.Save();
+      }
+    }
+
     private static void ReplaceLineBreaksWithBoo(string filename)
     {
       using (DocX document = DocX.Load(filename))
@@ -241,7 +302,6 @@ namespace TranslatorHelper
       if (opendialog.ShowDialog() == DialogResult.OK)
       {
         textBoxFrenchDocument.Text = opendialog.FileName;
-        //opendialog.RestoreDirectory = true;
       }
     }
 
