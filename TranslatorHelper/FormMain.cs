@@ -158,6 +158,10 @@ namespace TranslatorHelper
             File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
           }
         }
+        else
+        {
+          File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
+        }
         
       }
       catch (Exception exception)
@@ -166,7 +170,12 @@ namespace TranslatorHelper
         return;
       }
 
-      MessageBox.Show("end of operation");
+      foreach (KeyValuePair<string, string> dictionaryEntry in sourceDictionary)
+      {
+        ReplaceStrings(textBoxTranslatedFileName.Text, dictionaryEntry.Key, dictionaryEntry.Value);
+      }
+     
+      MessageBox.Show("End of operation");
     }
 
     private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
@@ -231,17 +240,16 @@ namespace TranslatorHelper
       }
     }
 
-    private static void ReplaceStrings(string filename)
+    private static void ReplaceStrings(string filename, string wordToBeFound, string wordtoBeReplaced)
     {
       using (DocX document = DocX.Load(filename))
       {
-        //lineBreaks = document.FindUniqueByPattern(Environment.NewLine, RegexOptions.None);
-        List<string> lineBreaks = document.FindUniqueByPattern("\r", RegexOptions.None);
-        if (lineBreaks.Count > 0)
+        List<string> lineFound = document.FindUniqueByPattern(wordToBeFound, RegexOptions.None);
+        if (lineFound.Count > 0)
         {
-          foreach (string s in lineBreaks)
+          foreach (string s in lineFound)
           {
-            document.ReplaceText(s, "boo!");
+            document.ReplaceText(s, wordtoBeReplaced);
           }
         }
 
