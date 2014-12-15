@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
 using Novacode;
-
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using TranslatorHelper.Properties;
 
 namespace TranslatorHelper
 {
-  using System.Collections.Generic;
-  using System.Diagnostics;
-  using System.IO;
-  using System.Reflection;
-  using System.Text.RegularExpressions;
-
-  using TranslatorHelper.Properties;
-
   public partial class FormMain : Form
   {
     public FormMain()
@@ -22,6 +19,9 @@ namespace TranslatorHelper
 
     private const string Backslash = "\\";
     private const string Period = ".";
+    private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
+
+    private Dictionary<string, string> sourceDictionary; 
 
     private void QuitToolStripMenuItemClick(object sender, EventArgs e)
     {
@@ -74,6 +74,7 @@ namespace TranslatorHelper
     {
       DisplayTitle();
       GetWindowValue();
+      sourceDictionary = new Dictionary<string, string>();
     }
 
     private void DisplayTitle()
@@ -228,6 +229,31 @@ namespace TranslatorHelper
       {
         int i = document.Paragraphs.Count;
         MessageBox.Show(string.Format("{0} has {1} paragraphs", filename, i));
+      }
+    }
+
+    private void ButtonPickFrenchDocumentClick(object sender, EventArgs e)
+    {
+      var opendialog = new OpenFileDialog
+                         {
+                           Filter = @"Word Documents(*.docx)| *.docx"
+                         };
+      if (opendialog.ShowDialog() == DialogResult.OK)
+      {
+        textBoxFrenchDocument.Text = opendialog.FileName;
+        //opendialog.RestoreDirectory = true;
+      }
+    }
+
+    private void ButtonPickEnglishDocumentClick(object sender, EventArgs e)
+    {
+      var opendialog = new OpenFileDialog
+      {
+        Filter = @"Word Documents(*.docx)| *.docx"
+      };
+      if (opendialog.ShowDialog() == DialogResult.OK)
+      {
+        textBoxEnglishDocument.Text = opendialog.FileName;
       }
     }
   }

@@ -74,6 +74,14 @@
       this.textBoxInputFrench = new System.Windows.Forms.TextBox();
       this.labelInputFrench = new System.Windows.Forms.Label();
       this.tabPageEditDictionary = new System.Windows.Forms.TabPage();
+      this.tabPageAutoLearning = new System.Windows.Forms.TabPage();
+      this.buttonPickEnglishDocument = new System.Windows.Forms.Button();
+      this.buttonPickFrenchDocument = new System.Windows.Forms.Button();
+      this.textBoxEnglishDocument = new System.Windows.Forms.TextBox();
+      this.labelEnglishDocument = new System.Windows.Forms.Label();
+      this.textBoxFrenchDocument = new System.Windows.Forms.TextBox();
+      this.labelFrenchDocument = new System.Windows.Forms.Label();
+      this.buttonAutoLearning = new System.Windows.Forms.Button();
       this.tabPageTool = new System.Windows.Forms.TabPage();
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
@@ -82,6 +90,7 @@
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
       this.tabPageInput.SuspendLayout();
+      this.tabPageAutoLearning.SuspendLayout();
       this.tabPageTool.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -319,11 +328,12 @@
       this.tabControl1.Controls.Add(this.tabPageTranslation);
       this.tabControl1.Controls.Add(this.tabPageInput);
       this.tabControl1.Controls.Add(this.tabPageEditDictionary);
+      this.tabControl1.Controls.Add(this.tabPageAutoLearning);
       this.tabControl1.Controls.Add(this.tabPageTool);
       this.tabControl1.Location = new System.Drawing.Point(12, 41);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
-      this.tabControl1.Size = new System.Drawing.Size(1115, 427);
+      this.tabControl1.Size = new System.Drawing.Size(1415, 427);
       this.tabControl1.TabIndex = 1;
       // 
       // tabPageTranslation
@@ -342,7 +352,7 @@
       this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(3);
       this.tabPageTranslation.Size = new System.Drawing.Size(1107, 398);
       this.tabPageTranslation.TabIndex = 0;
-      this.tabPageTranslation.Text = "Translation";
+      this.tabPageTranslation.Text = "Translate";
       this.tabPageTranslation.UseVisualStyleBackColor = true;
       this.tabPageTranslation.Click += new System.EventHandler(this.TabPageMainClick);
       // 
@@ -487,6 +497,83 @@
       this.tabPageEditDictionary.Text = "Edit Dictionary";
       this.tabPageEditDictionary.UseVisualStyleBackColor = true;
       // 
+      // tabPageAutoLearning
+      // 
+      this.tabPageAutoLearning.Controls.Add(this.buttonPickEnglishDocument);
+      this.tabPageAutoLearning.Controls.Add(this.buttonPickFrenchDocument);
+      this.tabPageAutoLearning.Controls.Add(this.textBoxEnglishDocument);
+      this.tabPageAutoLearning.Controls.Add(this.labelEnglishDocument);
+      this.tabPageAutoLearning.Controls.Add(this.textBoxFrenchDocument);
+      this.tabPageAutoLearning.Controls.Add(this.labelFrenchDocument);
+      this.tabPageAutoLearning.Controls.Add(this.buttonAutoLearning);
+      this.tabPageAutoLearning.Location = new System.Drawing.Point(4, 25);
+      this.tabPageAutoLearning.Name = "tabPageAutoLearning";
+      this.tabPageAutoLearning.Size = new System.Drawing.Size(1407, 398);
+      this.tabPageAutoLearning.TabIndex = 4;
+      this.tabPageAutoLearning.Text = "Automatic Learing";
+      this.tabPageAutoLearning.UseVisualStyleBackColor = true;
+      // 
+      // buttonPickEnglishDocument
+      // 
+      this.buttonPickEnglishDocument.Location = new System.Drawing.Point(1351, 90);
+      this.buttonPickEnglishDocument.Name = "buttonPickEnglishDocument";
+      this.buttonPickEnglishDocument.Size = new System.Drawing.Size(38, 23);
+      this.buttonPickEnglishDocument.TabIndex = 11;
+      this.buttonPickEnglishDocument.Text = "...";
+      this.buttonPickEnglishDocument.UseVisualStyleBackColor = true;
+      this.buttonPickEnglishDocument.Click += new System.EventHandler(this.ButtonPickEnglishDocumentClick);
+      // 
+      // buttonPickFrenchDocument
+      // 
+      this.buttonPickFrenchDocument.Location = new System.Drawing.Point(1351, 47);
+      this.buttonPickFrenchDocument.Name = "buttonPickFrenchDocument";
+      this.buttonPickFrenchDocument.Size = new System.Drawing.Size(38, 23);
+      this.buttonPickFrenchDocument.TabIndex = 10;
+      this.buttonPickFrenchDocument.Text = "...";
+      this.buttonPickFrenchDocument.UseVisualStyleBackColor = true;
+      this.buttonPickFrenchDocument.Click += new System.EventHandler(this.ButtonPickFrenchDocumentClick);
+      // 
+      // textBoxEnglishDocument
+      // 
+      this.textBoxEnglishDocument.Location = new System.Drawing.Point(141, 91);
+      this.textBoxEnglishDocument.Name = "textBoxEnglishDocument";
+      this.textBoxEnglishDocument.Size = new System.Drawing.Size(1204, 22);
+      this.textBoxEnglishDocument.TabIndex = 4;
+      // 
+      // labelEnglishDocument
+      // 
+      this.labelEnglishDocument.AutoSize = true;
+      this.labelEnglishDocument.Location = new System.Drawing.Point(13, 91);
+      this.labelEnglishDocument.Name = "labelEnglishDocument";
+      this.labelEnglishDocument.Size = new System.Drawing.Size(124, 17);
+      this.labelEnglishDocument.TabIndex = 3;
+      this.labelEnglishDocument.Text = "English document:";
+      // 
+      // textBoxFrenchDocument
+      // 
+      this.textBoxFrenchDocument.Location = new System.Drawing.Point(141, 47);
+      this.textBoxFrenchDocument.Name = "textBoxFrenchDocument";
+      this.textBoxFrenchDocument.Size = new System.Drawing.Size(1204, 22);
+      this.textBoxFrenchDocument.TabIndex = 2;
+      // 
+      // labelFrenchDocument
+      // 
+      this.labelFrenchDocument.AutoSize = true;
+      this.labelFrenchDocument.Location = new System.Drawing.Point(13, 47);
+      this.labelFrenchDocument.Name = "labelFrenchDocument";
+      this.labelFrenchDocument.Size = new System.Drawing.Size(122, 17);
+      this.labelFrenchDocument.TabIndex = 1;
+      this.labelFrenchDocument.Text = "French document:";
+      // 
+      // buttonAutoLearning
+      // 
+      this.buttonAutoLearning.Location = new System.Drawing.Point(16, 139);
+      this.buttonAutoLearning.Name = "buttonAutoLearning";
+      this.buttonAutoLearning.Size = new System.Drawing.Size(121, 28);
+      this.buttonAutoLearning.TabIndex = 0;
+      this.buttonAutoLearning.Text = "Auto learning";
+      this.buttonAutoLearning.UseVisualStyleBackColor = true;
+      // 
       // tabPageTool
       // 
       this.tabPageTool.Controls.Add(this.buttonWords);
@@ -541,6 +628,8 @@
       this.tabPageTranslation.PerformLayout();
       this.tabPageInput.ResumeLayout(false);
       this.tabPageInput.PerformLayout();
+      this.tabPageAutoLearning.ResumeLayout(false);
+      this.tabPageAutoLearning.PerformLayout();
       this.tabPageTool.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -598,6 +687,14 @@
     private System.Windows.Forms.Label labelInputFrench;
     private System.Windows.Forms.TabPage tabPageEditDictionary;
     private System.Windows.Forms.Button buttonWords;
+    private System.Windows.Forms.TabPage tabPageAutoLearning;
+    private System.Windows.Forms.Button buttonPickEnglishDocument;
+    private System.Windows.Forms.Button buttonPickFrenchDocument;
+    private System.Windows.Forms.TextBox textBoxEnglishDocument;
+    private System.Windows.Forms.Label labelEnglishDocument;
+    private System.Windows.Forms.TextBox textBoxFrenchDocument;
+    private System.Windows.Forms.Label labelFrenchDocument;
+    private System.Windows.Forms.Button buttonAutoLearning;
   }
 }
 
