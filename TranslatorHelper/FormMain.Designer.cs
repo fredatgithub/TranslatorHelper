@@ -339,7 +339,7 @@
       this.tabControl1.Controls.Add(this.tabPageTool);
       this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tabControl1.Location = new System.Drawing.Point(0, 24);
-      this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       this.tabControl1.Size = new System.Drawing.Size(1090, 578);
@@ -357,10 +357,10 @@
       this.tabPageTranslation.Controls.Add(this.textBoxfilePath);
       this.tabPageTranslation.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tabPageTranslation.Location = new System.Drawing.Point(4, 22);
-      this.tabPageTranslation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageTranslation.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageTranslation.Name = "tabPageTranslation";
-      this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tabPageTranslation.Size = new System.Drawing.Size(1082, 552);
+      this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(2);
+      this.tabPageTranslation.Size = new System.Drawing.Size(1083, 552);
       this.tabPageTranslation.TabIndex = 0;
       this.tabPageTranslation.Text = "Translate";
       this.tabPageTranslation.UseVisualStyleBackColor = true;
@@ -368,7 +368,7 @@
       // buttonConvert
       // 
       this.buttonConvert.Location = new System.Drawing.Point(740, 95);
-      this.buttonConvert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonConvert.Margin = new System.Windows.Forms.Padding(2);
       this.buttonConvert.Name = "buttonConvert";
       this.buttonConvert.Size = new System.Drawing.Size(70, 23);
       this.buttonConvert.TabIndex = 14;
@@ -390,7 +390,7 @@
       // 
       this.textBoxTranslatedFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxTranslatedFileName.Location = new System.Drawing.Point(145, 99);
-      this.textBoxTranslatedFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxTranslatedFileName.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxTranslatedFileName.Name = "textBoxTranslatedFileName";
       this.textBoxTranslatedFileName.ReadOnly = true;
       this.textBoxTranslatedFileName.Size = new System.Drawing.Size(592, 19);
@@ -400,7 +400,7 @@
       // 
       this.textBoxSuffixeFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxSuffixeFileName.Location = new System.Drawing.Point(145, 61);
-      this.textBoxSuffixeFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxSuffixeFileName.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxSuffixeFileName.Name = "textBoxSuffixeFileName";
       this.textBoxSuffixeFileName.Size = new System.Drawing.Size(152, 19);
       this.textBoxSuffixeFileName.TabIndex = 11;
@@ -419,7 +419,7 @@
       // buttonChooseFile
       // 
       this.buttonChooseFile.Location = new System.Drawing.Point(782, 23);
-      this.buttonChooseFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonChooseFile.Margin = new System.Windows.Forms.Padding(2);
       this.buttonChooseFile.Name = "buttonChooseFile";
       this.buttonChooseFile.Size = new System.Drawing.Size(28, 19);
       this.buttonChooseFile.TabIndex = 9;
@@ -440,7 +440,7 @@
       // textBoxfilePath
       // 
       this.textBoxfilePath.Location = new System.Drawing.Point(75, 23);
-      this.textBoxfilePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxfilePath.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxfilePath.Name = "textBoxfilePath";
       this.textBoxfilePath.Size = new System.Drawing.Size(703, 20);
       this.textBoxfilePath.TabIndex = 7;
@@ -454,9 +454,9 @@
       this.tabPageInput.Controls.Add(this.textBoxInputFrench);
       this.tabPageInput.Controls.Add(this.labelInputFrench);
       this.tabPageInput.Location = new System.Drawing.Point(4, 22);
-      this.tabPageInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageInput.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageInput.Name = "tabPageInput";
-      this.tabPageInput.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageInput.Padding = new System.Windows.Forms.Padding(2);
       this.tabPageInput.Size = new System.Drawing.Size(1082, 552);
       this.tabPageInput.TabIndex = 1;
       this.tabPageInput.Text = "Input Dictionary";
@@ -465,7 +465,7 @@
       // buttonAddToDictionary
       // 
       this.buttonAddToDictionary.Location = new System.Drawing.Point(674, 300);
-      this.buttonAddToDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonAddToDictionary.Margin = new System.Windows.Forms.Padding(2);
       this.buttonAddToDictionary.Name = "buttonAddToDictionary";
       this.buttonAddToDictionary.Size = new System.Drawing.Size(109, 19);
       this.buttonAddToDictionary.TabIndex = 4;
@@ -476,7 +476,7 @@
       // textBoxInputEnglish
       // 
       this.textBoxInputEnglish.Location = new System.Drawing.Point(39, 193);
-      this.textBoxInputEnglish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxInputEnglish.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxInputEnglish.Multiline = true;
       this.textBoxInputEnglish.Name = "textBoxInputEnglish";
       this.textBoxInputEnglish.Size = new System.Drawing.Size(745, 96);
@@ -495,7 +495,7 @@
       // textBoxInputFrench
       // 
       this.textBoxInputFrench.Location = new System.Drawing.Point(39, 60);
-      this.textBoxInputFrench.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxInputFrench.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxInputFrench.Multiline = true;
       this.textBoxInputFrench.Name = "textBoxInputFrench";
       this.textBoxInputFrench.Size = new System.Drawing.Size(745, 96);
@@ -519,19 +519,18 @@
       this.tabPageEditDictionary.Controls.Add(this.labelEditEnglish);
       this.tabPageEditDictionary.Controls.Add(this.labelEditFrench);
       this.tabPageEditDictionary.Location = new System.Drawing.Point(4, 22);
-      this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageEditDictionary.Name = "tabPageEditDictionary";
-      this.tabPageEditDictionary.Size = new System.Drawing.Size(1082, 553);
+      this.tabPageEditDictionary.Size = new System.Drawing.Size(1082, 552);
       this.tabPageEditDictionary.TabIndex = 3;
       this.tabPageEditDictionary.Text = "Edit Dictionary";
       this.tabPageEditDictionary.UseVisualStyleBackColor = true;
-      
       // 
       // listBoxEditEnglish
       // 
       this.listBoxEditEnglish.FormattingEnabled = true;
       this.listBoxEditEnglish.Location = new System.Drawing.Point(38, 335);
-      this.listBoxEditEnglish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.listBoxEditEnglish.Margin = new System.Windows.Forms.Padding(2);
       this.listBoxEditEnglish.Name = "listBoxEditEnglish";
       this.listBoxEditEnglish.Size = new System.Drawing.Size(1038, 264);
       this.listBoxEditEnglish.TabIndex = 10;
@@ -541,7 +540,7 @@
       // 
       this.listBoxEditFrench.FormattingEnabled = true;
       this.listBoxEditFrench.Location = new System.Drawing.Point(38, 43);
-      this.listBoxEditFrench.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.listBoxEditFrench.Margin = new System.Windows.Forms.Padding(2);
       this.listBoxEditFrench.Name = "listBoxEditFrench";
       this.listBoxEditFrench.Size = new System.Drawing.Size(1038, 264);
       this.listBoxEditFrench.TabIndex = 9;
@@ -550,7 +549,7 @@
       // buttonEditDictionary
       // 
       this.buttonEditDictionary.Location = new System.Drawing.Point(109, 311);
-      this.buttonEditDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonEditDictionary.Margin = new System.Windows.Forms.Padding(2);
       this.buttonEditDictionary.Name = "buttonEditDictionary";
       this.buttonEditDictionary.Size = new System.Drawing.Size(56, 19);
       this.buttonEditDictionary.TabIndex = 8;
@@ -590,9 +589,9 @@
       this.tabPageAutoLearning.Controls.Add(this.labelFrenchDocument);
       this.tabPageAutoLearning.Controls.Add(this.buttonAutoLearning);
       this.tabPageAutoLearning.Location = new System.Drawing.Point(4, 22);
-      this.tabPageAutoLearning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageAutoLearning.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageAutoLearning.Name = "tabPageAutoLearning";
-      this.tabPageAutoLearning.Size = new System.Drawing.Size(1082, 553);
+      this.tabPageAutoLearning.Size = new System.Drawing.Size(1082, 552);
       this.tabPageAutoLearning.TabIndex = 4;
       this.tabPageAutoLearning.Text = "Automatic Learing";
       this.tabPageAutoLearning.UseVisualStyleBackColor = true;
@@ -600,7 +599,7 @@
       // buttonPickEnglishDocument
       // 
       this.buttonPickEnglishDocument.Location = new System.Drawing.Point(1013, 73);
-      this.buttonPickEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonPickEnglishDocument.Margin = new System.Windows.Forms.Padding(2);
       this.buttonPickEnglishDocument.Name = "buttonPickEnglishDocument";
       this.buttonPickEnglishDocument.Size = new System.Drawing.Size(28, 19);
       this.buttonPickEnglishDocument.TabIndex = 11;
@@ -611,7 +610,7 @@
       // buttonPickFrenchDocument
       // 
       this.buttonPickFrenchDocument.Location = new System.Drawing.Point(1013, 38);
-      this.buttonPickFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonPickFrenchDocument.Margin = new System.Windows.Forms.Padding(2);
       this.buttonPickFrenchDocument.Name = "buttonPickFrenchDocument";
       this.buttonPickFrenchDocument.Size = new System.Drawing.Size(28, 19);
       this.buttonPickFrenchDocument.TabIndex = 10;
@@ -622,7 +621,7 @@
       // textBoxEnglishDocument
       // 
       this.textBoxEnglishDocument.Location = new System.Drawing.Point(106, 74);
-      this.textBoxEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxEnglishDocument.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxEnglishDocument.Name = "textBoxEnglishDocument";
       this.textBoxEnglishDocument.Size = new System.Drawing.Size(904, 20);
       this.textBoxEnglishDocument.TabIndex = 4;
@@ -640,7 +639,7 @@
       // textBoxFrenchDocument
       // 
       this.textBoxFrenchDocument.Location = new System.Drawing.Point(106, 38);
-      this.textBoxFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxFrenchDocument.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxFrenchDocument.Name = "textBoxFrenchDocument";
       this.textBoxFrenchDocument.Size = new System.Drawing.Size(904, 20);
       this.textBoxFrenchDocument.TabIndex = 2;
@@ -658,7 +657,7 @@
       // buttonAutoLearning
       // 
       this.buttonAutoLearning.Location = new System.Drawing.Point(12, 113);
-      this.buttonAutoLearning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonAutoLearning.Margin = new System.Windows.Forms.Padding(2);
       this.buttonAutoLearning.Name = "buttonAutoLearning";
       this.buttonAutoLearning.Size = new System.Drawing.Size(91, 23);
       this.buttonAutoLearning.TabIndex = 0;
@@ -670,9 +669,9 @@
       this.tabPageTool.Controls.Add(this.buttonWords);
       this.tabPageTool.Controls.Add(this.buttonCountParagraph);
       this.tabPageTool.Location = new System.Drawing.Point(4, 22);
-      this.tabPageTool.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageTool.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageTool.Name = "tabPageTool";
-      this.tabPageTool.Size = new System.Drawing.Size(1082, 553);
+      this.tabPageTool.Size = new System.Drawing.Size(1082, 552);
       this.tabPageTool.TabIndex = 2;
       this.tabPageTool.Text = "Tools";
       this.tabPageTool.UseVisualStyleBackColor = true;
@@ -680,7 +679,7 @@
       // buttonWords
       // 
       this.buttonWords.Location = new System.Drawing.Point(33, 82);
-      this.buttonWords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonWords.Margin = new System.Windows.Forms.Padding(2);
       this.buttonWords.Name = "buttonWords";
       this.buttonWords.Size = new System.Drawing.Size(102, 22);
       this.buttonWords.TabIndex = 1;
@@ -691,7 +690,7 @@
       // buttonCountParagraph
       // 
       this.buttonCountParagraph.Location = new System.Drawing.Point(33, 41);
-      this.buttonCountParagraph.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonCountParagraph.Margin = new System.Windows.Forms.Padding(2);
       this.buttonCountParagraph.Name = "buttonCountParagraph";
       this.buttonCountParagraph.Size = new System.Drawing.Size(102, 22);
       this.buttonCountParagraph.TabIndex = 0;
@@ -711,7 +710,7 @@
       this.Controls.Add(this.tabControl1);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.Margin = new System.Windows.Forms.Padding(2);
       this.Name = "FormMain";
       this.Text = "Translator Helper";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainFormClosing);
