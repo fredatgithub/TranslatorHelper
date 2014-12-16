@@ -110,8 +110,8 @@
             this.helpToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-      this.menuStrip1.Size = new System.Drawing.Size(1453, 28);
+      this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+      this.menuStrip1.Size = new System.Drawing.Size(1090, 24);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -129,7 +129,7 @@
             this.toolStripSeparator2,
             this.quitToolStripMenuItem});
       this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-      this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
       this.fileToolStripMenuItem.Text = "&Fichier";
       // 
       // nouveauToolStripMenuItem
@@ -138,7 +138,7 @@
       this.nouveauToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
       this.nouveauToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-      this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+      this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.nouveauToolStripMenuItem.Text = "&Nouveau";
       // 
       // ouvrirToolStripMenuItem
@@ -147,13 +147,13 @@
       this.ouvrirToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
       this.ouvrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-      this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+      this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.ouvrirToolStripMenuItem.Text = "&Ouvrir";
       // 
       // toolStripSeparator
       // 
       this.toolStripSeparator.Name = "toolStripSeparator";
-      this.toolStripSeparator.Size = new System.Drawing.Size(238, 6);
+      this.toolStripSeparator.Size = new System.Drawing.Size(202, 6);
       // 
       // enregistrerToolStripMenuItem
       // 
@@ -161,19 +161,19 @@
       this.enregistrerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
       this.enregistrerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-      this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+      this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.enregistrerToolStripMenuItem.Text = "&Enregistrer";
       // 
       // enregistrersousToolStripMenuItem
       // 
       this.enregistrersousToolStripMenuItem.Name = "enregistrersousToolStripMenuItem";
-      this.enregistrersousToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+      this.enregistrersousToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.enregistrersousToolStripMenuItem.Text = "Enregistrer &sous";
       // 
       // toolStripSeparator1
       // 
       this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(238, 6);
+      this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
       // 
       // imprimerToolStripMenuItem
       // 
@@ -181,7 +181,7 @@
       this.imprimerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.imprimerToolStripMenuItem.Name = "imprimerToolStripMenuItem";
       this.imprimerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-      this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+      this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.imprimerToolStripMenuItem.Text = "&Imprimer";
       // 
       // aperçuavantimpressionToolStripMenuItem
@@ -189,18 +189,18 @@
       this.aperçuavantimpressionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aperçuavantimpressionToolStripMenuItem.Image")));
       this.aperçuavantimpressionToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.aperçuavantimpressionToolStripMenuItem.Name = "aperçuavantimpressionToolStripMenuItem";
-      this.aperçuavantimpressionToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+      this.aperçuavantimpressionToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.aperçuavantimpressionToolStripMenuItem.Text = "Aperçu a&vant impression";
       // 
       // toolStripSeparator2
       // 
       this.toolStripSeparator2.Name = "toolStripSeparator2";
-      this.toolStripSeparator2.Size = new System.Drawing.Size(238, 6);
+      this.toolStripSeparator2.Size = new System.Drawing.Size(202, 6);
       // 
       // quitToolStripMenuItem
       // 
       this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-      this.quitToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+      this.quitToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.quitToolStripMenuItem.Text = "&Quitter";
       this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItemClick);
       // 
@@ -216,27 +216,27 @@
             this.toolStripSeparator4,
             this.sélectionnertoutToolStripMenuItem});
       this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
-      this.editionToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+      this.editionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
       this.editionToolStripMenuItem.Text = "&Edition";
       // 
       // annulerToolStripMenuItem
       // 
       this.annulerToolStripMenuItem.Name = "annulerToolStripMenuItem";
       this.annulerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-      this.annulerToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+      this.annulerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.annulerToolStripMenuItem.Text = "&Annuler";
       // 
       // rétablirToolStripMenuItem
       // 
       this.rétablirToolStripMenuItem.Name = "rétablirToolStripMenuItem";
       this.rétablirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-      this.rétablirToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+      this.rétablirToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.rétablirToolStripMenuItem.Text = "&Rétablir";
       // 
       // toolStripSeparator3
       // 
       this.toolStripSeparator3.Name = "toolStripSeparator3";
-      this.toolStripSeparator3.Size = new System.Drawing.Size(188, 6);
+      this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
       // 
       // couperToolStripMenuItem
       // 
@@ -244,7 +244,7 @@
       this.couperToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.couperToolStripMenuItem.Name = "couperToolStripMenuItem";
       this.couperToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-      this.couperToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+      this.couperToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.couperToolStripMenuItem.Text = "&Couper";
       // 
       // copierToolStripMenuItem
@@ -253,7 +253,7 @@
       this.copierToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.copierToolStripMenuItem.Name = "copierToolStripMenuItem";
       this.copierToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-      this.copierToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+      this.copierToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.copierToolStripMenuItem.Text = "Co&pier";
       // 
       // collerToolStripMenuItem
@@ -262,18 +262,18 @@
       this.collerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.collerToolStripMenuItem.Name = "collerToolStripMenuItem";
       this.collerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-      this.collerToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+      this.collerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.collerToolStripMenuItem.Text = "Co&ller";
       // 
       // toolStripSeparator4
       // 
       this.toolStripSeparator4.Name = "toolStripSeparator4";
-      this.toolStripSeparator4.Size = new System.Drawing.Size(188, 6);
+      this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
       // 
       // sélectionnertoutToolStripMenuItem
       // 
       this.sélectionnertoutToolStripMenuItem.Name = "sélectionnertoutToolStripMenuItem";
-      this.sélectionnertoutToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+      this.sélectionnertoutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.sélectionnertoutToolStripMenuItem.Text = "Sélectio&nner tout";
       // 
       // outilsToolStripMenuItem
@@ -281,13 +281,13 @@
       this.outilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
       this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
-      this.outilsToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+      this.outilsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
       this.outilsToolStripMenuItem.Text = "&Outils";
       // 
       // optionsToolStripMenuItem
       // 
       this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
       this.optionsToolStripMenuItem.Text = "&Options";
       // 
       // languageToolStripMenuItem
@@ -296,7 +296,7 @@
             this.frenchToolStripMenuItem,
             this.englishToolStripMenuItem});
       this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-      this.languageToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+      this.languageToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
       this.languageToolStripMenuItem.Text = "Langage";
       // 
       // frenchToolStripMenuItem
@@ -304,14 +304,14 @@
       this.frenchToolStripMenuItem.Checked = true;
       this.frenchToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
       this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
-      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
       this.frenchToolStripMenuItem.Text = "Français";
       this.frenchToolStripMenuItem.Click += new System.EventHandler(this.FrenchToolStripMenuItemClick);
       // 
       // englishToolStripMenuItem
       // 
       this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-      this.englishToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+      this.englishToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
       this.englishToolStripMenuItem.Text = "Anglais";
       this.englishToolStripMenuItem.Click += new System.EventHandler(this.EnglishToolStripMenuItemClick);
       // 
@@ -320,13 +320,13 @@
       this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
       this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-      this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+      this.helpToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
       this.helpToolStripMenuItem.Text = "&Aide";
       // 
       // aboutToolStripMenuItem
       // 
       this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
       this.aboutToolStripMenuItem.Text = "À &propos de...";
       this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
       // 
@@ -338,11 +338,11 @@
       this.tabControl1.Controls.Add(this.tabPageAutoLearning);
       this.tabControl1.Controls.Add(this.tabPageTool);
       this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tabControl1.Location = new System.Drawing.Point(0, 28);
-      this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabControl1.Location = new System.Drawing.Point(0, 24);
+      this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
-      this.tabControl1.Size = new System.Drawing.Size(1453, 713);
+      this.tabControl1.Size = new System.Drawing.Size(1090, 578);
       this.tabControl1.TabIndex = 1;
       // 
       // tabPageTranslation
@@ -356,21 +356,21 @@
       this.tabPageTranslation.Controls.Add(this.labelFilePath);
       this.tabPageTranslation.Controls.Add(this.textBoxfilePath);
       this.tabPageTranslation.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tabPageTranslation.Location = new System.Drawing.Point(4, 25);
-      this.tabPageTranslation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabPageTranslation.Location = new System.Drawing.Point(4, 22);
+      this.tabPageTranslation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.tabPageTranslation.Name = "tabPageTranslation";
-      this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.tabPageTranslation.Size = new System.Drawing.Size(1445, 684);
+      this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageTranslation.Size = new System.Drawing.Size(1082, 552);
       this.tabPageTranslation.TabIndex = 0;
       this.tabPageTranslation.Text = "Translate";
       this.tabPageTranslation.UseVisualStyleBackColor = true;
       // 
       // buttonConvert
       // 
-      this.buttonConvert.Location = new System.Drawing.Point(987, 117);
-      this.buttonConvert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonConvert.Location = new System.Drawing.Point(740, 95);
+      this.buttonConvert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonConvert.Name = "buttonConvert";
-      this.buttonConvert.Size = new System.Drawing.Size(93, 28);
+      this.buttonConvert.Size = new System.Drawing.Size(70, 23);
       this.buttonConvert.TabIndex = 14;
       this.buttonConvert.Text = "Translate";
       this.buttonConvert.UseVisualStyleBackColor = true;
@@ -379,47 +379,49 @@
       // labelTranslatedFileName
       // 
       this.labelTranslatedFileName.AutoSize = true;
-      this.labelTranslatedFileName.Location = new System.Drawing.Point(31, 122);
+      this.labelTranslatedFileName.Location = new System.Drawing.Point(23, 99);
+      this.labelTranslatedFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelTranslatedFileName.Name = "labelTranslatedFileName";
-      this.labelTranslatedFileName.Size = new System.Drawing.Size(145, 17);
+      this.labelTranslatedFileName.Size = new System.Drawing.Size(108, 13);
       this.labelTranslatedFileName.TabIndex = 13;
       this.labelTranslatedFileName.Text = "Translated File name:";
       // 
       // textBoxTranslatedFileName
       // 
       this.textBoxTranslatedFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxTranslatedFileName.Location = new System.Drawing.Point(193, 122);
-      this.textBoxTranslatedFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.textBoxTranslatedFileName.Location = new System.Drawing.Point(145, 99);
+      this.textBoxTranslatedFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxTranslatedFileName.Name = "textBoxTranslatedFileName";
       this.textBoxTranslatedFileName.ReadOnly = true;
-      this.textBoxTranslatedFileName.Size = new System.Drawing.Size(788, 22);
+      this.textBoxTranslatedFileName.Size = new System.Drawing.Size(592, 19);
       this.textBoxTranslatedFileName.TabIndex = 12;
       // 
       // textBoxSuffixeFileName
       // 
       this.textBoxSuffixeFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxSuffixeFileName.Location = new System.Drawing.Point(193, 75);
-      this.textBoxSuffixeFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.textBoxSuffixeFileName.Location = new System.Drawing.Point(145, 61);
+      this.textBoxSuffixeFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxSuffixeFileName.Name = "textBoxSuffixeFileName";
-      this.textBoxSuffixeFileName.Size = new System.Drawing.Size(201, 22);
+      this.textBoxSuffixeFileName.Size = new System.Drawing.Size(152, 19);
       this.textBoxSuffixeFileName.TabIndex = 11;
       this.textBoxSuffixeFileName.Text = "_ENG";
       // 
       // labelSuffixeFileName
       // 
       this.labelSuffixeFileName.AutoSize = true;
-      this.labelSuffixeFileName.Location = new System.Drawing.Point(31, 75);
+      this.labelSuffixeFileName.Location = new System.Drawing.Point(23, 61);
+      this.labelSuffixeFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelSuffixeFileName.Name = "labelSuffixeFileName";
-      this.labelSuffixeFileName.Size = new System.Drawing.Size(156, 17);
+      this.labelSuffixeFileName.Size = new System.Drawing.Size(117, 13);
       this.labelSuffixeFileName.TabIndex = 10;
       this.labelSuffixeFileName.Text = "Sufixe du fichier traduit:";
       // 
       // buttonChooseFile
       // 
-      this.buttonChooseFile.Location = new System.Drawing.Point(1043, 28);
-      this.buttonChooseFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonChooseFile.Location = new System.Drawing.Point(782, 23);
+      this.buttonChooseFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonChooseFile.Name = "buttonChooseFile";
-      this.buttonChooseFile.Size = new System.Drawing.Size(37, 23);
+      this.buttonChooseFile.Size = new System.Drawing.Size(28, 19);
       this.buttonChooseFile.TabIndex = 9;
       this.buttonChooseFile.Text = "...";
       this.buttonChooseFile.UseVisualStyleBackColor = true;
@@ -428,18 +430,19 @@
       // labelFilePath
       // 
       this.labelFilePath.AutoSize = true;
-      this.labelFilePath.Location = new System.Drawing.Point(31, 28);
+      this.labelFilePath.Location = new System.Drawing.Point(23, 23);
+      this.labelFilePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelFilePath.Name = "labelFilePath";
-      this.labelFilePath.Size = new System.Drawing.Size(66, 17);
+      this.labelFilePath.Size = new System.Drawing.Size(50, 13);
       this.labelFilePath.TabIndex = 8;
       this.labelFilePath.Text = "File path:";
       // 
       // textBoxfilePath
       // 
-      this.textBoxfilePath.Location = new System.Drawing.Point(100, 28);
-      this.textBoxfilePath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.textBoxfilePath.Location = new System.Drawing.Point(75, 23);
+      this.textBoxfilePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxfilePath.Name = "textBoxfilePath";
-      this.textBoxfilePath.Size = new System.Drawing.Size(936, 22);
+      this.textBoxfilePath.Size = new System.Drawing.Size(703, 20);
       this.textBoxfilePath.TabIndex = 7;
       this.textBoxfilePath.Text = "D:\\MesDoc";
       // 
@@ -450,21 +453,21 @@
       this.tabPageInput.Controls.Add(this.labelInputEnglish);
       this.tabPageInput.Controls.Add(this.textBoxInputFrench);
       this.tabPageInput.Controls.Add(this.labelInputFrench);
-      this.tabPageInput.Location = new System.Drawing.Point(4, 25);
-      this.tabPageInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabPageInput.Location = new System.Drawing.Point(4, 22);
+      this.tabPageInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.tabPageInput.Name = "tabPageInput";
-      this.tabPageInput.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.tabPageInput.Size = new System.Drawing.Size(1445, 684);
+      this.tabPageInput.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageInput.Size = new System.Drawing.Size(1082, 552);
       this.tabPageInput.TabIndex = 1;
       this.tabPageInput.Text = "Input Dictionary";
       this.tabPageInput.UseVisualStyleBackColor = true;
       // 
       // buttonAddToDictionary
       // 
-      this.buttonAddToDictionary.Location = new System.Drawing.Point(899, 369);
-      this.buttonAddToDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonAddToDictionary.Location = new System.Drawing.Point(674, 300);
+      this.buttonAddToDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonAddToDictionary.Name = "buttonAddToDictionary";
-      this.buttonAddToDictionary.Size = new System.Drawing.Size(145, 23);
+      this.buttonAddToDictionary.Size = new System.Drawing.Size(109, 19);
       this.buttonAddToDictionary.TabIndex = 4;
       this.buttonAddToDictionary.Text = "Add to dictionary";
       this.buttonAddToDictionary.UseVisualStyleBackColor = true;
@@ -472,37 +475,39 @@
       // 
       // textBoxInputEnglish
       // 
-      this.textBoxInputEnglish.Location = new System.Drawing.Point(52, 238);
-      this.textBoxInputEnglish.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.textBoxInputEnglish.Location = new System.Drawing.Point(39, 193);
+      this.textBoxInputEnglish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxInputEnglish.Multiline = true;
       this.textBoxInputEnglish.Name = "textBoxInputEnglish";
-      this.textBoxInputEnglish.Size = new System.Drawing.Size(992, 117);
+      this.textBoxInputEnglish.Size = new System.Drawing.Size(745, 96);
       this.textBoxInputEnglish.TabIndex = 3;
       // 
       // labelInputEnglish
       // 
       this.labelInputEnglish.AutoSize = true;
-      this.labelInputEnglish.Location = new System.Drawing.Point(49, 207);
+      this.labelInputEnglish.Location = new System.Drawing.Point(37, 168);
+      this.labelInputEnglish.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelInputEnglish.Name = "labelInputEnglish";
-      this.labelInputEnglish.Size = new System.Drawing.Size(58, 17);
+      this.labelInputEnglish.Size = new System.Drawing.Size(44, 13);
       this.labelInputEnglish.TabIndex = 2;
       this.labelInputEnglish.Text = "English:";
       // 
       // textBoxInputFrench
       // 
-      this.textBoxInputFrench.Location = new System.Drawing.Point(52, 74);
-      this.textBoxInputFrench.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.textBoxInputFrench.Location = new System.Drawing.Point(39, 60);
+      this.textBoxInputFrench.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxInputFrench.Multiline = true;
       this.textBoxInputFrench.Name = "textBoxInputFrench";
-      this.textBoxInputFrench.Size = new System.Drawing.Size(992, 117);
+      this.textBoxInputFrench.Size = new System.Drawing.Size(745, 96);
       this.textBoxInputFrench.TabIndex = 1;
       // 
       // labelInputFrench
       // 
       this.labelInputFrench.AutoSize = true;
-      this.labelInputFrench.Location = new System.Drawing.Point(49, 44);
+      this.labelInputFrench.Location = new System.Drawing.Point(37, 36);
+      this.labelInputFrench.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelInputFrench.Name = "labelInputFrench";
-      this.labelInputFrench.Size = new System.Drawing.Size(52, 17);
+      this.labelInputFrench.Size = new System.Drawing.Size(40, 13);
       this.labelInputFrench.TabIndex = 0;
       this.labelInputFrench.Text = "French";
       // 
@@ -513,40 +518,41 @@
       this.tabPageEditDictionary.Controls.Add(this.buttonEditDictionary);
       this.tabPageEditDictionary.Controls.Add(this.labelEditEnglish);
       this.tabPageEditDictionary.Controls.Add(this.labelEditFrench);
-      this.tabPageEditDictionary.Location = new System.Drawing.Point(4, 25);
-      this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabPageEditDictionary.Location = new System.Drawing.Point(4, 22);
+      this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.tabPageEditDictionary.Name = "tabPageEditDictionary";
-      this.tabPageEditDictionary.Size = new System.Drawing.Size(1445, 684);
+      this.tabPageEditDictionary.Size = new System.Drawing.Size(1082, 553);
       this.tabPageEditDictionary.TabIndex = 3;
       this.tabPageEditDictionary.Text = "Edit Dictionary";
       this.tabPageEditDictionary.UseVisualStyleBackColor = true;
-      this.tabPageEditDictionary.Click += new System.EventHandler(this.TabPageEditDictionaryClick);
+      
       // 
       // listBoxEditEnglish
       // 
       this.listBoxEditEnglish.FormattingEnabled = true;
-      this.listBoxEditEnglish.ItemHeight = 16;
-      this.listBoxEditEnglish.Location = new System.Drawing.Point(51, 412);
+      this.listBoxEditEnglish.Location = new System.Drawing.Point(38, 335);
+      this.listBoxEditEnglish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.listBoxEditEnglish.Name = "listBoxEditEnglish";
-      this.listBoxEditEnglish.Size = new System.Drawing.Size(1382, 324);
+      this.listBoxEditEnglish.Size = new System.Drawing.Size(1038, 264);
       this.listBoxEditEnglish.TabIndex = 10;
       this.listBoxEditEnglish.SelectedIndexChanged += new System.EventHandler(this.ListBoxEditEnglishSelectedIndexChanged);
       // 
       // listBoxEditFrench
       // 
       this.listBoxEditFrench.FormattingEnabled = true;
-      this.listBoxEditFrench.ItemHeight = 16;
-      this.listBoxEditFrench.Location = new System.Drawing.Point(51, 53);
+      this.listBoxEditFrench.Location = new System.Drawing.Point(38, 43);
+      this.listBoxEditFrench.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.listBoxEditFrench.Name = "listBoxEditFrench";
-      this.listBoxEditFrench.Size = new System.Drawing.Size(1382, 324);
+      this.listBoxEditFrench.Size = new System.Drawing.Size(1038, 264);
       this.listBoxEditFrench.TabIndex = 9;
       this.listBoxEditFrench.SelectedIndexChanged += new System.EventHandler(this.ListBoxEditFrenchSelectedIndexChanged);
       // 
       // buttonEditDictionary
       // 
-      this.buttonEditDictionary.Location = new System.Drawing.Point(145, 383);
+      this.buttonEditDictionary.Location = new System.Drawing.Point(109, 311);
+      this.buttonEditDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonEditDictionary.Name = "buttonEditDictionary";
-      this.buttonEditDictionary.Size = new System.Drawing.Size(75, 23);
+      this.buttonEditDictionary.Size = new System.Drawing.Size(56, 19);
       this.buttonEditDictionary.TabIndex = 8;
       this.buttonEditDictionary.Text = "Edit";
       this.buttonEditDictionary.UseVisualStyleBackColor = true;
@@ -556,9 +562,10 @@
       // 
       this.labelEditEnglish.AutoSize = true;
       this.labelEditEnglish.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelEditEnglish.Location = new System.Drawing.Point(48, 383);
+      this.labelEditEnglish.Location = new System.Drawing.Point(36, 311);
+      this.labelEditEnglish.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelEditEnglish.Name = "labelEditEnglish";
-      this.labelEditEnglish.Size = new System.Drawing.Size(66, 17);
+      this.labelEditEnglish.Size = new System.Drawing.Size(52, 13);
       this.labelEditEnglish.TabIndex = 6;
       this.labelEditEnglish.Text = "English:";
       // 
@@ -566,9 +573,10 @@
       // 
       this.labelEditFrench.AutoSize = true;
       this.labelEditFrench.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelEditFrench.Location = new System.Drawing.Point(48, 31);
+      this.labelEditFrench.Location = new System.Drawing.Point(36, 25);
+      this.labelEditFrench.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelEditFrench.Name = "labelEditFrench";
-      this.labelEditFrench.Size = new System.Drawing.Size(58, 17);
+      this.labelEditFrench.Size = new System.Drawing.Size(46, 13);
       this.labelEditFrench.TabIndex = 4;
       this.labelEditFrench.Text = "French";
       // 
@@ -581,20 +589,20 @@
       this.tabPageAutoLearning.Controls.Add(this.textBoxFrenchDocument);
       this.tabPageAutoLearning.Controls.Add(this.labelFrenchDocument);
       this.tabPageAutoLearning.Controls.Add(this.buttonAutoLearning);
-      this.tabPageAutoLearning.Location = new System.Drawing.Point(4, 25);
-      this.tabPageAutoLearning.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabPageAutoLearning.Location = new System.Drawing.Point(4, 22);
+      this.tabPageAutoLearning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.tabPageAutoLearning.Name = "tabPageAutoLearning";
-      this.tabPageAutoLearning.Size = new System.Drawing.Size(1445, 684);
+      this.tabPageAutoLearning.Size = new System.Drawing.Size(1082, 553);
       this.tabPageAutoLearning.TabIndex = 4;
       this.tabPageAutoLearning.Text = "Automatic Learing";
       this.tabPageAutoLearning.UseVisualStyleBackColor = true;
       // 
       // buttonPickEnglishDocument
       // 
-      this.buttonPickEnglishDocument.Location = new System.Drawing.Point(1351, 90);
-      this.buttonPickEnglishDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonPickEnglishDocument.Location = new System.Drawing.Point(1013, 73);
+      this.buttonPickEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonPickEnglishDocument.Name = "buttonPickEnglishDocument";
-      this.buttonPickEnglishDocument.Size = new System.Drawing.Size(37, 23);
+      this.buttonPickEnglishDocument.Size = new System.Drawing.Size(28, 19);
       this.buttonPickEnglishDocument.TabIndex = 11;
       this.buttonPickEnglishDocument.Text = "...";
       this.buttonPickEnglishDocument.UseVisualStyleBackColor = true;
@@ -602,10 +610,10 @@
       // 
       // buttonPickFrenchDocument
       // 
-      this.buttonPickFrenchDocument.Location = new System.Drawing.Point(1351, 47);
-      this.buttonPickFrenchDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonPickFrenchDocument.Location = new System.Drawing.Point(1013, 38);
+      this.buttonPickFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonPickFrenchDocument.Name = "buttonPickFrenchDocument";
-      this.buttonPickFrenchDocument.Size = new System.Drawing.Size(37, 23);
+      this.buttonPickFrenchDocument.Size = new System.Drawing.Size(28, 19);
       this.buttonPickFrenchDocument.TabIndex = 10;
       this.buttonPickFrenchDocument.Text = "...";
       this.buttonPickFrenchDocument.UseVisualStyleBackColor = true;
@@ -613,44 +621,46 @@
       // 
       // textBoxEnglishDocument
       // 
-      this.textBoxEnglishDocument.Location = new System.Drawing.Point(141, 91);
-      this.textBoxEnglishDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.textBoxEnglishDocument.Location = new System.Drawing.Point(106, 74);
+      this.textBoxEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxEnglishDocument.Name = "textBoxEnglishDocument";
-      this.textBoxEnglishDocument.Size = new System.Drawing.Size(1204, 22);
+      this.textBoxEnglishDocument.Size = new System.Drawing.Size(904, 20);
       this.textBoxEnglishDocument.TabIndex = 4;
       // 
       // labelEnglishDocument
       // 
       this.labelEnglishDocument.AutoSize = true;
-      this.labelEnglishDocument.Location = new System.Drawing.Point(13, 91);
+      this.labelEnglishDocument.Location = new System.Drawing.Point(10, 74);
+      this.labelEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelEnglishDocument.Name = "labelEnglishDocument";
-      this.labelEnglishDocument.Size = new System.Drawing.Size(124, 17);
+      this.labelEnglishDocument.Size = new System.Drawing.Size(94, 13);
       this.labelEnglishDocument.TabIndex = 3;
       this.labelEnglishDocument.Text = "English document:";
       // 
       // textBoxFrenchDocument
       // 
-      this.textBoxFrenchDocument.Location = new System.Drawing.Point(141, 47);
-      this.textBoxFrenchDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.textBoxFrenchDocument.Location = new System.Drawing.Point(106, 38);
+      this.textBoxFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxFrenchDocument.Name = "textBoxFrenchDocument";
-      this.textBoxFrenchDocument.Size = new System.Drawing.Size(1204, 22);
+      this.textBoxFrenchDocument.Size = new System.Drawing.Size(904, 20);
       this.textBoxFrenchDocument.TabIndex = 2;
       // 
       // labelFrenchDocument
       // 
       this.labelFrenchDocument.AutoSize = true;
-      this.labelFrenchDocument.Location = new System.Drawing.Point(13, 47);
+      this.labelFrenchDocument.Location = new System.Drawing.Point(10, 38);
+      this.labelFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelFrenchDocument.Name = "labelFrenchDocument";
-      this.labelFrenchDocument.Size = new System.Drawing.Size(122, 17);
+      this.labelFrenchDocument.Size = new System.Drawing.Size(93, 13);
       this.labelFrenchDocument.TabIndex = 1;
       this.labelFrenchDocument.Text = "French document:";
       // 
       // buttonAutoLearning
       // 
-      this.buttonAutoLearning.Location = new System.Drawing.Point(16, 139);
-      this.buttonAutoLearning.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonAutoLearning.Location = new System.Drawing.Point(12, 113);
+      this.buttonAutoLearning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonAutoLearning.Name = "buttonAutoLearning";
-      this.buttonAutoLearning.Size = new System.Drawing.Size(121, 28);
+      this.buttonAutoLearning.Size = new System.Drawing.Size(91, 23);
       this.buttonAutoLearning.TabIndex = 0;
       this.buttonAutoLearning.Text = "Auto learning";
       this.buttonAutoLearning.UseVisualStyleBackColor = true;
@@ -659,20 +669,20 @@
       // 
       this.tabPageTool.Controls.Add(this.buttonWords);
       this.tabPageTool.Controls.Add(this.buttonCountParagraph);
-      this.tabPageTool.Location = new System.Drawing.Point(4, 25);
-      this.tabPageTool.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.tabPageTool.Location = new System.Drawing.Point(4, 22);
+      this.tabPageTool.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.tabPageTool.Name = "tabPageTool";
-      this.tabPageTool.Size = new System.Drawing.Size(1445, 684);
+      this.tabPageTool.Size = new System.Drawing.Size(1082, 553);
       this.tabPageTool.TabIndex = 2;
       this.tabPageTool.Text = "Tools";
       this.tabPageTool.UseVisualStyleBackColor = true;
       // 
       // buttonWords
       // 
-      this.buttonWords.Location = new System.Drawing.Point(44, 101);
-      this.buttonWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonWords.Location = new System.Drawing.Point(33, 82);
+      this.buttonWords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonWords.Name = "buttonWords";
-      this.buttonWords.Size = new System.Drawing.Size(136, 27);
+      this.buttonWords.Size = new System.Drawing.Size(102, 22);
       this.buttonWords.TabIndex = 1;
       this.buttonWords.Text = "Count words";
       this.buttonWords.UseVisualStyleBackColor = true;
@@ -680,10 +690,10 @@
       // 
       // buttonCountParagraph
       // 
-      this.buttonCountParagraph.Location = new System.Drawing.Point(44, 50);
-      this.buttonCountParagraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonCountParagraph.Location = new System.Drawing.Point(33, 41);
+      this.buttonCountParagraph.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonCountParagraph.Name = "buttonCountParagraph";
-      this.buttonCountParagraph.Size = new System.Drawing.Size(136, 27);
+      this.buttonCountParagraph.Size = new System.Drawing.Size(102, 22);
       this.buttonCountParagraph.TabIndex = 0;
       this.buttonCountParagraph.Text = "Count paragraph";
       this.buttonCountParagraph.UseVisualStyleBackColor = true;
@@ -695,16 +705,15 @@
       // 
       // FormMain
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1453, 741);
+      this.ClientSize = new System.Drawing.Size(1090, 602);
       this.Controls.Add(this.tabControl1);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
-      this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Name = "FormMain";
       this.Text = "Translator Helper";
-      this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainFormClosing);
       this.Load += new System.EventHandler(this.FormMainLoad);
       this.menuStrip1.ResumeLayout(false);

@@ -372,12 +372,6 @@ namespace TranslatorHelper
       }
     }
 
-    private void TabPageEditDictionaryClick(object sender, EventArgs e)
-    {
-      //loading dictionary into textboxes
-
-    }
-
     private void ButtonEditDictionaryClick(object sender, EventArgs e)
     {
       //copy to previous tab selected item
