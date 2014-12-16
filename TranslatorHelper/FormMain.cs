@@ -277,7 +277,23 @@ namespace TranslatorHelper
 
     private void ButtonAddToDictionaryClick(object sender, EventArgs e)
     {
+      if (this.textBoxInputFrench.Text == string.Empty || this.textBoxInputEnglish.Text == string.Empty)
+      {
+        MessageBox.Show("Neither french nor english text boxes can be emptied");
+        return;
+      }
 
+      try
+      {
+        StreamWriter sw = new StreamWriter(SourceDictionaryfileName);
+        sw.WriteLine(this.textBoxInputFrench.Text);
+        sw.WriteLine(this.textBoxInputEnglish.Text);
+        sw.Close();
+      }
+      catch (Exception exception)
+      {
+        MessageBox.Show("Error while save to dictionary: " + exception.Message);
+      }
     }
 
     private void ButtonWordsClick(object sender, EventArgs e)
@@ -323,6 +339,18 @@ namespace TranslatorHelper
       {
         textBoxEnglishDocument.Text = opendialog.FileName;
       }
+    }
+
+    private void TabPageEditDictionaryClick(object sender, EventArgs e)
+    {
+      //loading dictionary into textboxes
+
+    }
+
+    private void ButtonEditDictionaryClick(object sender, EventArgs e)
+    {
+      //copy to previous tab selected item
+
     }
   }
 }
