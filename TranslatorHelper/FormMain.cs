@@ -1,4 +1,22 @@
-﻿using System;
+﻿//The MIT License (MIT)
+//Copyright (c) 2014 Freddy Juhel
+//Permission is hereby granted, free of charge, to any person obtaining a copy
+//of this software and associated documentation files (the "Software"), to deal
+//in the Software without restriction, including without limitation the rights
+//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//copies of the Software, and to permit persons to whom the Software is
+//furnished to do so, subject to the following conditions:
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//SOFTWARE.
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -105,8 +123,20 @@ namespace TranslatorHelper
             {
               line2 = tmp;
               readingEnglishLine = true;
-              sourceDictionary.Add(line1, line2);
+              if (!sourceDictionary.ContainsKey(line1) && !sourceDictionary.ContainsValue(line2))
+              {
+                sourceDictionary.Add(line1, line2);
+              }
             }
+          }
+
+          // loading dictionary into edit textboxes
+          listBoxEditFrench.Items.Clear();
+          listBoxEditEnglish.Items.Clear();
+          foreach (KeyValuePair<string, string> dicoEntry in sourceDictionary)
+          {
+            listBoxEditFrench.Items.Add(dicoEntry.Key);
+            listBoxEditEnglish.Items.Add(dicoEntry.Value);
           }
         }
       }
@@ -350,7 +380,26 @@ namespace TranslatorHelper
     private void ButtonEditDictionaryClick(object sender, EventArgs e)
     {
       //copy to previous tab selected item
+      if (listBoxEditFrench.SelectedIndex == -1)
+      {
+        MessageBox.Show("You have to select one word or one phrase");
+        return;
+      }
 
+      textBoxInputFrench.Text = listBoxEditFrench.SelectedItem.ToString();
+      textBoxInputEnglish.Text = listBoxEditEnglish.SelectedItem.ToString();
+      tabPageInput.Focus();
+
+    }
+
+    private void ListBoxEditFrenchSelectedIndexChanged(object sender, EventArgs e)
+    {
+      listBoxEditEnglish.SelectedIndex = listBoxEditFrench.SelectedIndex;
+    }
+
+    private void ListBoxEditEnglishSelectedIndexChanged(object sender, EventArgs e)
+    {
+      listBoxEditFrench.SelectedIndex = listBoxEditEnglish.SelectedIndex;
     }
   }
 }

@@ -74,10 +74,10 @@
       this.textBoxInputFrench = new System.Windows.Forms.TextBox();
       this.labelInputFrench = new System.Windows.Forms.Label();
       this.tabPageEditDictionary = new System.Windows.Forms.TabPage();
+      this.listBoxEditEnglish = new System.Windows.Forms.ListBox();
+      this.listBoxEditFrench = new System.Windows.Forms.ListBox();
       this.buttonEditDictionary = new System.Windows.Forms.Button();
-      this.textBoxEditEnglish = new System.Windows.Forms.TextBox();
       this.labelEditEnglish = new System.Windows.Forms.Label();
-      this.textBoxEditFrench = new System.Windows.Forms.TextBox();
       this.labelEditFrench = new System.Windows.Forms.Label();
       this.tabPageAutoLearning = new System.Windows.Forms.TabPage();
       this.buttonPickEnglishDocument = new System.Windows.Forms.Button();
@@ -508,10 +508,10 @@
       // 
       // tabPageEditDictionary
       // 
+      this.tabPageEditDictionary.Controls.Add(this.listBoxEditEnglish);
+      this.tabPageEditDictionary.Controls.Add(this.listBoxEditFrench);
       this.tabPageEditDictionary.Controls.Add(this.buttonEditDictionary);
-      this.tabPageEditDictionary.Controls.Add(this.textBoxEditEnglish);
       this.tabPageEditDictionary.Controls.Add(this.labelEditEnglish);
-      this.tabPageEditDictionary.Controls.Add(this.textBoxEditFrench);
       this.tabPageEditDictionary.Controls.Add(this.labelEditFrench);
       this.tabPageEditDictionary.Location = new System.Drawing.Point(4, 25);
       this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -521,6 +521,26 @@
       this.tabPageEditDictionary.Text = "Edit Dictionary";
       this.tabPageEditDictionary.UseVisualStyleBackColor = true;
       this.tabPageEditDictionary.Click += new System.EventHandler(this.TabPageEditDictionaryClick);
+      // 
+      // listBoxEditEnglish
+      // 
+      this.listBoxEditEnglish.FormattingEnabled = true;
+      this.listBoxEditEnglish.ItemHeight = 16;
+      this.listBoxEditEnglish.Location = new System.Drawing.Point(51, 412);
+      this.listBoxEditEnglish.Name = "listBoxEditEnglish";
+      this.listBoxEditEnglish.Size = new System.Drawing.Size(1382, 324);
+      this.listBoxEditEnglish.TabIndex = 10;
+      this.listBoxEditEnglish.SelectedIndexChanged += new System.EventHandler(this.ListBoxEditEnglishSelectedIndexChanged);
+      // 
+      // listBoxEditFrench
+      // 
+      this.listBoxEditFrench.FormattingEnabled = true;
+      this.listBoxEditFrench.ItemHeight = 16;
+      this.listBoxEditFrench.Location = new System.Drawing.Point(51, 53);
+      this.listBoxEditFrench.Name = "listBoxEditFrench";
+      this.listBoxEditFrench.Size = new System.Drawing.Size(1382, 324);
+      this.listBoxEditFrench.TabIndex = 9;
+      this.listBoxEditFrench.SelectedIndexChanged += new System.EventHandler(this.ListBoxEditFrenchSelectedIndexChanged);
       // 
       // buttonEditDictionary
       // 
@@ -532,15 +552,6 @@
       this.buttonEditDictionary.UseVisualStyleBackColor = true;
       this.buttonEditDictionary.Click += new System.EventHandler(this.ButtonEditDictionaryClick);
       // 
-      // textBoxEditEnglish
-      // 
-      this.textBoxEditEnglish.Location = new System.Drawing.Point(51, 414);
-      this.textBoxEditEnglish.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.textBoxEditEnglish.Multiline = true;
-      this.textBoxEditEnglish.Name = "textBoxEditEnglish";
-      this.textBoxEditEnglish.Size = new System.Drawing.Size(1382, 302);
-      this.textBoxEditEnglish.TabIndex = 7;
-      // 
       // labelEditEnglish
       // 
       this.labelEditEnglish.AutoSize = true;
@@ -550,15 +561,6 @@
       this.labelEditEnglish.Size = new System.Drawing.Size(66, 17);
       this.labelEditEnglish.TabIndex = 6;
       this.labelEditEnglish.Text = "English:";
-      // 
-      // textBoxEditFrench
-      // 
-      this.textBoxEditFrench.Location = new System.Drawing.Point(51, 61);
-      this.textBoxEditFrench.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.textBoxEditFrench.Multiline = true;
-      this.textBoxEditFrench.Name = "textBoxEditFrench";
-      this.textBoxEditFrench.Size = new System.Drawing.Size(1382, 302);
-      this.textBoxEditFrench.TabIndex = 5;
       // 
       // labelEditFrench
       // 
@@ -782,10 +784,10 @@
     private System.Windows.Forms.Label labelFrenchDocument;
     private System.Windows.Forms.Button buttonAutoLearning;
     private System.Windows.Forms.Button buttonEditDictionary;
-    private System.Windows.Forms.TextBox textBoxEditEnglish;
     private System.Windows.Forms.Label labelEditEnglish;
-    private System.Windows.Forms.TextBox textBoxEditFrench;
     private System.Windows.Forms.Label labelEditFrench;
+    private System.Windows.Forms.ListBox listBoxEditEnglish;
+    private System.Windows.Forms.ListBox listBoxEditFrench;
   }
 }
 
