@@ -383,8 +383,7 @@ namespace TranslatorHelper
 
       textBoxInputFrench.Text = listBoxEditFrench.SelectedItem.ToString();
       textBoxInputEnglish.Text = listBoxEditEnglish.SelectedItem.ToString();
-      tabPageInput.Focus();
-
+      tabControl1.SelectedIndex = 1;
     }
 
     private void ListBoxEditFrenchSelectedIndexChanged(object sender, EventArgs e)
