@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Translator Helper")]
-[assembly: AssemblyDescription("This application helps any translator to record what have already translated for future use.")]
+[assembly: AssemblyDescription("This application helps any translator to record what have already been translated for future use.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Freddy Juhel")]
 [assembly: AssemblyProduct("Translator Helper")]
