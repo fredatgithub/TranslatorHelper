@@ -395,5 +395,11 @@ namespace TranslatorHelper
     {
       listBoxEditFrench.SelectedIndex = listBoxEditEnglish.SelectedIndex;
     }
+
+    private void ButtonSortDictionaryClick(object sender, EventArgs e)
+    {
+      // sorting the dictionary from the bigest to the smallest phrase
+
+    }
   }
 }

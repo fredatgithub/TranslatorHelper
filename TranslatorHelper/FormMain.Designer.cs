@@ -91,6 +91,7 @@
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.buttonSortDictionary = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -454,7 +455,7 @@
       this.tabPageInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPageInput.Name = "tabPageInput";
       this.tabPageInput.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.tabPageInput.Size = new System.Drawing.Size(1445, 682);
+      this.tabPageInput.Size = new System.Drawing.Size(1445, 684);
       this.tabPageInput.TabIndex = 1;
       this.tabPageInput.Text = "Input Dictionary";
       this.tabPageInput.UseVisualStyleBackColor = true;
@@ -516,7 +517,7 @@
       this.tabPageEditDictionary.Location = new System.Drawing.Point(4, 25);
       this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPageEditDictionary.Name = "tabPageEditDictionary";
-      this.tabPageEditDictionary.Size = new System.Drawing.Size(1445, 682);
+      this.tabPageEditDictionary.Size = new System.Drawing.Size(1445, 684);
       this.tabPageEditDictionary.TabIndex = 3;
       this.tabPageEditDictionary.Text = "Edit Dictionary";
       this.tabPageEditDictionary.UseVisualStyleBackColor = true;
@@ -586,7 +587,7 @@
       this.tabPageAutoLearning.Location = new System.Drawing.Point(4, 25);
       this.tabPageAutoLearning.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPageAutoLearning.Name = "tabPageAutoLearning";
-      this.tabPageAutoLearning.Size = new System.Drawing.Size(1445, 682);
+      this.tabPageAutoLearning.Size = new System.Drawing.Size(1445, 684);
       this.tabPageAutoLearning.TabIndex = 4;
       this.tabPageAutoLearning.Text = "Automatic Learing";
       this.tabPageAutoLearning.UseVisualStyleBackColor = true;
@@ -659,12 +660,13 @@
       // 
       // tabPageTool
       // 
+      this.tabPageTool.Controls.Add(this.buttonSortDictionary);
       this.tabPageTool.Controls.Add(this.buttonWords);
       this.tabPageTool.Controls.Add(this.buttonCountParagraph);
       this.tabPageTool.Location = new System.Drawing.Point(4, 25);
       this.tabPageTool.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabPageTool.Name = "tabPageTool";
-      this.tabPageTool.Size = new System.Drawing.Size(1445, 682);
+      this.tabPageTool.Size = new System.Drawing.Size(1445, 684);
       this.tabPageTool.TabIndex = 2;
       this.tabPageTool.Text = "Tools";
       this.tabPageTool.UseVisualStyleBackColor = true;
@@ -694,6 +696,17 @@
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
+      // 
+      // buttonSortDictionary
+      // 
+      this.buttonSortDictionary.Location = new System.Drawing.Point(44, 143);
+      this.buttonSortDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonSortDictionary.Name = "buttonSortDictionary";
+      this.buttonSortDictionary.Size = new System.Drawing.Size(136, 27);
+      this.buttonSortDictionary.TabIndex = 2;
+      this.buttonSortDictionary.Text = "Sort Dictionary";
+      this.buttonSortDictionary.UseVisualStyleBackColor = true;
+      this.buttonSortDictionary.Click += new System.EventHandler(this.ButtonSortDictionaryClick);
       // 
       // FormMain
       // 
@@ -789,6 +802,7 @@
     private System.Windows.Forms.Label labelEditFrench;
     private System.Windows.Forms.ListBox listBoxEditEnglish;
     private System.Windows.Forms.ListBox listBoxEditFrench;
+    private System.Windows.Forms.Button buttonSortDictionary;
   }
 }
 
