@@ -96,6 +96,7 @@
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.buttonReloadDictionary = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -514,6 +515,7 @@
       // 
       // tabPageEditDictionary
       // 
+      this.tabPageEditDictionary.Controls.Add(this.buttonReloadDictionary);
       this.tabPageEditDictionary.Controls.Add(this.listBoxEditEnglish);
       this.tabPageEditDictionary.Controls.Add(this.listBoxEditFrench);
       this.tabPageEditDictionary.Controls.Add(this.buttonEditDictionary);
@@ -753,6 +755,17 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
+      // buttonReloadDictionary
+      // 
+      this.buttonReloadDictionary.Location = new System.Drawing.Point(236, 385);
+      this.buttonReloadDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonReloadDictionary.Name = "buttonReloadDictionary";
+      this.buttonReloadDictionary.Size = new System.Drawing.Size(135, 23);
+      this.buttonReloadDictionary.TabIndex = 11;
+      this.buttonReloadDictionary.Text = "Reload Dictionary";
+      this.buttonReloadDictionary.UseVisualStyleBackColor = true;
+      this.buttonReloadDictionary.Click += new System.EventHandler(this.ButtonReloadDictionaryClick);
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -853,6 +866,7 @@
     private System.Windows.Forms.Button buttonCheckDuplicateInDictionary;
     private System.Windows.Forms.TextBox textBoxCurrentDictionary;
     private System.Windows.Forms.Label labelCurrentDictionary;
+    private System.Windows.Forms.Button buttonReloadDictionary;
   }
 }
 

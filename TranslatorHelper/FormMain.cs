@@ -25,14 +25,11 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Novacode;
 using TranslatorHelper.Properties;
+using System.Linq;
+using System.Text;
 
 namespace TranslatorHelper
 {
-  using System.Linq;
-  using System.Runtime.InteropServices;
-  using System.Text;
-  using System.Windows.Forms.VisualStyles;
-
   public partial class FormMain : Form
   {
     public FormMain()
@@ -43,6 +40,8 @@ namespace TranslatorHelper
     private const string Backslash = "\\";
     private const string Period = ".";
     private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
+
+    private bool dictionaryHasChanged = false;
 
     private const string SourceDictionaryfileName = "MainDico.txt";
 
@@ -133,15 +132,20 @@ namespace TranslatorHelper
             }
           }
 
-          // loading dictionary into edit textboxes
-          listBoxEditFrench.Items.Clear();
-          listBoxEditEnglish.Items.Clear();
-          foreach (KeyValuePair<string, string> dicoEntry in sourceDictionary)
-          {
-            listBoxEditFrench.Items.Add(dicoEntry.Key);
-            listBoxEditEnglish.Items.Add(dicoEntry.Value);
-          }
+          LoadDictionaryIntoListBoxes();
         }
+      }
+    }
+
+    private void LoadDictionaryIntoListBoxes()
+    {
+      // loading dictionary into edit textboxes
+      listBoxEditFrench.Items.Clear();
+      listBoxEditEnglish.Items.Clear();
+      foreach (KeyValuePair<string, string> dicoEntry in sourceDictionary)
+      {
+        listBoxEditFrench.Items.Add(dicoEntry.Key);
+        listBoxEditEnglish.Items.Add(dicoEntry.Value);
       }
     }
 
@@ -403,13 +407,17 @@ namespace TranslatorHelper
     {
       // sorting the dictionary from the bigest to the smallest phrase
       sourceDictionary = SortDictionaryByLength(sourceDictionary);
+      dictionaryHasChanged = true;
+      MessageBox.Show("The dictionary has been sorted by french phrase length");
+      LoadDictionaryIntoListBoxes();
+      tabControl1.SelectedIndex = 2;
     }
 
     private static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
     {
       var queryResults = (from kp in unsortedDictionary
                           orderby kp.Key.Length descending 
-                          select new KeyValuePair<string, string>(kp.Key, kp.Value)); // .Distinct(); //if needed
+                          select new KeyValuePair<string, string>(kp.Key, kp.Value)); 
 
       return queryResults.ToDictionary(x => x.Key, x => x.Value);
     }
@@ -420,6 +428,11 @@ namespace TranslatorHelper
       {
         textBoxCurrentDictionary.Text = SourceDictionaryfileName;
       }
+    }
+
+    private void ButtonReloadDictionaryClick(object sender, EventArgs e)
+    {
+      LoadDictionaryIntoListBoxes();
     }
   }
 }
