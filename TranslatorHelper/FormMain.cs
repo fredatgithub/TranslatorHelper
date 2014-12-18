@@ -28,7 +28,10 @@ using TranslatorHelper.Properties;
 
 namespace TranslatorHelper
 {
+  using System.Linq;
+  using System.Runtime.InteropServices;
   using System.Text;
+  using System.Windows.Forms.VisualStyles;
 
   public partial class FormMain : Form
   {
@@ -399,7 +402,24 @@ namespace TranslatorHelper
     private void ButtonSortDictionaryClick(object sender, EventArgs e)
     {
       // sorting the dictionary from the bigest to the smallest phrase
+      sourceDictionary = SortDictionaryByLength(sourceDictionary);
+    }
 
+    private static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
+    {
+      var queryResults = (from kp in unsortedDictionary
+                          orderby kp.Key.Length descending 
+                          select new KeyValuePair<string, string>(kp.Key, kp.Value)); // .Distinct(); //if needed
+
+      return queryResults.ToDictionary(x => x.Key, x => x.Value);
+    }
+
+    private void TabControl1Selected(object sender, TabControlEventArgs e)
+    {
+      if (e.TabPage == tabPageTool)
+      {
+        textBoxCurrentDictionary.Text = SourceDictionaryfileName;
+      }
     }
   }
 }

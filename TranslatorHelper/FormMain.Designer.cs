@@ -88,10 +88,14 @@
       this.labelFrenchDocument = new System.Windows.Forms.Label();
       this.buttonAutoLearning = new System.Windows.Forms.Button();
       this.tabPageTool = new System.Windows.Forms.TabPage();
+      this.textBoxCurrentDictionary = new System.Windows.Forms.TextBox();
+      this.labelCurrentDictionary = new System.Windows.Forms.Label();
+      this.buttonRemoveDuplicateInDictionary = new System.Windows.Forms.Button();
+      this.buttonCheckDuplicateInDictionary = new System.Windows.Forms.Button();
+      this.buttonSortDictionary = new System.Windows.Forms.Button();
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.buttonSortDictionary = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -345,6 +349,7 @@
       this.tabControl1.SelectedIndex = 0;
       this.tabControl1.Size = new System.Drawing.Size(1453, 713);
       this.tabControl1.TabIndex = 1;
+      this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabControl1Selected);
       // 
       // tabPageTranslation
       // 
@@ -660,6 +665,10 @@
       // 
       // tabPageTool
       // 
+      this.tabPageTool.Controls.Add(this.textBoxCurrentDictionary);
+      this.tabPageTool.Controls.Add(this.labelCurrentDictionary);
+      this.tabPageTool.Controls.Add(this.buttonRemoveDuplicateInDictionary);
+      this.tabPageTool.Controls.Add(this.buttonCheckDuplicateInDictionary);
       this.tabPageTool.Controls.Add(this.buttonSortDictionary);
       this.tabPageTool.Controls.Add(this.buttonWords);
       this.tabPageTool.Controls.Add(this.buttonCountParagraph);
@@ -671,12 +680,59 @@
       this.tabPageTool.Text = "Tools";
       this.tabPageTool.UseVisualStyleBackColor = true;
       // 
+      // textBoxCurrentDictionary
+      // 
+      this.textBoxCurrentDictionary.Location = new System.Drawing.Point(175, 16);
+      this.textBoxCurrentDictionary.Name = "textBoxCurrentDictionary";
+      this.textBoxCurrentDictionary.Size = new System.Drawing.Size(1154, 22);
+      this.textBoxCurrentDictionary.TabIndex = 6;
+      // 
+      // labelCurrentDictionary
+      // 
+      this.labelCurrentDictionary.AutoSize = true;
+      this.labelCurrentDictionary.Location = new System.Drawing.Point(44, 16);
+      this.labelCurrentDictionary.Name = "labelCurrentDictionary";
+      this.labelCurrentDictionary.Size = new System.Drawing.Size(124, 17);
+      this.labelCurrentDictionary.TabIndex = 5;
+      this.labelCurrentDictionary.Text = "Current dictionary:";
+      // 
+      // buttonRemoveDuplicateInDictionary
+      // 
+      this.buttonRemoveDuplicateInDictionary.Location = new System.Drawing.Point(44, 230);
+      this.buttonRemoveDuplicateInDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonRemoveDuplicateInDictionary.Name = "buttonRemoveDuplicateInDictionary";
+      this.buttonRemoveDuplicateInDictionary.Size = new System.Drawing.Size(220, 27);
+      this.buttonRemoveDuplicateInDictionary.TabIndex = 4;
+      this.buttonRemoveDuplicateInDictionary.Text = "Remove duplicate in Dictionary";
+      this.buttonRemoveDuplicateInDictionary.UseVisualStyleBackColor = true;
+      // 
+      // buttonCheckDuplicateInDictionary
+      // 
+      this.buttonCheckDuplicateInDictionary.Location = new System.Drawing.Point(44, 190);
+      this.buttonCheckDuplicateInDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonCheckDuplicateInDictionary.Name = "buttonCheckDuplicateInDictionary";
+      this.buttonCheckDuplicateInDictionary.Size = new System.Drawing.Size(220, 27);
+      this.buttonCheckDuplicateInDictionary.TabIndex = 3;
+      this.buttonCheckDuplicateInDictionary.Text = "Check duplicate in Dictionary";
+      this.buttonCheckDuplicateInDictionary.UseVisualStyleBackColor = true;
+      // 
+      // buttonSortDictionary
+      // 
+      this.buttonSortDictionary.Location = new System.Drawing.Point(44, 143);
+      this.buttonSortDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonSortDictionary.Name = "buttonSortDictionary";
+      this.buttonSortDictionary.Size = new System.Drawing.Size(220, 27);
+      this.buttonSortDictionary.TabIndex = 2;
+      this.buttonSortDictionary.Text = "Sort Dictionary";
+      this.buttonSortDictionary.UseVisualStyleBackColor = true;
+      this.buttonSortDictionary.Click += new System.EventHandler(this.ButtonSortDictionaryClick);
+      // 
       // buttonWords
       // 
       this.buttonWords.Location = new System.Drawing.Point(44, 101);
       this.buttonWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonWords.Name = "buttonWords";
-      this.buttonWords.Size = new System.Drawing.Size(136, 27);
+      this.buttonWords.Size = new System.Drawing.Size(220, 27);
       this.buttonWords.TabIndex = 1;
       this.buttonWords.Text = "Count words";
       this.buttonWords.UseVisualStyleBackColor = true;
@@ -687,7 +743,7 @@
       this.buttonCountParagraph.Location = new System.Drawing.Point(44, 50);
       this.buttonCountParagraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonCountParagraph.Name = "buttonCountParagraph";
-      this.buttonCountParagraph.Size = new System.Drawing.Size(136, 27);
+      this.buttonCountParagraph.Size = new System.Drawing.Size(220, 27);
       this.buttonCountParagraph.TabIndex = 0;
       this.buttonCountParagraph.Text = "Count paragraph";
       this.buttonCountParagraph.UseVisualStyleBackColor = true;
@@ -696,17 +752,6 @@
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
-      // 
-      // buttonSortDictionary
-      // 
-      this.buttonSortDictionary.Location = new System.Drawing.Point(44, 143);
-      this.buttonSortDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.buttonSortDictionary.Name = "buttonSortDictionary";
-      this.buttonSortDictionary.Size = new System.Drawing.Size(136, 27);
-      this.buttonSortDictionary.TabIndex = 2;
-      this.buttonSortDictionary.Text = "Sort Dictionary";
-      this.buttonSortDictionary.UseVisualStyleBackColor = true;
-      this.buttonSortDictionary.Click += new System.EventHandler(this.ButtonSortDictionaryClick);
       // 
       // FormMain
       // 
@@ -733,6 +778,7 @@
       this.tabPageAutoLearning.ResumeLayout(false);
       this.tabPageAutoLearning.PerformLayout();
       this.tabPageTool.ResumeLayout(false);
+      this.tabPageTool.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -803,6 +849,10 @@
     private System.Windows.Forms.ListBox listBoxEditEnglish;
     private System.Windows.Forms.ListBox listBoxEditFrench;
     private System.Windows.Forms.Button buttonSortDictionary;
+    private System.Windows.Forms.Button buttonRemoveDuplicateInDictionary;
+    private System.Windows.Forms.Button buttonCheckDuplicateInDictionary;
+    private System.Windows.Forms.TextBox textBoxCurrentDictionary;
+    private System.Windows.Forms.Label labelCurrentDictionary;
   }
 }
 
