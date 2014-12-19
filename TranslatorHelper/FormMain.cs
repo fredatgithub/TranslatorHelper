@@ -30,6 +30,8 @@ using System.Text;
 
 namespace TranslatorHelper
 {
+  using System.Collections;
+
   public partial class FormMain : Form
   {
     public FormMain()
@@ -93,6 +95,7 @@ namespace TranslatorHelper
     {
       DisplayTitle();
       GetWindowValue();
+      progressBarTranslate.Visible = false;
       sourceDictionary = new Dictionary<string, string>();
       // loading dictionary
       if (sourceFileIsSmall)
@@ -180,6 +183,7 @@ namespace TranslatorHelper
 
     private void ButtonConvertClick(object sender, EventArgs e)
     {
+      progressBarTranslate.Visible = true;
       // first copy the file
       try
       {
@@ -199,7 +203,7 @@ namespace TranslatorHelper
         {
           File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
         }
-        
+
       }
       catch (Exception exception)
       {
@@ -207,11 +211,19 @@ namespace TranslatorHelper
         return;
       }
 
+      progressBarTranslate.Minimum = 1;
+      progressBarTranslate.Maximum = sourceDictionary.Count;
+      progressBarTranslate.Value = progressBarTranslate.Minimum;
+      int compteur = progressBarTranslate.Minimum;
       foreach (KeyValuePair<string, string> dictionaryEntry in sourceDictionary)
       {
         ReplaceStrings(textBoxTranslatedFileName.Text, dictionaryEntry.Key, dictionaryEntry.Value);
+        progressBarTranslate.Value = compteur;
+        compteur++;
       }
-     
+
+      progressBarTranslate.Value = progressBarTranslate.Minimum;
+      progressBarTranslate.Visible = false;
       MessageBox.Show("End of operation");
     }
 
@@ -277,20 +289,26 @@ namespace TranslatorHelper
       }
     }
 
-    private static void ReplaceStrings(string filename, string wordToBeFound, string wordtoBeReplaced)
+    private static void ReplaceStrings(string filename, string wordToFound, string wordtoBeReplaced)
     {
       using (DocX document = DocX.Load(filename))
       {
-        List<string> lineFound = document.FindUniqueByPattern(wordToBeFound, RegexOptions.None);
-        if (lineFound.Count > 0)
+        if (wordToFound != string.Empty)
         {
-          foreach (string s in lineFound)
+          List<string> lineFound = document.FindUniqueByPattern(wordToFound, RegexOptions.None);
+          if (lineFound.Count > 0)
           {
-            document.ReplaceText(s, wordtoBeReplaced);
+            foreach (string s in lineFound)
+            {
+              if (wordtoBeReplaced != string.Empty)
+              {
+                document.ReplaceText(s, wordtoBeReplaced);
+              }
+            }
           }
-        }
 
-        document.Save();
+          document.Save();
+        }
       }
     }
 
@@ -416,8 +434,8 @@ namespace TranslatorHelper
     private static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
     {
       var queryResults = (from kp in unsortedDictionary
-                          orderby kp.Key.Length descending 
-                          select new KeyValuePair<string, string>(kp.Key, kp.Value)); 
+                          orderby kp.Key.Length descending
+                          select new KeyValuePair<string, string>(kp.Key, kp.Value));
 
       return queryResults.ToDictionary(x => x.Key, x => x.Value);
     }

@@ -74,6 +74,7 @@
       this.textBoxInputFrench = new System.Windows.Forms.TextBox();
       this.labelInputFrench = new System.Windows.Forms.Label();
       this.tabPageEditDictionary = new System.Windows.Forms.TabPage();
+      this.buttonReloadDictionary = new System.Windows.Forms.Button();
       this.listBoxEditEnglish = new System.Windows.Forms.ListBox();
       this.listBoxEditFrench = new System.Windows.Forms.ListBox();
       this.buttonEditDictionary = new System.Windows.Forms.Button();
@@ -96,7 +97,7 @@
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.buttonReloadDictionary = new System.Windows.Forms.Button();
+      this.progressBarTranslate = new System.Windows.Forms.ProgressBar();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -354,6 +355,7 @@
       // 
       // tabPageTranslation
       // 
+      this.tabPageTranslation.Controls.Add(this.progressBarTranslate);
       this.tabPageTranslation.Controls.Add(this.buttonConvert);
       this.tabPageTranslation.Controls.Add(this.labelTranslatedFileName);
       this.tabPageTranslation.Controls.Add(this.textBoxTranslatedFileName);
@@ -528,6 +530,17 @@
       this.tabPageEditDictionary.TabIndex = 3;
       this.tabPageEditDictionary.Text = "Edit Dictionary";
       this.tabPageEditDictionary.UseVisualStyleBackColor = true;
+      // 
+      // buttonReloadDictionary
+      // 
+      this.buttonReloadDictionary.Location = new System.Drawing.Point(236, 385);
+      this.buttonReloadDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonReloadDictionary.Name = "buttonReloadDictionary";
+      this.buttonReloadDictionary.Size = new System.Drawing.Size(135, 23);
+      this.buttonReloadDictionary.TabIndex = 11;
+      this.buttonReloadDictionary.Text = "Reload Dictionary";
+      this.buttonReloadDictionary.UseVisualStyleBackColor = true;
+      this.buttonReloadDictionary.Click += new System.EventHandler(this.ButtonReloadDictionaryClick);
       // 
       // listBoxEditEnglish
       // 
@@ -755,16 +768,13 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
-      // buttonReloadDictionary
+      // progressBarTranslate
       // 
-      this.buttonReloadDictionary.Location = new System.Drawing.Point(236, 385);
-      this.buttonReloadDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.buttonReloadDictionary.Name = "buttonReloadDictionary";
-      this.buttonReloadDictionary.Size = new System.Drawing.Size(135, 23);
-      this.buttonReloadDictionary.TabIndex = 11;
-      this.buttonReloadDictionary.Text = "Reload Dictionary";
-      this.buttonReloadDictionary.UseVisualStyleBackColor = true;
-      this.buttonReloadDictionary.Click += new System.EventHandler(this.ButtonReloadDictionaryClick);
+      this.progressBarTranslate.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.progressBarTranslate.Location = new System.Drawing.Point(3, 659);
+      this.progressBarTranslate.Name = "progressBarTranslate";
+      this.progressBarTranslate.Size = new System.Drawing.Size(1439, 23);
+      this.progressBarTranslate.TabIndex = 15;
       // 
       // FormMain
       // 
@@ -867,6 +877,7 @@
     private System.Windows.Forms.TextBox textBoxCurrentDictionary;
     private System.Windows.Forms.Label labelCurrentDictionary;
     private System.Windows.Forms.Button buttonReloadDictionary;
+    private System.Windows.Forms.ProgressBar progressBarTranslate;
   }
 }
 
