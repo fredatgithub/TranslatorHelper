@@ -30,8 +30,6 @@ using System.Text;
 
 namespace TranslatorHelper
 {
-  using System.Collections;
-
   public partial class FormMain : Form
   {
     public FormMain()
