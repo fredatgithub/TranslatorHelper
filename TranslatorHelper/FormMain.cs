@@ -40,7 +40,7 @@ namespace TranslatorHelper
     private const string Backslash = "\\";
     private const string Period = ".";
     private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
-
+    private int changeCount = 0;
     private bool dictionaryHasChanged = false;
 
     private const string SourceDictionaryfileName = "MainDico.txt";
@@ -181,6 +181,8 @@ namespace TranslatorHelper
 
     private void ButtonConvertClick(object sender, EventArgs e)
     {
+      //comptage des changements
+      changeCount = 0;
       progressBarTranslate.Visible = true;
       // first copy the file
       try
@@ -222,7 +224,12 @@ namespace TranslatorHelper
 
       progressBarTranslate.Value = progressBarTranslate.Minimum;
       progressBarTranslate.Visible = false;
-      MessageBox.Show("End of operation");
+      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made", this.changeCount, Plural(changeCount)));
+    }
+
+    private string Plural(int number)
+    {
+      return number > 1 ?"s" :string.Empty;
     }
 
     private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
@@ -287,7 +294,7 @@ namespace TranslatorHelper
       }
     }
 
-    private static void ReplaceStrings(string filename, string wordToFound, string wordtoBeReplaced)
+    private void ReplaceStrings(string filename, string wordToFound, string wordtoBeReplaced)
     {
       using (DocX document = DocX.Load(filename))
       {
@@ -301,6 +308,7 @@ namespace TranslatorHelper
               if (wordtoBeReplaced != string.Empty)
               {
                 document.ReplaceText(s, wordtoBeReplaced);
+                changeCount++;
               }
             }
           }
