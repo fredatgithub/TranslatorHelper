@@ -94,6 +94,7 @@ namespace TranslatorHelper
       DisplayTitle();
       GetWindowValue();
       progressBarTranslate.Visible = false;
+      progressBarAutoLearning.Visible = false;
       sourceDictionary = new Dictionary<string, string>();
       // loading dictionary
       if (sourceFileIsSmall)
@@ -388,6 +389,8 @@ namespace TranslatorHelper
       if (opendialog.ShowDialog() == DialogResult.OK)
       {
         textBoxFrenchDocument.Text = opendialog.FileName;
+        listBoxAutoLearningFrench.Items.Clear();
+
       }
     }
 
@@ -400,6 +403,8 @@ namespace TranslatorHelper
       if (opendialog.ShowDialog() == DialogResult.OK)
       {
         textBoxEnglishDocument.Text = opendialog.FileName;
+        listBoxAutoLearningEnglish.Items.Clear();
+
       }
     }
 
