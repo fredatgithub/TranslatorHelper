@@ -492,7 +492,18 @@ namespace TranslatorHelper
 
     private void buttonRemoveDuplicateFrench_Click(object sender, EventArgs e)
     {
+      //removing duplicate in listbox french
+      listBoxAutoLearningFrench.Sorted = true;
+      //for (int i = listBoxAutoLearningFrench.Items.Count - 1; i > 0; i--)
+      //{
+      //  if (listBoxAutoLearningFrench.Items[i] == listBoxAutoLearningFrench.Items[i - 1])
+      //  {
+      //    listBoxAutoLearningFrench.Items.Remove(listBoxAutoLearningFrench.Items[i - 1]);
+      //  }
+      //}
 
+      // listbox.Items = listbox.Items.Select(n => !n.Contains("OBJECT"));
+      //listBoxAutoLearningFrench.Items = listBoxAutoLearningFrench.Items.Select(n => n.Distinct());
     }
 
     private void buttonRemoveDuplicateInDictionary_Click(object sender, EventArgs e)
