@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Thanks to Jevgenij Pankov, 17 Sep 2007 CPOL for his class
+// http://www.codeproject.com/Articles/20529/Using-DocxToText-to-Extract-Text-from-DOCX-Files
+
+using System;
 using System.Text;
 using System.Xml;
 using System.IO;
