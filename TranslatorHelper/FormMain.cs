@@ -40,7 +40,7 @@ namespace TranslatorHelper
     private const string Backslash = "\\";
     private const string Period = ".";
     private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
-    private int changeCount = 0;
+    private int changeCount;
     private bool dictionaryHasChanged = false;
 
     private const string SourceDictionaryfileName = "MainDico.txt";
@@ -230,7 +230,7 @@ namespace TranslatorHelper
 
     private string Plural(int number)
     {
-      return number > 1 ?"s" :string.Empty;
+      return number > 1 ? "s" : string.Empty;
     }
 
     private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
@@ -390,8 +390,23 @@ namespace TranslatorHelper
       {
         textBoxFrenchDocument.Text = opendialog.FileName;
         listBoxAutoLearningFrench.Items.Clear();
-
+        DocxToText dtt = new DocxToText(opendialog.FileName);
+        string text = dtt.ExtractText();
+        string[] tmpPhrases = ConvertTextToArray(text);
+        for (int i = 0; i < ConvertTextToArray(text).Length - 1; i++)
+        {
+          if (tmpPhrases[i] != "\r")
+          {
+            listBoxAutoLearningFrench.Items.Add(tmpPhrases[i]);
+          }
+          
+        }
       }
+    }
+
+    private static string[] ConvertTextToArray(string chaine)
+    {
+      return chaine.Split('\n');
     }
 
     private void ButtonPickEnglishDocumentClick(object sender, EventArgs e)
@@ -400,10 +415,21 @@ namespace TranslatorHelper
       {
         Filter = @"Word Documents(*.docx)| *.docx"
       };
+
       if (opendialog.ShowDialog() == DialogResult.OK)
       {
         textBoxEnglishDocument.Text = opendialog.FileName;
         listBoxAutoLearningEnglish.Items.Clear();
+        DocxToText dtt = new DocxToText(opendialog.FileName);
+        string text = dtt.ExtractText();
+        string[] tmpPhrases = ConvertTextToArray(text);
+        for (int i = 0; i < ConvertTextToArray(text).Length - 1; i++)
+        {
+          if (tmpPhrases[i] != "\r")
+          {
+            listBoxAutoLearningEnglish.Items.Add(tmpPhrases[i]);
+          }
+        }
 
       }
     }
@@ -462,6 +488,16 @@ namespace TranslatorHelper
     private void ButtonReloadDictionaryClick(object sender, EventArgs e)
     {
       LoadDictionaryIntoListBoxes();
+    }
+
+    private void buttonRemoveDuplicateFrench_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void buttonRemoveDuplicateInDictionary_Click(object sender, EventArgs e)
+    {
+      dictionaryHasChanged = true;
     }
   }
 }

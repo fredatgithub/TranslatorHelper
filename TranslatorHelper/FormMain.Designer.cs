@@ -82,6 +82,13 @@
       this.labelEditEnglish = new System.Windows.Forms.Label();
       this.labelEditFrench = new System.Windows.Forms.Label();
       this.tabPageAutoLearning = new System.Windows.Forms.TabPage();
+      this.buttonRemoveDuplicateEnglish = new System.Windows.Forms.Button();
+      this.buttonRemoveDuplicateFrench = new System.Windows.Forms.Button();
+      this.listBoxAutoLearningEnglish = new System.Windows.Forms.ListBox();
+      this.listBoxAutoLearningFrench = new System.Windows.Forms.ListBox();
+      this.progressBarAutoLearning = new System.Windows.Forms.ProgressBar();
+      this.labelAutoLearningEnglish = new System.Windows.Forms.Label();
+      this.labelAutoLearningFrench = new System.Windows.Forms.Label();
       this.buttonPickEnglishDocument = new System.Windows.Forms.Button();
       this.buttonPickFrenchDocument = new System.Windows.Forms.Button();
       this.textBoxEnglishDocument = new System.Windows.Forms.TextBox();
@@ -98,11 +105,6 @@
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.labelAutoLearningEnglish = new System.Windows.Forms.Label();
-      this.labelAutoLearningFrench = new System.Windows.Forms.Label();
-      this.progressBarAutoLearning = new System.Windows.Forms.ProgressBar();
-      this.listBoxAutoLearningFrench = new System.Windows.Forms.ListBox();
-      this.listBoxAutoLearningEnglish = new System.Windows.Forms.ListBox();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -123,7 +125,7 @@
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
       this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-      this.menuStrip1.Size = new System.Drawing.Size(1090, 24);
+      this.menuStrip1.Size = new System.Drawing.Size(1357, 24);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -351,10 +353,10 @@
       this.tabControl1.Controls.Add(this.tabPageTool);
       this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tabControl1.Location = new System.Drawing.Point(0, 24);
-      this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
-      this.tabControl1.Size = new System.Drawing.Size(1090, 578);
+      this.tabControl1.Size = new System.Drawing.Size(1357, 701);
       this.tabControl1.TabIndex = 1;
       this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabControl1Selected);
       // 
@@ -371,10 +373,10 @@
       this.tabPageTranslation.Controls.Add(this.textBoxfilePath);
       this.tabPageTranslation.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tabPageTranslation.Location = new System.Drawing.Point(4, 22);
-      this.tabPageTranslation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageTranslation.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageTranslation.Name = "tabPageTranslation";
-      this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tabPageTranslation.Size = new System.Drawing.Size(1082, 552);
+      this.tabPageTranslation.Padding = new System.Windows.Forms.Padding(2);
+      this.tabPageTranslation.Size = new System.Drawing.Size(1349, 675);
       this.tabPageTranslation.TabIndex = 0;
       this.tabPageTranslation.Text = "Translate";
       this.tabPageTranslation.UseVisualStyleBackColor = true;
@@ -382,16 +384,16 @@
       // progressBarTranslate
       // 
       this.progressBarTranslate.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.progressBarTranslate.Location = new System.Drawing.Point(2, 531);
-      this.progressBarTranslate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.progressBarTranslate.Location = new System.Drawing.Point(2, 654);
+      this.progressBarTranslate.Margin = new System.Windows.Forms.Padding(2);
       this.progressBarTranslate.Name = "progressBarTranslate";
-      this.progressBarTranslate.Size = new System.Drawing.Size(1078, 19);
+      this.progressBarTranslate.Size = new System.Drawing.Size(1345, 19);
       this.progressBarTranslate.TabIndex = 15;
       // 
       // buttonConvert
       // 
       this.buttonConvert.Location = new System.Drawing.Point(998, 94);
-      this.buttonConvert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonConvert.Margin = new System.Windows.Forms.Padding(2);
       this.buttonConvert.Name = "buttonConvert";
       this.buttonConvert.Size = new System.Drawing.Size(70, 23);
       this.buttonConvert.TabIndex = 14;
@@ -413,7 +415,7 @@
       // 
       this.textBoxTranslatedFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxTranslatedFileName.Location = new System.Drawing.Point(145, 99);
-      this.textBoxTranslatedFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxTranslatedFileName.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxTranslatedFileName.Name = "textBoxTranslatedFileName";
       this.textBoxTranslatedFileName.ReadOnly = true;
       this.textBoxTranslatedFileName.Size = new System.Drawing.Size(849, 19);
@@ -423,7 +425,7 @@
       // 
       this.textBoxSuffixeFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxSuffixeFileName.Location = new System.Drawing.Point(145, 61);
-      this.textBoxSuffixeFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxSuffixeFileName.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxSuffixeFileName.Name = "textBoxSuffixeFileName";
       this.textBoxSuffixeFileName.Size = new System.Drawing.Size(152, 19);
       this.textBoxSuffixeFileName.TabIndex = 11;
@@ -442,7 +444,7 @@
       // buttonChooseFile
       // 
       this.buttonChooseFile.Location = new System.Drawing.Point(1040, 23);
-      this.buttonChooseFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonChooseFile.Margin = new System.Windows.Forms.Padding(2);
       this.buttonChooseFile.Name = "buttonChooseFile";
       this.buttonChooseFile.Size = new System.Drawing.Size(28, 19);
       this.buttonChooseFile.TabIndex = 9;
@@ -463,7 +465,7 @@
       // textBoxfilePath
       // 
       this.textBoxfilePath.Location = new System.Drawing.Point(75, 23);
-      this.textBoxfilePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxfilePath.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxfilePath.Name = "textBoxfilePath";
       this.textBoxfilePath.Size = new System.Drawing.Size(961, 20);
       this.textBoxfilePath.TabIndex = 7;
@@ -477,10 +479,10 @@
       this.tabPageInput.Controls.Add(this.textBoxInputFrench);
       this.tabPageInput.Controls.Add(this.labelInputFrench);
       this.tabPageInput.Location = new System.Drawing.Point(4, 22);
-      this.tabPageInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageInput.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageInput.Name = "tabPageInput";
-      this.tabPageInput.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tabPageInput.Size = new System.Drawing.Size(1082, 552);
+      this.tabPageInput.Padding = new System.Windows.Forms.Padding(2);
+      this.tabPageInput.Size = new System.Drawing.Size(1349, 675);
       this.tabPageInput.TabIndex = 1;
       this.tabPageInput.Text = "Input Dictionary";
       this.tabPageInput.UseVisualStyleBackColor = true;
@@ -488,7 +490,7 @@
       // buttonAddToDictionary
       // 
       this.buttonAddToDictionary.Location = new System.Drawing.Point(674, 300);
-      this.buttonAddToDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonAddToDictionary.Margin = new System.Windows.Forms.Padding(2);
       this.buttonAddToDictionary.Name = "buttonAddToDictionary";
       this.buttonAddToDictionary.Size = new System.Drawing.Size(109, 19);
       this.buttonAddToDictionary.TabIndex = 4;
@@ -499,7 +501,7 @@
       // textBoxInputEnglish
       // 
       this.textBoxInputEnglish.Location = new System.Drawing.Point(39, 193);
-      this.textBoxInputEnglish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxInputEnglish.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxInputEnglish.Multiline = true;
       this.textBoxInputEnglish.Name = "textBoxInputEnglish";
       this.textBoxInputEnglish.Size = new System.Drawing.Size(745, 96);
@@ -518,7 +520,7 @@
       // textBoxInputFrench
       // 
       this.textBoxInputFrench.Location = new System.Drawing.Point(39, 60);
-      this.textBoxInputFrench.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxInputFrench.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxInputFrench.Multiline = true;
       this.textBoxInputFrench.Name = "textBoxInputFrench";
       this.textBoxInputFrench.Size = new System.Drawing.Size(745, 96);
@@ -543,9 +545,9 @@
       this.tabPageEditDictionary.Controls.Add(this.labelEditEnglish);
       this.tabPageEditDictionary.Controls.Add(this.labelEditFrench);
       this.tabPageEditDictionary.Location = new System.Drawing.Point(4, 22);
-      this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageEditDictionary.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageEditDictionary.Name = "tabPageEditDictionary";
-      this.tabPageEditDictionary.Size = new System.Drawing.Size(1082, 552);
+      this.tabPageEditDictionary.Size = new System.Drawing.Size(1349, 675);
       this.tabPageEditDictionary.TabIndex = 3;
       this.tabPageEditDictionary.Text = "Edit Dictionary";
       this.tabPageEditDictionary.UseVisualStyleBackColor = true;
@@ -553,7 +555,7 @@
       // buttonReloadDictionary
       // 
       this.buttonReloadDictionary.Location = new System.Drawing.Point(177, 313);
-      this.buttonReloadDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonReloadDictionary.Margin = new System.Windows.Forms.Padding(2);
       this.buttonReloadDictionary.Name = "buttonReloadDictionary";
       this.buttonReloadDictionary.Size = new System.Drawing.Size(101, 19);
       this.buttonReloadDictionary.TabIndex = 11;
@@ -565,7 +567,7 @@
       // 
       this.listBoxEditEnglish.FormattingEnabled = true;
       this.listBoxEditEnglish.Location = new System.Drawing.Point(38, 335);
-      this.listBoxEditEnglish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.listBoxEditEnglish.Margin = new System.Windows.Forms.Padding(2);
       this.listBoxEditEnglish.Name = "listBoxEditEnglish";
       this.listBoxEditEnglish.Size = new System.Drawing.Size(1038, 264);
       this.listBoxEditEnglish.TabIndex = 10;
@@ -575,7 +577,7 @@
       // 
       this.listBoxEditFrench.FormattingEnabled = true;
       this.listBoxEditFrench.Location = new System.Drawing.Point(38, 43);
-      this.listBoxEditFrench.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.listBoxEditFrench.Margin = new System.Windows.Forms.Padding(2);
       this.listBoxEditFrench.Name = "listBoxEditFrench";
       this.listBoxEditFrench.Size = new System.Drawing.Size(1038, 264);
       this.listBoxEditFrench.TabIndex = 9;
@@ -584,7 +586,7 @@
       // buttonEditDictionary
       // 
       this.buttonEditDictionary.Location = new System.Drawing.Point(109, 311);
-      this.buttonEditDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonEditDictionary.Margin = new System.Windows.Forms.Padding(2);
       this.buttonEditDictionary.Name = "buttonEditDictionary";
       this.buttonEditDictionary.Size = new System.Drawing.Size(56, 19);
       this.buttonEditDictionary.TabIndex = 8;
@@ -616,6 +618,8 @@
       // 
       // tabPageAutoLearning
       // 
+      this.tabPageAutoLearning.Controls.Add(this.buttonRemoveDuplicateEnglish);
+      this.tabPageAutoLearning.Controls.Add(this.buttonRemoveDuplicateFrench);
       this.tabPageAutoLearning.Controls.Add(this.listBoxAutoLearningEnglish);
       this.tabPageAutoLearning.Controls.Add(this.listBoxAutoLearningFrench);
       this.tabPageAutoLearning.Controls.Add(this.progressBarAutoLearning);
@@ -629,172 +633,59 @@
       this.tabPageAutoLearning.Controls.Add(this.labelFrenchDocument);
       this.tabPageAutoLearning.Controls.Add(this.buttonAutoLearning);
       this.tabPageAutoLearning.Location = new System.Drawing.Point(4, 22);
-      this.tabPageAutoLearning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageAutoLearning.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageAutoLearning.Name = "tabPageAutoLearning";
-      this.tabPageAutoLearning.Size = new System.Drawing.Size(1082, 552);
+      this.tabPageAutoLearning.Size = new System.Drawing.Size(1349, 675);
       this.tabPageAutoLearning.TabIndex = 4;
       this.tabPageAutoLearning.Text = "Automatic Learing";
       this.tabPageAutoLearning.UseVisualStyleBackColor = true;
       // 
-      // buttonPickEnglishDocument
+      // buttonRemoveDuplicateEnglish
       // 
-      this.buttonPickEnglishDocument.Location = new System.Drawing.Point(1013, 73);
-      this.buttonPickEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonPickEnglishDocument.Name = "buttonPickEnglishDocument";
-      this.buttonPickEnglishDocument.Size = new System.Drawing.Size(28, 19);
-      this.buttonPickEnglishDocument.TabIndex = 11;
-      this.buttonPickEnglishDocument.Text = "...";
-      this.buttonPickEnglishDocument.UseVisualStyleBackColor = true;
-      this.buttonPickEnglishDocument.Click += new System.EventHandler(this.ButtonPickEnglishDocumentClick);
+      this.buttonRemoveDuplicateEnglish.Location = new System.Drawing.Point(11, 455);
+      this.buttonRemoveDuplicateEnglish.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonRemoveDuplicateEnglish.Name = "buttonRemoveDuplicateEnglish";
+      this.buttonRemoveDuplicateEnglish.Size = new System.Drawing.Size(91, 38);
+      this.buttonRemoveDuplicateEnglish.TabIndex = 20;
+      this.buttonRemoveDuplicateEnglish.Text = "Remove duplicate";
+      this.buttonRemoveDuplicateEnglish.UseVisualStyleBackColor = true;
       // 
-      // buttonPickFrenchDocument
+      // buttonRemoveDuplicateFrench
       // 
-      this.buttonPickFrenchDocument.Location = new System.Drawing.Point(1013, 38);
-      this.buttonPickFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonPickFrenchDocument.Name = "buttonPickFrenchDocument";
-      this.buttonPickFrenchDocument.Size = new System.Drawing.Size(28, 19);
-      this.buttonPickFrenchDocument.TabIndex = 10;
-      this.buttonPickFrenchDocument.Text = "...";
-      this.buttonPickFrenchDocument.UseVisualStyleBackColor = true;
-      this.buttonPickFrenchDocument.Click += new System.EventHandler(this.ButtonPickFrenchDocumentClick);
+      this.buttonRemoveDuplicateFrench.Location = new System.Drawing.Point(11, 285);
+      this.buttonRemoveDuplicateFrench.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonRemoveDuplicateFrench.Name = "buttonRemoveDuplicateFrench";
+      this.buttonRemoveDuplicateFrench.Size = new System.Drawing.Size(91, 38);
+      this.buttonRemoveDuplicateFrench.TabIndex = 19;
+      this.buttonRemoveDuplicateFrench.Text = "Remove duplicate";
+      this.buttonRemoveDuplicateFrench.UseVisualStyleBackColor = true;
+      this.buttonRemoveDuplicateFrench.Click += new System.EventHandler(this.buttonRemoveDuplicateFrench_Click);
       // 
-      // textBoxEnglishDocument
+      // listBoxAutoLearningEnglish
       // 
-      this.textBoxEnglishDocument.Location = new System.Drawing.Point(106, 74);
-      this.textBoxEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.textBoxEnglishDocument.Name = "textBoxEnglishDocument";
-      this.textBoxEnglishDocument.Size = new System.Drawing.Size(904, 20);
-      this.textBoxEnglishDocument.TabIndex = 4;
+      this.listBoxAutoLearningEnglish.FormattingEnabled = true;
+      this.listBoxAutoLearningEnglish.HorizontalScrollbar = true;
+      this.listBoxAutoLearningEnglish.Location = new System.Drawing.Point(107, 347);
+      this.listBoxAutoLearningEnglish.Name = "listBoxAutoLearningEnglish";
+      this.listBoxAutoLearningEnglish.Size = new System.Drawing.Size(903, 173);
+      this.listBoxAutoLearningEnglish.TabIndex = 18;
       // 
-      // labelEnglishDocument
+      // listBoxAutoLearningFrench
       // 
-      this.labelEnglishDocument.AutoSize = true;
-      this.labelEnglishDocument.Location = new System.Drawing.Point(10, 74);
-      this.labelEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-      this.labelEnglishDocument.Name = "labelEnglishDocument";
-      this.labelEnglishDocument.Size = new System.Drawing.Size(94, 13);
-      this.labelEnglishDocument.TabIndex = 3;
-      this.labelEnglishDocument.Text = "English document:";
+      this.listBoxAutoLearningFrench.FormattingEnabled = true;
+      this.listBoxAutoLearningFrench.HorizontalScrollbar = true;
+      this.listBoxAutoLearningFrench.Location = new System.Drawing.Point(107, 137);
+      this.listBoxAutoLearningFrench.Name = "listBoxAutoLearningFrench";
+      this.listBoxAutoLearningFrench.Size = new System.Drawing.Size(903, 186);
+      this.listBoxAutoLearningFrench.TabIndex = 17;
       // 
-      // textBoxFrenchDocument
+      // progressBarAutoLearning
       // 
-      this.textBoxFrenchDocument.Location = new System.Drawing.Point(106, 38);
-      this.textBoxFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.textBoxFrenchDocument.Name = "textBoxFrenchDocument";
-      this.textBoxFrenchDocument.Size = new System.Drawing.Size(904, 20);
-      this.textBoxFrenchDocument.TabIndex = 2;
-      // 
-      // labelFrenchDocument
-      // 
-      this.labelFrenchDocument.AutoSize = true;
-      this.labelFrenchDocument.Location = new System.Drawing.Point(10, 38);
-      this.labelFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-      this.labelFrenchDocument.Name = "labelFrenchDocument";
-      this.labelFrenchDocument.Size = new System.Drawing.Size(93, 13);
-      this.labelFrenchDocument.TabIndex = 1;
-      this.labelFrenchDocument.Text = "French document:";
-      // 
-      // buttonAutoLearning
-      // 
-      this.buttonAutoLearning.Location = new System.Drawing.Point(7, 491);
-      this.buttonAutoLearning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonAutoLearning.Name = "buttonAutoLearning";
-      this.buttonAutoLearning.Size = new System.Drawing.Size(91, 23);
-      this.buttonAutoLearning.TabIndex = 0;
-      this.buttonAutoLearning.Text = "Auto learning";
-      this.buttonAutoLearning.UseVisualStyleBackColor = true;
-      // 
-      // tabPageTool
-      // 
-      this.tabPageTool.Controls.Add(this.textBoxCurrentDictionary);
-      this.tabPageTool.Controls.Add(this.labelCurrentDictionary);
-      this.tabPageTool.Controls.Add(this.buttonRemoveDuplicateInDictionary);
-      this.tabPageTool.Controls.Add(this.buttonCheckDuplicateInDictionary);
-      this.tabPageTool.Controls.Add(this.buttonSortDictionary);
-      this.tabPageTool.Controls.Add(this.buttonWords);
-      this.tabPageTool.Controls.Add(this.buttonCountParagraph);
-      this.tabPageTool.Location = new System.Drawing.Point(4, 22);
-      this.tabPageTool.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tabPageTool.Name = "tabPageTool";
-      this.tabPageTool.Size = new System.Drawing.Size(1082, 553);
-      this.tabPageTool.TabIndex = 2;
-      this.tabPageTool.Text = "Tools";
-      this.tabPageTool.UseVisualStyleBackColor = true;
-      // 
-      // textBoxCurrentDictionary
-      // 
-      this.textBoxCurrentDictionary.Location = new System.Drawing.Point(131, 13);
-      this.textBoxCurrentDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.textBoxCurrentDictionary.Name = "textBoxCurrentDictionary";
-      this.textBoxCurrentDictionary.Size = new System.Drawing.Size(866, 20);
-      this.textBoxCurrentDictionary.TabIndex = 6;
-      // 
-      // labelCurrentDictionary
-      // 
-      this.labelCurrentDictionary.AutoSize = true;
-      this.labelCurrentDictionary.Location = new System.Drawing.Point(33, 13);
-      this.labelCurrentDictionary.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-      this.labelCurrentDictionary.Name = "labelCurrentDictionary";
-      this.labelCurrentDictionary.Size = new System.Drawing.Size(92, 13);
-      this.labelCurrentDictionary.TabIndex = 5;
-      this.labelCurrentDictionary.Text = "Current dictionary:";
-      // 
-      // buttonRemoveDuplicateInDictionary
-      // 
-      this.buttonRemoveDuplicateInDictionary.Location = new System.Drawing.Point(33, 187);
-      this.buttonRemoveDuplicateInDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonRemoveDuplicateInDictionary.Name = "buttonRemoveDuplicateInDictionary";
-      this.buttonRemoveDuplicateInDictionary.Size = new System.Drawing.Size(165, 22);
-      this.buttonRemoveDuplicateInDictionary.TabIndex = 4;
-      this.buttonRemoveDuplicateInDictionary.Text = "Remove duplicate in Dictionary";
-      this.buttonRemoveDuplicateInDictionary.UseVisualStyleBackColor = true;
-      // 
-      // buttonCheckDuplicateInDictionary
-      // 
-      this.buttonCheckDuplicateInDictionary.Location = new System.Drawing.Point(33, 154);
-      this.buttonCheckDuplicateInDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonCheckDuplicateInDictionary.Name = "buttonCheckDuplicateInDictionary";
-      this.buttonCheckDuplicateInDictionary.Size = new System.Drawing.Size(165, 22);
-      this.buttonCheckDuplicateInDictionary.TabIndex = 3;
-      this.buttonCheckDuplicateInDictionary.Text = "Check duplicate in Dictionary";
-      this.buttonCheckDuplicateInDictionary.UseVisualStyleBackColor = true;
-      // 
-      // buttonSortDictionary
-      // 
-      this.buttonSortDictionary.Location = new System.Drawing.Point(33, 116);
-      this.buttonSortDictionary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonSortDictionary.Name = "buttonSortDictionary";
-      this.buttonSortDictionary.Size = new System.Drawing.Size(165, 22);
-      this.buttonSortDictionary.TabIndex = 2;
-      this.buttonSortDictionary.Text = "Sort Dictionary";
-      this.buttonSortDictionary.UseVisualStyleBackColor = true;
-      this.buttonSortDictionary.Click += new System.EventHandler(this.ButtonSortDictionaryClick);
-      // 
-      // buttonWords
-      // 
-      this.buttonWords.Location = new System.Drawing.Point(33, 82);
-      this.buttonWords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonWords.Name = "buttonWords";
-      this.buttonWords.Size = new System.Drawing.Size(165, 22);
-      this.buttonWords.TabIndex = 1;
-      this.buttonWords.Text = "Count words";
-      this.buttonWords.UseVisualStyleBackColor = true;
-      this.buttonWords.Click += new System.EventHandler(this.ButtonWordsClick);
-      // 
-      // buttonCountParagraph
-      // 
-      this.buttonCountParagraph.Location = new System.Drawing.Point(33, 41);
-      this.buttonCountParagraph.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.buttonCountParagraph.Name = "buttonCountParagraph";
-      this.buttonCountParagraph.Size = new System.Drawing.Size(165, 22);
-      this.buttonCountParagraph.TabIndex = 0;
-      this.buttonCountParagraph.Text = "Count paragraph";
-      this.buttonCountParagraph.UseVisualStyleBackColor = true;
-      this.buttonCountParagraph.Click += new System.EventHandler(this.ButtonCountParagraphClick);
-      // 
-      // openFileDialog1
-      // 
-      this.openFileDialog1.FileName = "openFileDialog1";
+      this.progressBarAutoLearning.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.progressBarAutoLearning.Location = new System.Drawing.Point(0, 652);
+      this.progressBarAutoLearning.Name = "progressBarAutoLearning";
+      this.progressBarAutoLearning.Size = new System.Drawing.Size(1349, 23);
+      this.progressBarAutoLearning.TabIndex = 16;
       // 
       // labelAutoLearningEnglish
       // 
@@ -816,41 +707,176 @@
       this.labelAutoLearningFrench.TabIndex = 12;
       this.labelAutoLearningFrench.Text = "French";
       // 
-      // progressBarAutoLearning
+      // buttonPickEnglishDocument
       // 
-      this.progressBarAutoLearning.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.progressBarAutoLearning.Location = new System.Drawing.Point(0, 529);
-      this.progressBarAutoLearning.Name = "progressBarAutoLearning";
-      this.progressBarAutoLearning.Size = new System.Drawing.Size(1082, 23);
-      this.progressBarAutoLearning.TabIndex = 16;
+      this.buttonPickEnglishDocument.Location = new System.Drawing.Point(1013, 73);
+      this.buttonPickEnglishDocument.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonPickEnglishDocument.Name = "buttonPickEnglishDocument";
+      this.buttonPickEnglishDocument.Size = new System.Drawing.Size(28, 19);
+      this.buttonPickEnglishDocument.TabIndex = 11;
+      this.buttonPickEnglishDocument.Text = "...";
+      this.buttonPickEnglishDocument.UseVisualStyleBackColor = true;
+      this.buttonPickEnglishDocument.Click += new System.EventHandler(this.ButtonPickEnglishDocumentClick);
       // 
-      // listBoxAutoLearningFrench
+      // buttonPickFrenchDocument
       // 
-      this.listBoxAutoLearningFrench.FormattingEnabled = true;
-      this.listBoxAutoLearningFrench.HorizontalScrollbar = true;
-      this.listBoxAutoLearningFrench.Location = new System.Drawing.Point(107, 137);
-      this.listBoxAutoLearningFrench.Name = "listBoxAutoLearningFrench";
-      this.listBoxAutoLearningFrench.Size = new System.Drawing.Size(903, 186);
-      this.listBoxAutoLearningFrench.TabIndex = 17;
+      this.buttonPickFrenchDocument.Location = new System.Drawing.Point(1013, 38);
+      this.buttonPickFrenchDocument.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonPickFrenchDocument.Name = "buttonPickFrenchDocument";
+      this.buttonPickFrenchDocument.Size = new System.Drawing.Size(28, 19);
+      this.buttonPickFrenchDocument.TabIndex = 10;
+      this.buttonPickFrenchDocument.Text = "...";
+      this.buttonPickFrenchDocument.UseVisualStyleBackColor = true;
+      this.buttonPickFrenchDocument.Click += new System.EventHandler(this.ButtonPickFrenchDocumentClick);
       // 
-      // listBoxAutoLearningEnglish
+      // textBoxEnglishDocument
       // 
-      this.listBoxAutoLearningEnglish.FormattingEnabled = true;
-      this.listBoxAutoLearningEnglish.HorizontalScrollbar = true;
-      this.listBoxAutoLearningEnglish.Location = new System.Drawing.Point(107, 347);
-      this.listBoxAutoLearningEnglish.Name = "listBoxAutoLearningEnglish";
-      this.listBoxAutoLearningEnglish.Size = new System.Drawing.Size(903, 173);
-      this.listBoxAutoLearningEnglish.TabIndex = 18;
+      this.textBoxEnglishDocument.Location = new System.Drawing.Point(106, 74);
+      this.textBoxEnglishDocument.Margin = new System.Windows.Forms.Padding(2);
+      this.textBoxEnglishDocument.Name = "textBoxEnglishDocument";
+      this.textBoxEnglishDocument.Size = new System.Drawing.Size(904, 20);
+      this.textBoxEnglishDocument.TabIndex = 4;
+      // 
+      // labelEnglishDocument
+      // 
+      this.labelEnglishDocument.AutoSize = true;
+      this.labelEnglishDocument.Location = new System.Drawing.Point(10, 74);
+      this.labelEnglishDocument.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+      this.labelEnglishDocument.Name = "labelEnglishDocument";
+      this.labelEnglishDocument.Size = new System.Drawing.Size(94, 13);
+      this.labelEnglishDocument.TabIndex = 3;
+      this.labelEnglishDocument.Text = "English document:";
+      // 
+      // textBoxFrenchDocument
+      // 
+      this.textBoxFrenchDocument.Location = new System.Drawing.Point(106, 38);
+      this.textBoxFrenchDocument.Margin = new System.Windows.Forms.Padding(2);
+      this.textBoxFrenchDocument.Name = "textBoxFrenchDocument";
+      this.textBoxFrenchDocument.Size = new System.Drawing.Size(904, 20);
+      this.textBoxFrenchDocument.TabIndex = 2;
+      // 
+      // labelFrenchDocument
+      // 
+      this.labelFrenchDocument.AutoSize = true;
+      this.labelFrenchDocument.Location = new System.Drawing.Point(10, 38);
+      this.labelFrenchDocument.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+      this.labelFrenchDocument.Name = "labelFrenchDocument";
+      this.labelFrenchDocument.Size = new System.Drawing.Size(93, 13);
+      this.labelFrenchDocument.TabIndex = 1;
+      this.labelFrenchDocument.Text = "French document:";
+      // 
+      // buttonAutoLearning
+      // 
+      this.buttonAutoLearning.Location = new System.Drawing.Point(11, 497);
+      this.buttonAutoLearning.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonAutoLearning.Name = "buttonAutoLearning";
+      this.buttonAutoLearning.Size = new System.Drawing.Size(91, 23);
+      this.buttonAutoLearning.TabIndex = 0;
+      this.buttonAutoLearning.Text = "Auto learning";
+      this.buttonAutoLearning.UseVisualStyleBackColor = true;
+      // 
+      // tabPageTool
+      // 
+      this.tabPageTool.Controls.Add(this.textBoxCurrentDictionary);
+      this.tabPageTool.Controls.Add(this.labelCurrentDictionary);
+      this.tabPageTool.Controls.Add(this.buttonRemoveDuplicateInDictionary);
+      this.tabPageTool.Controls.Add(this.buttonCheckDuplicateInDictionary);
+      this.tabPageTool.Controls.Add(this.buttonSortDictionary);
+      this.tabPageTool.Controls.Add(this.buttonWords);
+      this.tabPageTool.Controls.Add(this.buttonCountParagraph);
+      this.tabPageTool.Location = new System.Drawing.Point(4, 22);
+      this.tabPageTool.Margin = new System.Windows.Forms.Padding(2);
+      this.tabPageTool.Name = "tabPageTool";
+      this.tabPageTool.Size = new System.Drawing.Size(1349, 675);
+      this.tabPageTool.TabIndex = 2;
+      this.tabPageTool.Text = "Tools";
+      this.tabPageTool.UseVisualStyleBackColor = true;
+      // 
+      // textBoxCurrentDictionary
+      // 
+      this.textBoxCurrentDictionary.Location = new System.Drawing.Point(131, 13);
+      this.textBoxCurrentDictionary.Margin = new System.Windows.Forms.Padding(2);
+      this.textBoxCurrentDictionary.Name = "textBoxCurrentDictionary";
+      this.textBoxCurrentDictionary.Size = new System.Drawing.Size(866, 20);
+      this.textBoxCurrentDictionary.TabIndex = 6;
+      // 
+      // labelCurrentDictionary
+      // 
+      this.labelCurrentDictionary.AutoSize = true;
+      this.labelCurrentDictionary.Location = new System.Drawing.Point(33, 13);
+      this.labelCurrentDictionary.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+      this.labelCurrentDictionary.Name = "labelCurrentDictionary";
+      this.labelCurrentDictionary.Size = new System.Drawing.Size(92, 13);
+      this.labelCurrentDictionary.TabIndex = 5;
+      this.labelCurrentDictionary.Text = "Current dictionary:";
+      // 
+      // buttonRemoveDuplicateInDictionary
+      // 
+      this.buttonRemoveDuplicateInDictionary.Location = new System.Drawing.Point(33, 187);
+      this.buttonRemoveDuplicateInDictionary.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonRemoveDuplicateInDictionary.Name = "buttonRemoveDuplicateInDictionary";
+      this.buttonRemoveDuplicateInDictionary.Size = new System.Drawing.Size(165, 22);
+      this.buttonRemoveDuplicateInDictionary.TabIndex = 4;
+      this.buttonRemoveDuplicateInDictionary.Text = "Remove duplicate in Dictionary";
+      this.buttonRemoveDuplicateInDictionary.UseVisualStyleBackColor = true;
+      this.buttonRemoveDuplicateInDictionary.Click += new System.EventHandler(this.buttonRemoveDuplicateInDictionary_Click);
+      // 
+      // buttonCheckDuplicateInDictionary
+      // 
+      this.buttonCheckDuplicateInDictionary.Location = new System.Drawing.Point(33, 154);
+      this.buttonCheckDuplicateInDictionary.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonCheckDuplicateInDictionary.Name = "buttonCheckDuplicateInDictionary";
+      this.buttonCheckDuplicateInDictionary.Size = new System.Drawing.Size(165, 22);
+      this.buttonCheckDuplicateInDictionary.TabIndex = 3;
+      this.buttonCheckDuplicateInDictionary.Text = "Check duplicate in Dictionary";
+      this.buttonCheckDuplicateInDictionary.UseVisualStyleBackColor = true;
+      // 
+      // buttonSortDictionary
+      // 
+      this.buttonSortDictionary.Location = new System.Drawing.Point(33, 116);
+      this.buttonSortDictionary.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonSortDictionary.Name = "buttonSortDictionary";
+      this.buttonSortDictionary.Size = new System.Drawing.Size(165, 22);
+      this.buttonSortDictionary.TabIndex = 2;
+      this.buttonSortDictionary.Text = "Sort Dictionary";
+      this.buttonSortDictionary.UseVisualStyleBackColor = true;
+      this.buttonSortDictionary.Click += new System.EventHandler(this.ButtonSortDictionaryClick);
+      // 
+      // buttonWords
+      // 
+      this.buttonWords.Location = new System.Drawing.Point(33, 82);
+      this.buttonWords.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonWords.Name = "buttonWords";
+      this.buttonWords.Size = new System.Drawing.Size(165, 22);
+      this.buttonWords.TabIndex = 1;
+      this.buttonWords.Text = "Count words";
+      this.buttonWords.UseVisualStyleBackColor = true;
+      this.buttonWords.Click += new System.EventHandler(this.ButtonWordsClick);
+      // 
+      // buttonCountParagraph
+      // 
+      this.buttonCountParagraph.Location = new System.Drawing.Point(33, 41);
+      this.buttonCountParagraph.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonCountParagraph.Name = "buttonCountParagraph";
+      this.buttonCountParagraph.Size = new System.Drawing.Size(165, 22);
+      this.buttonCountParagraph.TabIndex = 0;
+      this.buttonCountParagraph.Text = "Count paragraph";
+      this.buttonCountParagraph.UseVisualStyleBackColor = true;
+      this.buttonCountParagraph.Click += new System.EventHandler(this.ButtonCountParagraphClick);
+      // 
+      // openFileDialog1
+      // 
+      this.openFileDialog1.FileName = "openFileDialog1";
       // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1090, 602);
+      this.ClientSize = new System.Drawing.Size(1357, 725);
       this.Controls.Add(this.tabControl1);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.Margin = new System.Windows.Forms.Padding(2);
       this.Name = "FormMain";
       this.Text = "Translator Helper";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainFormClosing);
@@ -949,6 +975,8 @@
     private System.Windows.Forms.Label labelAutoLearningFrench;
     private System.Windows.Forms.ListBox listBoxAutoLearningEnglish;
     private System.Windows.Forms.ListBox listBoxAutoLearningFrench;
+    private System.Windows.Forms.Button buttonRemoveDuplicateEnglish;
+    private System.Windows.Forms.Button buttonRemoveDuplicateFrench;
   }
 }
 
