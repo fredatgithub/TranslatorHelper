@@ -105,6 +105,11 @@
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.buttonPickAutoLearningDirectory = new System.Windows.Forms.Button();
+      this.textBoxAutoDirectory = new System.Windows.Forms.TextBox();
+      this.labelAutoDirectory = new System.Windows.Forms.Label();
+      this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+      this.checkBoxAutoLearningSubDir = new System.Windows.Forms.CheckBox();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -618,6 +623,10 @@
       // 
       // tabPageAutoLearning
       // 
+      this.tabPageAutoLearning.Controls.Add(this.checkBoxAutoLearningSubDir);
+      this.tabPageAutoLearning.Controls.Add(this.buttonPickAutoLearningDirectory);
+      this.tabPageAutoLearning.Controls.Add(this.textBoxAutoDirectory);
+      this.tabPageAutoLearning.Controls.Add(this.labelAutoDirectory);
       this.tabPageAutoLearning.Controls.Add(this.buttonRemoveDuplicateEnglish);
       this.tabPageAutoLearning.Controls.Add(this.buttonRemoveDuplicateFrench);
       this.tabPageAutoLearning.Controls.Add(this.listBoxAutoLearningEnglish);
@@ -642,7 +651,7 @@
       // 
       // buttonRemoveDuplicateEnglish
       // 
-      this.buttonRemoveDuplicateEnglish.Location = new System.Drawing.Point(11, 455);
+      this.buttonRemoveDuplicateEnglish.Location = new System.Drawing.Point(11, 485);
       this.buttonRemoveDuplicateEnglish.Margin = new System.Windows.Forms.Padding(2);
       this.buttonRemoveDuplicateEnglish.Name = "buttonRemoveDuplicateEnglish";
       this.buttonRemoveDuplicateEnglish.Size = new System.Drawing.Size(91, 38);
@@ -652,7 +661,7 @@
       // 
       // buttonRemoveDuplicateFrench
       // 
-      this.buttonRemoveDuplicateFrench.Location = new System.Drawing.Point(11, 285);
+      this.buttonRemoveDuplicateFrench.Location = new System.Drawing.Point(11, 315);
       this.buttonRemoveDuplicateFrench.Margin = new System.Windows.Forms.Padding(2);
       this.buttonRemoveDuplicateFrench.Name = "buttonRemoveDuplicateFrench";
       this.buttonRemoveDuplicateFrench.Size = new System.Drawing.Size(91, 38);
@@ -665,19 +674,21 @@
       // 
       this.listBoxAutoLearningEnglish.FormattingEnabled = true;
       this.listBoxAutoLearningEnglish.HorizontalScrollbar = true;
-      this.listBoxAutoLearningEnglish.Location = new System.Drawing.Point(107, 347);
+      this.listBoxAutoLearningEnglish.Location = new System.Drawing.Point(107, 377);
       this.listBoxAutoLearningEnglish.Name = "listBoxAutoLearningEnglish";
       this.listBoxAutoLearningEnglish.Size = new System.Drawing.Size(903, 173);
       this.listBoxAutoLearningEnglish.TabIndex = 18;
+      this.listBoxAutoLearningEnglish.SelectedIndexChanged += new System.EventHandler(this.listBoxAutoLearningEnglish_SelectedIndexChanged);
       // 
       // listBoxAutoLearningFrench
       // 
       this.listBoxAutoLearningFrench.FormattingEnabled = true;
       this.listBoxAutoLearningFrench.HorizontalScrollbar = true;
-      this.listBoxAutoLearningFrench.Location = new System.Drawing.Point(107, 137);
+      this.listBoxAutoLearningFrench.Location = new System.Drawing.Point(107, 167);
       this.listBoxAutoLearningFrench.Name = "listBoxAutoLearningFrench";
       this.listBoxAutoLearningFrench.Size = new System.Drawing.Size(903, 186);
       this.listBoxAutoLearningFrench.TabIndex = 17;
+      this.listBoxAutoLearningFrench.SelectedIndexChanged += new System.EventHandler(this.listBoxAutoLearningFrench_SelectedIndexChanged);
       // 
       // progressBarAutoLearning
       // 
@@ -690,7 +701,7 @@
       // labelAutoLearningEnglish
       // 
       this.labelAutoLearningEnglish.AutoSize = true;
-      this.labelAutoLearningEnglish.Location = new System.Drawing.Point(104, 331);
+      this.labelAutoLearningEnglish.Location = new System.Drawing.Point(104, 361);
       this.labelAutoLearningEnglish.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelAutoLearningEnglish.Name = "labelAutoLearningEnglish";
       this.labelAutoLearningEnglish.Size = new System.Drawing.Size(44, 13);
@@ -700,7 +711,7 @@
       // labelAutoLearningFrench
       // 
       this.labelAutoLearningFrench.AutoSize = true;
-      this.labelAutoLearningFrench.Location = new System.Drawing.Point(104, 120);
+      this.labelAutoLearningFrench.Location = new System.Drawing.Point(104, 150);
       this.labelAutoLearningFrench.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelAutoLearningFrench.Name = "labelAutoLearningFrench";
       this.labelAutoLearningFrench.Size = new System.Drawing.Size(40, 13);
@@ -767,7 +778,7 @@
       // 
       // buttonAutoLearning
       // 
-      this.buttonAutoLearning.Location = new System.Drawing.Point(11, 497);
+      this.buttonAutoLearning.Location = new System.Drawing.Point(11, 130);
       this.buttonAutoLearning.Margin = new System.Windows.Forms.Padding(2);
       this.buttonAutoLearning.Name = "buttonAutoLearning";
       this.buttonAutoLearning.Size = new System.Drawing.Size(91, 23);
@@ -867,6 +878,45 @@
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
+      // 
+      // buttonPickAutoLearningDirectory
+      // 
+      this.buttonPickAutoLearningDirectory.Location = new System.Drawing.Point(1013, 101);
+      this.buttonPickAutoLearningDirectory.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonPickAutoLearningDirectory.Name = "buttonPickAutoLearningDirectory";
+      this.buttonPickAutoLearningDirectory.Size = new System.Drawing.Size(28, 19);
+      this.buttonPickAutoLearningDirectory.TabIndex = 23;
+      this.buttonPickAutoLearningDirectory.Text = "...";
+      this.buttonPickAutoLearningDirectory.UseVisualStyleBackColor = true;
+      this.buttonPickAutoLearningDirectory.Click += new System.EventHandler(this.buttonPickAutoLearningDirectory_Click);
+      // 
+      // textBoxAutoDirectory
+      // 
+      this.textBoxAutoDirectory.Location = new System.Drawing.Point(106, 98);
+      this.textBoxAutoDirectory.Margin = new System.Windows.Forms.Padding(2);
+      this.textBoxAutoDirectory.Name = "textBoxAutoDirectory";
+      this.textBoxAutoDirectory.Size = new System.Drawing.Size(904, 20);
+      this.textBoxAutoDirectory.TabIndex = 22;
+      // 
+      // labelAutoDirectory
+      // 
+      this.labelAutoDirectory.AutoSize = true;
+      this.labelAutoDirectory.Location = new System.Drawing.Point(10, 102);
+      this.labelAutoDirectory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+      this.labelAutoDirectory.Name = "labelAutoDirectory";
+      this.labelAutoDirectory.Size = new System.Drawing.Size(52, 13);
+      this.labelAutoDirectory.TabIndex = 21;
+      this.labelAutoDirectory.Text = "Directory:";
+      // 
+      // checkBoxAutoLearningSubDir
+      // 
+      this.checkBoxAutoLearningSubDir.AutoSize = true;
+      this.checkBoxAutoLearningSubDir.Location = new System.Drawing.Point(107, 130);
+      this.checkBoxAutoLearningSubDir.Name = "checkBoxAutoLearningSubDir";
+      this.checkBoxAutoLearningSubDir.Size = new System.Drawing.Size(132, 17);
+      this.checkBoxAutoLearningSubDir.TabIndex = 24;
+      this.checkBoxAutoLearningSubDir.Text = "Include sub-directories";
+      this.checkBoxAutoLearningSubDir.UseVisualStyleBackColor = true;
       // 
       // FormMain
       // 
@@ -977,6 +1027,11 @@
     private System.Windows.Forms.ListBox listBoxAutoLearningFrench;
     private System.Windows.Forms.Button buttonRemoveDuplicateEnglish;
     private System.Windows.Forms.Button buttonRemoveDuplicateFrench;
+    private System.Windows.Forms.Button buttonPickAutoLearningDirectory;
+    private System.Windows.Forms.TextBox textBoxAutoDirectory;
+    private System.Windows.Forms.Label labelAutoDirectory;
+    private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+    private System.Windows.Forms.CheckBox checkBoxAutoLearningSubDir;
   }
 }
 

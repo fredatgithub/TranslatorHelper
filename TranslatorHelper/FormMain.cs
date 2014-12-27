@@ -430,7 +430,6 @@ namespace TranslatorHelper
             listBoxAutoLearningEnglish.Items.Add(tmpPhrases[i]);
           }
         }
-
       }
     }
 
@@ -509,6 +508,24 @@ namespace TranslatorHelper
     private void buttonRemoveDuplicateInDictionary_Click(object sender, EventArgs e)
     {
       dictionaryHasChanged = true;
+    }
+
+    private void listBoxAutoLearningFrench_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      listBoxAutoLearningEnglish.SelectedIndex = listBoxAutoLearningFrench.SelectedIndex;
+    }
+
+    private void listBoxAutoLearningEnglish_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      listBoxAutoLearningFrench.SelectedIndex = listBoxAutoLearningEnglish.SelectedIndex;
+    }
+
+    private void buttonPickAutoLearningDirectory_Click(object sender, EventArgs e)
+    {
+      if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+      {
+        textBoxAutoDirectory.Text = folderBrowserDialog1.SelectedPath;
+      }
     }
   }
 }
