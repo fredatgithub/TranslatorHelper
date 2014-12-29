@@ -110,6 +110,8 @@ namespace TranslatorHelper
         else
         {
           // reading dictionary
+          // the file must not have emptied line
+          RemoveEmptyLine(SourceDictionaryfileName);
           sourceDictionary = new Dictionary<string, string>();
           StreamReader sr = new StreamReader(SourceDictionaryfileName);
           bool readingEnglishLine = true;
@@ -137,6 +139,39 @@ namespace TranslatorHelper
           LoadDictionaryIntoListBoxes();
         }
       }
+    }
+
+    private static void RemoveEmptyLine(string dictionaryFileName)
+    {
+      // removing empty line
+      if (!File.Exists(dictionaryFileName))
+      {
+        return;
+      }
+
+      List<string> newFile = new List<string>();
+      StreamReader sr = new StreamReader(dictionaryFileName);
+      while (sr.Peek() >= 0)
+      {
+        string newLine = sr.ReadLine();
+        if (newLine != string.Empty)
+        {
+          newFile.Add(newLine);
+        }
+      }
+
+      sr.Close();
+      // instead of delete the old file, we keep it and rename it to check that everything is ok
+      //File.Replace(dictionaryFileName, dictionaryFileName, dictionaryFileName + "_backup");
+      File.Copy(dictionaryFileName, dictionaryFileName + ".backup");
+      File.Delete(dictionaryFileName);
+      StreamWriter sw = new StreamWriter(dictionaryFileName);
+      foreach (string line in newFile)
+      {
+        sw.WriteLine(line);
+      }
+
+      sw.Close();
     }
 
     private void LoadDictionaryIntoListBoxes()
