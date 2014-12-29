@@ -163,7 +163,7 @@ namespace TranslatorHelper
       sr.Close();
       // instead of delete the old file, we keep it and rename it to check that everything is ok
       //File.Replace(dictionaryFileName, dictionaryFileName, dictionaryFileName + "_backup");
-      File.Copy(dictionaryFileName, dictionaryFileName + ".backup");
+      File.Copy(dictionaryFileName, dictionaryFileName + ".backup.txt");
       File.Delete(dictionaryFileName);
       StreamWriter sw = new StreamWriter(dictionaryFileName);
       foreach (string line in newFile)
