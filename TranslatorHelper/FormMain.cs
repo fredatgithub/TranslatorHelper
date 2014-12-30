@@ -168,7 +168,7 @@ namespace TranslatorHelper
         File.Delete(dictionaryFileName + ".backup.txt");
       }
 
-      File.Copy(dictionaryFileName, dictionaryFileName + ".backup.txt");
+      File.Copy(dictionaryFileName, dictionaryFileName + ".backup.txt", true);
       File.Delete(dictionaryFileName);
       StreamWriter sw = new StreamWriter(dictionaryFileName);
       foreach (string line in newFile)
