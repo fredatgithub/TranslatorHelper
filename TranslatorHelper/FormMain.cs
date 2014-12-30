@@ -524,7 +524,7 @@ namespace TranslatorHelper
       LoadDictionaryIntoListBoxes();
     }
 
-    private void buttonRemoveDuplicateFrench_Click(object sender, EventArgs e)
+    private void ButtonRemoveDuplicateFrenchClick(object sender, EventArgs e)
     {
       //removing duplicate in listbox french
       listBoxAutoLearningFrench.Sorted = true;
@@ -540,26 +540,40 @@ namespace TranslatorHelper
       //listBoxAutoLearningFrench.Items = listBoxAutoLearningFrench.Items.Select(n => n.Distinct());
     }
 
-    private void buttonRemoveDuplicateInDictionary_Click(object sender, EventArgs e)
+    private void ButtonRemoveDuplicateInDictionaryClick(object sender, EventArgs e)
     {
       dictionaryHasChanged = true;
     }
 
-    private void listBoxAutoLearningFrench_SelectedIndexChanged(object sender, EventArgs e)
+    private void ListBoxAutoLearningFrenchSelectedIndexChanged(object sender, EventArgs e)
     {
       listBoxAutoLearningEnglish.SelectedIndex = listBoxAutoLearningFrench.SelectedIndex;
     }
 
-    private void listBoxAutoLearningEnglish_SelectedIndexChanged(object sender, EventArgs e)
+    private void ListBoxAutoLearningEnglishSelectedIndexChanged(object sender, EventArgs e)
     {
       listBoxAutoLearningFrench.SelectedIndex = listBoxAutoLearningEnglish.SelectedIndex;
     }
 
-    private void buttonPickAutoLearningDirectory_Click(object sender, EventArgs e)
+    private void ButtonPickAutoLearningDirectoryClick(object sender, EventArgs e)
     {
       if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
       {
         textBoxAutoDirectory.Text = folderBrowserDialog1.SelectedPath;
+      }
+    }
+
+    private void ButtonLiveLearningPickFrenchDocClick(object sender, EventArgs e)
+    {
+      var opendialog = new OpenFileDialog
+      {
+        Filter = @"Word Documents(*.docx)| *.docx"
+      };
+
+      if (opendialog.ShowDialog() == DialogResult.OK)
+      {
+        textBoxLiveLearningFrenchDocPath.Text = opendialog.FileName;
+        
       }
     }
   }
