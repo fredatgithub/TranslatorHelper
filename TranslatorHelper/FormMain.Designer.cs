@@ -108,12 +108,18 @@
       this.buttonSortDictionary = new System.Windows.Forms.Button();
       this.buttonWords = new System.Windows.Forms.Button();
       this.buttonCountParagraph = new System.Windows.Forms.Button();
-      this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
       this.tabPageLiveLearning = new System.Windows.Forms.TabPage();
       this.buttonLiveLearningPickFrenchDoc = new System.Windows.Forms.Button();
       this.textBoxLiveLearningFrenchDocPath = new System.Windows.Forms.TextBox();
       this.labelLiveLearningFrenchDoc = new System.Windows.Forms.Label();
+      this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+      this.listBoxLiveLearningFrenchSentences = new System.Windows.Forms.ListBox();
+      this.textBoxLiveLearningEnglishTranslation = new System.Windows.Forms.TextBox();
+      this.labelLiveLearningFrenchSentences = new System.Windows.Forms.Label();
+      this.labelLiveLearningFrenchSentencesNotAlreadyTranslated = new System.Windows.Forms.Label();
+      this.listBoxLiveLearningFrDocNotTranslated = new System.Windows.Forms.ListBox();
+      this.buttonLiveLearningAddToDictionary = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -654,7 +660,7 @@
       // 
       this.checkBoxAutoLearningSubDir.AutoSize = true;
       this.checkBoxAutoLearningSubDir.Location = new System.Drawing.Point(143, 160);
-      this.checkBoxAutoLearningSubDir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.checkBoxAutoLearningSubDir.Margin = new System.Windows.Forms.Padding(4);
       this.checkBoxAutoLearningSubDir.Name = "checkBoxAutoLearningSubDir";
       this.checkBoxAutoLearningSubDir.Size = new System.Drawing.Size(173, 21);
       this.checkBoxAutoLearningSubDir.TabIndex = 24;
@@ -716,7 +722,7 @@
       this.listBoxAutoLearningEnglish.HorizontalScrollbar = true;
       this.listBoxAutoLearningEnglish.ItemHeight = 16;
       this.listBoxAutoLearningEnglish.Location = new System.Drawing.Point(143, 464);
-      this.listBoxAutoLearningEnglish.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.listBoxAutoLearningEnglish.Margin = new System.Windows.Forms.Padding(4);
       this.listBoxAutoLearningEnglish.Name = "listBoxAutoLearningEnglish";
       this.listBoxAutoLearningEnglish.Size = new System.Drawing.Size(1203, 212);
       this.listBoxAutoLearningEnglish.TabIndex = 18;
@@ -728,7 +734,7 @@
       this.listBoxAutoLearningFrench.HorizontalScrollbar = true;
       this.listBoxAutoLearningFrench.ItemHeight = 16;
       this.listBoxAutoLearningFrench.Location = new System.Drawing.Point(143, 206);
-      this.listBoxAutoLearningFrench.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.listBoxAutoLearningFrench.Margin = new System.Windows.Forms.Padding(4);
       this.listBoxAutoLearningFrench.Name = "listBoxAutoLearningFrench";
       this.listBoxAutoLearningFrench.Size = new System.Drawing.Size(1203, 228);
       this.listBoxAutoLearningFrench.TabIndex = 17;
@@ -738,7 +744,7 @@
       // 
       this.progressBarAutoLearning.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.progressBarAutoLearning.Location = new System.Drawing.Point(0, 792);
-      this.progressBarAutoLearning.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.progressBarAutoLearning.Margin = new System.Windows.Forms.Padding(4);
       this.progressBarAutoLearning.Name = "progressBarAutoLearning";
       this.progressBarAutoLearning.Size = new System.Drawing.Size(1596, 28);
       this.progressBarAutoLearning.TabIndex = 16;
@@ -915,12 +921,14 @@
       this.buttonCountParagraph.UseVisualStyleBackColor = true;
       this.buttonCountParagraph.Click += new System.EventHandler(this.ButtonCountParagraphClick);
       // 
-      // openFileDialog1
-      // 
-      this.openFileDialog1.FileName = "openFileDialog1";
-      // 
       // tabPageLiveLearning
       // 
+      this.tabPageLiveLearning.Controls.Add(this.buttonLiveLearningAddToDictionary);
+      this.tabPageLiveLearning.Controls.Add(this.labelLiveLearningFrenchSentencesNotAlreadyTranslated);
+      this.tabPageLiveLearning.Controls.Add(this.listBoxLiveLearningFrDocNotTranslated);
+      this.tabPageLiveLearning.Controls.Add(this.labelLiveLearningFrenchSentences);
+      this.tabPageLiveLearning.Controls.Add(this.textBoxLiveLearningEnglishTranslation);
+      this.tabPageLiveLearning.Controls.Add(this.listBoxLiveLearningFrenchSentences);
       this.tabPageLiveLearning.Controls.Add(this.buttonLiveLearningPickFrenchDoc);
       this.tabPageLiveLearning.Controls.Add(this.textBoxLiveLearningFrenchDocPath);
       this.tabPageLiveLearning.Controls.Add(this.labelLiveLearningFrenchDoc);
@@ -958,6 +966,69 @@
       this.labelLiveLearningFrenchDoc.Size = new System.Drawing.Size(122, 17);
       this.labelLiveLearningFrenchDoc.TabIndex = 11;
       this.labelLiveLearningFrenchDoc.Text = "French document:";
+      // 
+      // openFileDialog1
+      // 
+      this.openFileDialog1.FileName = "openFileDialog1";
+      // 
+      // listBoxLiveLearningFrenchSentences
+      // 
+      this.listBoxLiveLearningFrenchSentences.FormattingEnabled = true;
+      this.listBoxLiveLearningFrenchSentences.HorizontalScrollbar = true;
+      this.listBoxLiveLearningFrenchSentences.ItemHeight = 16;
+      this.listBoxLiveLearningFrenchSentences.Location = new System.Drawing.Point(28, 129);
+      this.listBoxLiveLearningFrenchSentences.Name = "listBoxLiveLearningFrenchSentences";
+      this.listBoxLiveLearningFrenchSentences.ScrollAlwaysVisible = true;
+      this.listBoxLiveLearningFrenchSentences.Size = new System.Drawing.Size(693, 196);
+      this.listBoxLiveLearningFrenchSentences.TabIndex = 14;
+      // 
+      // textBoxLiveLearningEnglishTranslation
+      // 
+      this.textBoxLiveLearningEnglishTranslation.Location = new System.Drawing.Point(742, 129);
+      this.textBoxLiveLearningEnglishTranslation.Multiline = true;
+      this.textBoxLiveLearningEnglishTranslation.Name = "textBoxLiveLearningEnglishTranslation";
+      this.textBoxLiveLearningEnglishTranslation.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+      this.textBoxLiveLearningEnglishTranslation.Size = new System.Drawing.Size(658, 633);
+      this.textBoxLiveLearningEnglishTranslation.TabIndex = 15;
+      // 
+      // labelLiveLearningFrenchSentences
+      // 
+      this.labelLiveLearningFrenchSentences.AutoSize = true;
+      this.labelLiveLearningFrenchSentences.Location = new System.Drawing.Point(25, 100);
+      this.labelLiveLearningFrenchSentences.Name = "labelLiveLearningFrenchSentences";
+      this.labelLiveLearningFrenchSentences.Size = new System.Drawing.Size(191, 17);
+      this.labelLiveLearningFrenchSentences.TabIndex = 16;
+      this.labelLiveLearningFrenchSentences.Text = "French document sentences:";
+      // 
+      // labelLiveLearningFrenchSentencesNotAlreadyTranslated
+      // 
+      this.labelLiveLearningFrenchSentencesNotAlreadyTranslated.AutoSize = true;
+      this.labelLiveLearningFrenchSentencesNotAlreadyTranslated.Location = new System.Drawing.Point(25, 345);
+      this.labelLiveLearningFrenchSentencesNotAlreadyTranslated.Name = "labelLiveLearningFrenchSentencesNotAlreadyTranslated";
+      this.labelLiveLearningFrenchSentencesNotAlreadyTranslated.Size = new System.Drawing.Size(333, 17);
+      this.labelLiveLearningFrenchSentencesNotAlreadyTranslated.TabIndex = 18;
+      this.labelLiveLearningFrenchSentencesNotAlreadyTranslated.Text = "French document sentences not already translated:";
+      // 
+      // listBoxLiveLearningFrDocNotTranslated
+      // 
+      this.listBoxLiveLearningFrDocNotTranslated.FormattingEnabled = true;
+      this.listBoxLiveLearningFrDocNotTranslated.HorizontalScrollbar = true;
+      this.listBoxLiveLearningFrDocNotTranslated.ItemHeight = 16;
+      this.listBoxLiveLearningFrDocNotTranslated.Location = new System.Drawing.Point(28, 374);
+      this.listBoxLiveLearningFrDocNotTranslated.Name = "listBoxLiveLearningFrDocNotTranslated";
+      this.listBoxLiveLearningFrDocNotTranslated.ScrollAlwaysVisible = true;
+      this.listBoxLiveLearningFrDocNotTranslated.Size = new System.Drawing.Size(693, 388);
+      this.listBoxLiveLearningFrDocNotTranslated.TabIndex = 17;
+      // 
+      // buttonLiveLearningAddToDictionary
+      // 
+      this.buttonLiveLearningAddToDictionary.Location = new System.Drawing.Point(742, 85);
+      this.buttonLiveLearningAddToDictionary.Name = "buttonLiveLearningAddToDictionary";
+      this.buttonLiveLearningAddToDictionary.Size = new System.Drawing.Size(140, 30);
+      this.buttonLiveLearningAddToDictionary.TabIndex = 19;
+      this.buttonLiveLearningAddToDictionary.Text = "Add to dictionary";
+      this.buttonLiveLearningAddToDictionary.UseVisualStyleBackColor = true;
+      this.buttonLiveLearningAddToDictionary.Click += new System.EventHandler(this.ButtonLiveLearningAddToDictionaryClick);
       // 
       // FormMain
       // 
@@ -1079,6 +1150,12 @@
     private System.Windows.Forms.Button buttonLiveLearningPickFrenchDoc;
     private System.Windows.Forms.TextBox textBoxLiveLearningFrenchDocPath;
     private System.Windows.Forms.Label labelLiveLearningFrenchDoc;
+    private System.Windows.Forms.TextBox textBoxLiveLearningEnglishTranslation;
+    private System.Windows.Forms.ListBox listBoxLiveLearningFrenchSentences;
+    private System.Windows.Forms.Label labelLiveLearningFrenchSentencesNotAlreadyTranslated;
+    private System.Windows.Forms.ListBox listBoxLiveLearningFrDocNotTranslated;
+    private System.Windows.Forms.Label labelLiveLearningFrenchSentences;
+    private System.Windows.Forms.Button buttonLiveLearningAddToDictionary;
   }
 }
 

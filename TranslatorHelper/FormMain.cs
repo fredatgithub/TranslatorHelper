@@ -163,6 +163,11 @@ namespace TranslatorHelper
       sr.Close();
       // instead of delete the old file, we keep it and rename it to check that everything is ok
       //File.Replace(dictionaryFileName, dictionaryFileName, dictionaryFileName + "_backup");
+      if (File.Exists(dictionaryFileName + ".backup.txt"))
+      {
+        File.Delete(dictionaryFileName + ".backup.txt");
+      }
+
       File.Copy(dictionaryFileName, dictionaryFileName + ".backup.txt");
       File.Delete(dictionaryFileName);
       StreamWriter sw = new StreamWriter(dictionaryFileName);
@@ -263,7 +268,7 @@ namespace TranslatorHelper
       MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made", this.changeCount, Plural(changeCount)));
     }
 
-    private string Plural(int number)
+    private static string Plural(int number)
     {
       return number > 1 ? "s" : string.Empty;
     }
@@ -354,7 +359,7 @@ namespace TranslatorHelper
       }
     }
 
-    private static void ReplaceLineBreaksWithBoo(string filename)
+    private static void ReplaceLineBreaksWithSomething(string filename)
     {
       using (DocX document = DocX.Load(filename))
       {
@@ -364,7 +369,7 @@ namespace TranslatorHelper
         {
           foreach (string s in lineBreaks)
           {
-            document.ReplaceText(s, "boo!");
+            document.ReplaceText(s, "someText");
           }
         }
 
@@ -573,8 +578,38 @@ namespace TranslatorHelper
       if (opendialog.ShowDialog() == DialogResult.OK)
       {
         textBoxLiveLearningFrenchDocPath.Text = opendialog.FileName;
-        
+        listBoxLiveLearningFrenchSentences.Items.Clear();
+        textBoxLiveLearningEnglishTranslation.Text = string.Empty;
+        listBoxLiveLearningFrDocNotTranslated.Items.Clear();
+        DocxToText dtt = new DocxToText(opendialog.FileName);
+        string text = dtt.ExtractText();
+        string[] tmpPhrases = ConvertTextToArray(text);
+        for (int i = 0; i < ConvertTextToArray(text).Length - 1; i++)
+        {
+          if (tmpPhrases[i] != "\r")
+          {
+            listBoxLiveLearningFrenchSentences.Items.Add(tmpPhrases[i]);
+          }
+        }
       }
+    }
+
+    private void ButtonLiveLearningAddToDictionaryClick(object sender, EventArgs e)
+    {
+      if (listBoxLiveLearningFrDocNotTranslated.SelectedIndex == -1)
+      {
+        MessageBox.Show("You have to select a french sentence corresponding to your english translation");
+        return;
+      }
+
+      if (textBoxLiveLearningEnglishTranslation.Text == string.Empty)
+      {
+        MessageBox.Show("You have to type in some text corresponding to the translation of the french sentence");
+        return;
+      }
+      
+      // adding to the main dictionary
+
     }
   }
 }
