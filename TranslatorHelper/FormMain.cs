@@ -41,7 +41,7 @@ namespace TranslatorHelper
     private const string Period = ".";
     private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
     private int changeCount;
-    private bool dictionaryHasChanged = false;
+    //private bool dictionaryHasChanged = false;
 
     private const string SourceDictionaryfileName = "MainDico.txt";
 
@@ -266,6 +266,22 @@ namespace TranslatorHelper
       progressBarTranslate.Value = progressBarTranslate.Minimum;
       progressBarTranslate.Visible = false;
       MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made", this.changeCount, Plural(changeCount)));
+      const string dialogMessage = "Do you want to open the newly translated document ?";
+      const string dialogCaption = "Open translated document";
+      const MessageBoxButtons myBoxButtons = MessageBoxButtons.YesNo;
+      DialogResult dialogResult = MessageBox.Show(this, dialogMessage, dialogCaption, myBoxButtons);
+      if (dialogResult == DialogResult.Yes)
+      {
+        try
+        {
+          Process.Start(textBoxTranslatedFileName.Text);
+        }
+        catch (Exception exception)
+        {
+          MessageBox.Show("There was an error while trying to open the newly translated document\nCannot open: " + textBoxTranslatedFileName.Text + "\n" + exception.Message);
+        }
+        
+      }
     }
 
     private static string Plural(int number)
@@ -501,7 +517,7 @@ namespace TranslatorHelper
     {
       // sorting the dictionary from the bigest to the smallest phrase
       sourceDictionary = SortDictionaryByLength(sourceDictionary);
-      dictionaryHasChanged = true;
+      //dictionaryHasChanged = true;
       MessageBox.Show("The dictionary has been sorted by french phrase length");
       LoadDictionaryIntoListBoxes();
       tabControl1.SelectedIndex = 2;
@@ -547,7 +563,7 @@ namespace TranslatorHelper
 
     private void ButtonRemoveDuplicateInDictionaryClick(object sender, EventArgs e)
     {
-      dictionaryHasChanged = true;
+      //dictionaryHasChanged = true;
     }
 
     private void ListBoxAutoLearningFrenchSelectedIndexChanged(object sender, EventArgs e)
