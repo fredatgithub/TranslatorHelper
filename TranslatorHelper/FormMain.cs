@@ -629,5 +629,12 @@ namespace TranslatorHelper
       // adding to the main dictionary
 
     }
+
+    private void ButtonDictionaryIntegrityCheckClick(object sender, EventArgs e)
+    {
+      // check if dictionary has an even number of lines
+      int counter = 0;
+
+    }
   }
 }
