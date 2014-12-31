@@ -34,6 +34,7 @@ namespace TranslatorHelper
   {
     public FormMain()
     {
+      DictionaryHasChanged = false;
       InitializeComponent();
     }
 
@@ -41,11 +42,12 @@ namespace TranslatorHelper
     private const string Period = ".";
     private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
     private int changeCount;
-    //private bool dictionaryHasChanged = false;
 
     private const string SourceDictionaryfileName = "MainDico.txt";
 
     private Dictionary<string, string> sourceDictionary;
+
+    public bool DictionaryHasChanged { get; set; }
 
     private void QuitToolStripMenuItemClick(object sender, EventArgs e)
     {
@@ -517,7 +519,7 @@ namespace TranslatorHelper
     {
       // sorting the dictionary from the bigest to the smallest phrase
       sourceDictionary = SortDictionaryByLength(sourceDictionary);
-      //dictionaryHasChanged = true;
+      this.DictionaryHasChanged = true;
       MessageBox.Show("The dictionary has been sorted by french phrase length");
       LoadDictionaryIntoListBoxes();
       tabControl1.SelectedIndex = 2;
@@ -563,7 +565,7 @@ namespace TranslatorHelper
 
     private void ButtonRemoveDuplicateInDictionaryClick(object sender, EventArgs e)
     {
-      //dictionaryHasChanged = true;
+      this.DictionaryHasChanged = true;
     }
 
     private void ListBoxAutoLearningFrenchSelectedIndexChanged(object sender, EventArgs e)
