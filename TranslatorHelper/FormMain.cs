@@ -30,6 +30,8 @@ using System.Text;
 
 namespace TranslatorHelper
 {
+  using System.Globalization;
+
   public partial class FormMain : Form
   {
     public FormMain()
@@ -43,11 +45,13 @@ namespace TranslatorHelper
     private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
     private int changeCount;
 
-    private const string SourceDictionaryfileName = "MainDico.txt";
+    private string SourceDictionaryfileName = "MainDico.txt";
 
+    private bool DictionaryIsSorted;
     private Dictionary<string, string> sourceDictionary;
 
     public bool DictionaryHasChanged { get; set; }
+
 
     private void QuitToolStripMenuItemClick(object sender, EventArgs e)
     {
@@ -194,8 +198,8 @@ namespace TranslatorHelper
         countLines++;
       }
 
-      labelEditFrench.Text = "French (" + countLines + " entries)";
-      labelEditEnglish.Text = "English (" + countLines + " entries)";
+      labelEditFrench.Text = "French (" + countLines + " entr" + PluralWithWordChange(countLines, "eng") + ")";
+      labelEditEnglish.Text = "English (" + countLines + " entr" + PluralWithWordChange(countLines, "eng") + ")";
     }
 
     private void DisplayTitle()
@@ -243,6 +247,7 @@ namespace TranslatorHelper
           DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
           if (result == DialogResult.Yes)
           {
+            File.Copy(textBoxTranslatedFileName.Text, textBoxTranslatedFileName.Text + ".backup"); // add a number if file already exist by method
             File.Delete(textBoxTranslatedFileName.Text);
             File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
           }
@@ -259,6 +264,7 @@ namespace TranslatorHelper
         return;
       }
 
+      // remove empty line and sort dictionary
       progressBarTranslate.Minimum = 1;
       progressBarTranslate.Maximum = sourceDictionary.Count;
       progressBarTranslate.Value = progressBarTranslate.Minimum;
@@ -287,7 +293,7 @@ namespace TranslatorHelper
         {
           MessageBox.Show("There was an error while trying to open the newly translated document\nCannot open: " + textBoxTranslatedFileName.Text + "\n" + exception.Message);
         }
-        
+
       }
     }
 
@@ -304,6 +310,28 @@ namespace TranslatorHelper
       }
 
       return number > 1 ? "s" : string.Empty;
+    }
+
+    private static string IncreaseFileName(string fileName)
+    {
+      int fileNumber = 1;
+      string result = AddAtTheEndOfFileName(fileName, fileNumber.ToString(CultureInfo.InvariantCulture));
+      while (File.Exists(result))
+      {
+        fileNumber++;
+        result = AddAtTheEndOfFileName(fileName, fileNumber.ToString(CultureInfo.InvariantCulture));
+      }
+
+      return result;
+    }
+
+    private static string AddAtTheEndOfFileName(string fileName, string textToBeAdded)
+    {
+      string result = GetDirectoryFileNameAndExtension(fileName)[0] + Backslash
+                                     + GetDirectoryFileNameAndExtension(fileName)[1]
+                                   + textToBeAdded
+                                 + GetDirectoryFileNameAndExtension(fileName)[2];
+      return result;
     }
 
     private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
@@ -472,7 +500,7 @@ namespace TranslatorHelper
           {
             listBoxAutoLearningFrench.Items.Add(tmpPhrases[i]);
           }
-          
+
         }
       }
     }
@@ -534,6 +562,7 @@ namespace TranslatorHelper
     {
       // sorting the dictionary from the bigest to the smallest phrase
       sourceDictionary = SortDictionaryByLength(sourceDictionary);
+      DictionaryIsSorted = true;
       this.DictionaryHasChanged = true;
       MessageBox.Show("The dictionary has been sorted by french phrase length");
       LoadDictionaryIntoListBoxes();
@@ -639,7 +668,7 @@ namespace TranslatorHelper
         MessageBox.Show("You have to type in some text corresponding to the translation of the french sentence");
         return;
       }
-      
+
       // adding to the main dictionary
 
     }

@@ -453,9 +453,9 @@
       this.labelSuffixeFileName.AutoSize = true;
       this.labelSuffixeFileName.Location = new System.Drawing.Point(31, 75);
       this.labelSuffixeFileName.Name = "labelSuffixeFileName";
-      this.labelSuffixeFileName.Size = new System.Drawing.Size(156, 17);
+      this.labelSuffixeFileName.Size = new System.Drawing.Size(134, 17);
       this.labelSuffixeFileName.TabIndex = 10;
-      this.labelSuffixeFileName.Text = "Sufixe du fichier traduit:";
+      this.labelSuffixeFileName.Text = "Translated file suffix";
       // 
       // buttonChooseFile
       // 
