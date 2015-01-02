@@ -112,7 +112,7 @@ namespace TranslatorHelper
         else
         {
           // reading dictionary
-          // the file must not have emptied line
+          // the file must not have empty line
           RemoveEmptyLine(SourceDictionaryfileName);
           sourceDictionary = new Dictionary<string, string>();
           StreamReader sr = new StreamReader(SourceDictionaryfileName);
@@ -186,11 +186,16 @@ namespace TranslatorHelper
       // loading dictionary into edit textboxes
       listBoxEditFrench.Items.Clear();
       listBoxEditEnglish.Items.Clear();
+      int countLines = 0;
       foreach (KeyValuePair<string, string> dicoEntry in sourceDictionary)
       {
         listBoxEditFrench.Items.Add(dicoEntry.Key);
         listBoxEditEnglish.Items.Add(dicoEntry.Value);
+        countLines++;
       }
+
+      labelEditFrench.Text = "French (" + countLines + " entries)";
+      labelEditEnglish.Text = "English (" + countLines + " entries)";
     }
 
     private void DisplayTitle()
@@ -530,7 +535,6 @@ namespace TranslatorHelper
       var queryResults = (from kp in unsortedDictionary
                           orderby kp.Key.Length descending
                           select new KeyValuePair<string, string>(kp.Key, kp.Value));
-
       return queryResults.ToDictionary(x => x.Key, x => x.Value);
     }
 
@@ -634,6 +638,8 @@ namespace TranslatorHelper
     {
       // check if dictionary has an even number of lines
       int counter = 0;
+      bool hasBlankLines = false;
+      bool hadEvenLines = false;
 
     }
   }

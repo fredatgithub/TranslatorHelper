@@ -101,6 +101,7 @@
       this.labelFrenchDocument = new System.Windows.Forms.Label();
       this.buttonAutoLearning = new System.Windows.Forms.Button();
       this.tabPageTool = new System.Windows.Forms.TabPage();
+      this.buttonDictionaryIntegrityCheck = new System.Windows.Forms.Button();
       this.textBoxCurrentDictionary = new System.Windows.Forms.TextBox();
       this.labelCurrentDictionary = new System.Windows.Forms.Label();
       this.buttonRemoveDuplicateInDictionary = new System.Windows.Forms.Button();
@@ -120,7 +121,6 @@
       this.labelLiveLearningFrenchDoc = new System.Windows.Forms.Label();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-      this.buttonDictionaryIntegrityCheck = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -567,7 +567,7 @@
       // 
       // buttonReloadDictionary
       // 
-      this.buttonReloadDictionary.Location = new System.Drawing.Point(236, 385);
+      this.buttonReloadDictionary.Location = new System.Drawing.Point(304, 383);
       this.buttonReloadDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonReloadDictionary.Name = "buttonReloadDictionary";
       this.buttonReloadDictionary.Size = new System.Drawing.Size(135, 23);
@@ -600,7 +600,7 @@
       // 
       // buttonEditDictionary
       // 
-      this.buttonEditDictionary.Location = new System.Drawing.Point(145, 383);
+      this.buttonEditDictionary.Location = new System.Drawing.Point(213, 383);
       this.buttonEditDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonEditDictionary.Name = "buttonEditDictionary";
       this.buttonEditDictionary.Size = new System.Drawing.Size(75, 23);
@@ -852,6 +852,17 @@
       this.tabPageTool.Text = "Tools";
       this.tabPageTool.UseVisualStyleBackColor = true;
       // 
+      // buttonDictionaryIntegrityCheck
+      // 
+      this.buttonDictionaryIntegrityCheck.Location = new System.Drawing.Point(47, 275);
+      this.buttonDictionaryIntegrityCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.buttonDictionaryIntegrityCheck.Name = "buttonDictionaryIntegrityCheck";
+      this.buttonDictionaryIntegrityCheck.Size = new System.Drawing.Size(220, 27);
+      this.buttonDictionaryIntegrityCheck.TabIndex = 7;
+      this.buttonDictionaryIntegrityCheck.Text = "Dictionary integrity check";
+      this.buttonDictionaryIntegrityCheck.UseVisualStyleBackColor = true;
+      this.buttonDictionaryIntegrityCheck.Click += new System.EventHandler(this.ButtonDictionaryIntegrityCheckClick);
+      // 
       // textBoxCurrentDictionary
       // 
       this.textBoxCurrentDictionary.Location = new System.Drawing.Point(175, 16);
@@ -1031,17 +1042,6 @@
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
-      // 
-      // buttonDictionaryIntegrityCheck
-      // 
-      this.buttonDictionaryIntegrityCheck.Location = new System.Drawing.Point(47, 275);
-      this.buttonDictionaryIntegrityCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.buttonDictionaryIntegrityCheck.Name = "buttonDictionaryIntegrityCheck";
-      this.buttonDictionaryIntegrityCheck.Size = new System.Drawing.Size(220, 27);
-      this.buttonDictionaryIntegrityCheck.TabIndex = 7;
-      this.buttonDictionaryIntegrityCheck.Text = "Dictionary integrity check";
-      this.buttonDictionaryIntegrityCheck.UseVisualStyleBackColor = true;
-      this.buttonDictionaryIntegrityCheck.Click += new System.EventHandler(this.ButtonDictionaryIntegrityCheckClick);
       // 
       // FormMain
       // 
