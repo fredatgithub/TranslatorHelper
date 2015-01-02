@@ -296,6 +296,16 @@ namespace TranslatorHelper
       return number > 1 ? "s" : string.Empty;
     }
 
+    private static string PluralWithWordChange(int number, string language)
+    {
+      if (language.ToLower() == "eng")
+      {
+        return number > 1 ? "ies" : "y";
+      }
+
+      return number > 1 ? "s" : string.Empty;
+    }
+
     private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
     {
       MenuLanguageTo(Language.French);
