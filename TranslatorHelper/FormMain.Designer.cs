@@ -121,6 +121,7 @@
       this.labelLiveLearningFrenchDoc = new System.Windows.Forms.Label();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+      this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
       this.menuStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageTranslation.SuspendLayout();
@@ -171,6 +172,7 @@
       this.nouveauToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
       this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
       this.nouveauToolStripMenuItem.Text = "&Nouveau";
+      this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItemClick);
       // 
       // ouvrirToolStripMenuItem
       // 
@@ -180,6 +182,7 @@
       this.ouvrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
       this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
       this.ouvrirToolStripMenuItem.Text = "&Ouvrir";
+      this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItemClick);
       // 
       // toolStripSeparator
       // 
@@ -194,12 +197,14 @@
       this.enregistrerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
       this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
       this.enregistrerToolStripMenuItem.Text = "&Enregistrer";
+      this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItemClick);
       // 
       // enregistrersousToolStripMenuItem
       // 
       this.enregistrersousToolStripMenuItem.Name = "enregistrersousToolStripMenuItem";
       this.enregistrersousToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
       this.enregistrersousToolStripMenuItem.Text = "Enregistrer &sous";
+      this.enregistrersousToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItemClick);
       // 
       // toolStripSeparator1
       // 
@@ -1170,6 +1175,7 @@
     private System.Windows.Forms.Label labelLiveLearningFrenchSentences;
     private System.Windows.Forms.Button buttonLiveLearningAddToDictionary;
     private System.Windows.Forms.Button buttonDictionaryIntegrityCheck;
+    private System.Windows.Forms.SaveFileDialog saveFileDialog1;
   }
 }
 

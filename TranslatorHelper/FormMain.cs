@@ -143,6 +143,7 @@ namespace TranslatorHelper
           }
 
           LoadDictionaryIntoListBoxes();
+          DictionaryHasChanged = false;
         }
       }
     }
@@ -302,7 +303,7 @@ namespace TranslatorHelper
       return number > 1 ? "s" : string.Empty;
     }
 
-    private static string PluralWithWordChange(int number, string language)
+    private static string PluralWithWordChange(int number, string language = "fr")
     {
       if (language.ToLower() == "eng")
       {
@@ -675,11 +676,94 @@ namespace TranslatorHelper
 
     private void ButtonDictionaryIntegrityCheckClick(object sender, EventArgs e)
     {
-      // check if dictionary has an even number of lines
+      // check if dictionary has an even number of lines, has blank lines
       int counter = 0;
       bool hasBlankLines = false;
       bool hadEvenLines = false;
 
+    }
+
+    private void NewToolStripMenuItemClick(object sender, EventArgs e)
+    {
+      if (DictionaryHasChanged)
+      {
+        // ask if user wants to save it
+        const string Message = "The dictionary has changed\nDo you want to save it?";
+        const string Caption = "Dictionary has changed";
+        const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
+        DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+        if (result == DialogResult.Yes)
+        {
+          DictionarySave();
+        }
+      }
+      else
+      {
+        // ask user if he wants to backup the dictionary
+        const string Message = "Do you want to backup the dictionary ?";
+        const string Caption = "Backup the dictionary";
+        const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
+        DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+        if (result == DialogResult.Yes)
+        {
+          BackupDictionary();
+        }
+      }
+    }
+
+    private void BackupDictionary()
+    {
+      File.Copy(SourceDictionaryfileName, IncreaseFileName(SourceDictionaryfileName), false);
+    }
+
+    private void DictionarySave()
+    {
+      if (File.Exists(SourceDictionaryfileName))
+      {
+        File.Delete(SourceDictionaryfileName);
+      }
+
+      StreamWriter sw = new StreamWriter(SourceDictionaryfileName);
+      foreach (KeyValuePair<string, string> dicoEntry in sourceDictionary)
+      {
+        sw.WriteLine(dicoEntry.Key);
+        sw.WriteLine(dicoEntry.Value);
+      }
+
+      sw.Close();
+      DictionaryHasChanged = false;
+    }
+
+    private void SaveToolStripMenuItemClick(object sender, EventArgs e)
+    {
+      DictionarySave();
+    }
+
+    private void SaveAsToolStripMenuItemClick(object sender, EventArgs e)
+    {
+      // ask user what name to assign to new file with SavedialogBox
+
+    }
+
+    private void OpenToolStripMenuItemClick(object sender, EventArgs e)
+    {
+      if (DictionaryHasChanged)
+      {
+        // ask if user wants to save it
+        const string Message = "The dictionary has changed\nDo you want to save it?";
+        const string Caption = "Dictionary has changed";
+        const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
+        DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+        if (result == DialogResult.Yes)
+        {
+          DictionarySave();
+        }
+      }
+      else
+      {
+        sourceDictionary = new Dictionary<string, string>();
+
+      }
     }
   }
 }
