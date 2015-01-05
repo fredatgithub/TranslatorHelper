@@ -238,6 +238,18 @@ namespace TranslatorHelper
       return result;
     }
 
+    private static string ToHourMinuteSecond(long millisecs)
+    {
+      TimeSpan t = TimeSpan.FromSeconds(millisecs);
+
+      string result = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
+                t.Hours,
+                t.Minutes,
+                t.Seconds,
+                t.Milliseconds);
+      return result;
+    }
+
     private void ButtonConvertClick(object sender, EventArgs e)
     {
       //comptage des changements
@@ -288,7 +300,9 @@ namespace TranslatorHelper
       progressBarTranslate.Value = progressBarTranslate.Minimum;
       progressBarTranslate.Visible = false;
       chrono.Stop();
-      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2} Milliseconds", this.changeCount, Plural(changeCount), chrono.ElapsedMilliseconds));
+      long duration = chrono.ElapsedMilliseconds;
+      string timeElapse = ToHourMinuteSecond(duration);
+      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2}", this.changeCount, Plural(changeCount), timeElapse));
       const string DialogMessage = "Do you want to open the newly translated document ?";
       const string DialogCaption = "Open translated document";
       const MessageBoxButtons MyBoxButtons = MessageBoxButtons.YesNo;
