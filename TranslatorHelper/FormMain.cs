@@ -272,6 +272,8 @@ namespace TranslatorHelper
       }
 
       // remove empty line and sort dictionary
+      Stopwatch chrono = new Stopwatch();
+      chrono.Start();
       progressBarTranslate.Minimum = 1;
       progressBarTranslate.Maximum = sourceDictionary.Count;
       progressBarTranslate.Value = progressBarTranslate.Minimum;
@@ -282,13 +284,11 @@ namespace TranslatorHelper
         progressBarTranslate.Value = compteur;
         compteur++;
       }
-
-      Stopwatch chrono = new Stopwatch();
-      chrono.Start();
+      
       progressBarTranslate.Value = progressBarTranslate.Minimum;
       progressBarTranslate.Visible = false;
       chrono.Stop();
-      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2}", this.changeCount, Plural(changeCount), chrono.ElapsedMilliseconds));
+      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2} Milliseconds", this.changeCount, Plural(changeCount), chrono.ElapsedMilliseconds));
       const string DialogMessage = "Do you want to open the newly translated document ?";
       const string DialogCaption = "Open translated document";
       const MessageBoxButtons MyBoxButtons = MessageBoxButtons.YesNo;
