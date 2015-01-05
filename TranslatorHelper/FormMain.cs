@@ -232,6 +232,12 @@ namespace TranslatorHelper
       SaveWindowValue();
     }
 
+    private DialogResult DisplayMessage(string message, string title, MessageBoxButtons buttons)
+    {
+      DialogResult result = MessageBox.Show(this, message, title, buttons);
+      return result;
+    }
+
     private void ButtonConvertClick(object sender, EventArgs e)
     {
       //comptage des changements
@@ -248,7 +254,7 @@ namespace TranslatorHelper
           DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
           if (result == DialogResult.Yes)
           {
-            File.Copy(textBoxTranslatedFileName.Text, textBoxTranslatedFileName.Text + ".backup"); // add a number if file already exist by method
+            File.Copy(textBoxTranslatedFileName.Text, IncreaseFileName(textBoxTranslatedFileName.Text + ".backup.txt")); // add a number if file already exist by method
             File.Delete(textBoxTranslatedFileName.Text);
             File.Copy(textBoxfilePath.Text, textBoxTranslatedFileName.Text);
           }
@@ -277,13 +283,16 @@ namespace TranslatorHelper
         compteur++;
       }
 
+      Stopwatch chrono = new Stopwatch();
+      chrono.Start();
       progressBarTranslate.Value = progressBarTranslate.Minimum;
       progressBarTranslate.Visible = false;
-      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made", this.changeCount, Plural(changeCount)));
-      const string dialogMessage = "Do you want to open the newly translated document ?";
-      const string dialogCaption = "Open translated document";
-      const MessageBoxButtons myBoxButtons = MessageBoxButtons.YesNo;
-      DialogResult dialogResult = MessageBox.Show(this, dialogMessage, dialogCaption, myBoxButtons);
+      chrono.Stop();
+      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2}", this.changeCount, Plural(changeCount), chrono.ElapsedMilliseconds));
+      const string DialogMessage = "Do you want to open the newly translated document ?";
+      const string DialogCaption = "Open translated document";
+      const MessageBoxButtons MyBoxButtons = MessageBoxButtons.YesNo;
+      DialogResult dialogResult = MessageBox.Show(this, DialogMessage, DialogCaption, MyBoxButtons);
       if (dialogResult == DialogResult.Yes)
       {
         try
@@ -761,8 +770,45 @@ namespace TranslatorHelper
       }
       else
       {
-        sourceDictionary = new Dictionary<string, string>();
+        OpenFileDialog ofd = new OpenFileDialog
+        {
+          //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+          Filter = "Text Files (*.txt)|*.txt",
+          Multiselect = false
+        };
 
+        if (ofd.ShowDialog(this) != DialogResult.OK)
+        {
+          return;
+        }
+
+        SourceDictionaryfileName = ofd.FileName;
+        sourceDictionary = new Dictionary<string, string>();
+        StreamReader sr = new StreamReader(SourceDictionaryfileName);
+        bool readingEnglishLine = true;
+        string line1 = string.Empty;
+        string line2 = string.Empty;
+        while (sr.Peek() >= 0)
+        {
+          string tmp = sr.ReadLine();
+          if (readingEnglishLine)
+          {
+            line1 = tmp;
+            readingEnglishLine = false;
+          }
+          else
+          {
+            line2 = tmp;
+            readingEnglishLine = true;
+            if (!sourceDictionary.ContainsKey(line1) && !sourceDictionary.ContainsValue(line2))
+            {
+              sourceDictionary.Add(line1, line2);
+            }
+          }
+        }
+
+        LoadDictionaryIntoListBoxes();
+        DictionaryHasChanged = false;
       }
     }
   }
