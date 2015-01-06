@@ -238,6 +238,24 @@ namespace TranslatorHelper
       return result;
     }
 
+    private static string StripZeroTime(string theTimeToStripped)
+    {
+      string result = theTimeToStripped;
+      for (int i = 1; i < 4; i++)
+      {
+        if (result.StartsWith("00"))
+        {
+          result = result.Substring(4);
+        }
+        else
+        {
+          break;
+        }
+      }
+
+      return result;
+    }
+
     private static string ToHourMinuteSecond(long millisecs)
     {
       TimeSpan t = TimeSpan.FromSeconds(millisecs);
@@ -301,7 +319,7 @@ namespace TranslatorHelper
       progressBarTranslate.Visible = false;
       chrono.Stop();
       long duration = chrono.ElapsedMilliseconds;
-      string timeElapse = ToHourMinuteSecond(duration);
+      string timeElapse = StripZeroTime(ToHourMinuteSecond(duration));
       MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2}", this.changeCount, Plural(changeCount), timeElapse));
       const string DialogMessage = "Do you want to open the newly translated document ?";
       const string DialogCaption = "Open translated document";
