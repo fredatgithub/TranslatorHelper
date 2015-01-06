@@ -7,13 +7,20 @@ namespace UnitTestTranslatorHelper
   public class UnitTest1
   {
     [TestMethod]
-    public void TestMethod1()
+    public void TestStripZeroTime()
     {
       Assert.AreEqual("01h:01m:17s:000ms", FormMain.StripZeroTime("01h:01m:17s:000ms"));
       Assert.AreEqual("01m:17s:000ms", FormMain.StripZeroTime("00h:01m:17s:000ms"));
       Assert.AreEqual("17s:000ms", FormMain.StripZeroTime("00h:00m:17s:000ms"));
       Assert.AreEqual("900ms", FormMain.StripZeroTime("00h:00m:00s:900ms"));
+    }
 
+    [TestMethod]
+    public void TestToHourMinuteSecond()
+    {
+      Assert.AreEqual("00h:00m:19s:000ms", FormMain.ToHourMinuteSecond(19));
+      Assert.AreEqual("00h:01m:00s:000ms", FormMain.ToHourMinuteSecond(60));
+      Assert.AreEqual("01h:00m:00s:000ms", FormMain.ToHourMinuteSecond(3600));
     }
   }
 }

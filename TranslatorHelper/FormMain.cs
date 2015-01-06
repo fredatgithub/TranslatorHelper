@@ -254,7 +254,7 @@ namespace TranslatorHelper
       return result;
     }
 
-    private static string ToHourMinuteSecond(long millisecs)
+    public static string ToHourMinuteSecond(long millisecs)
     {
       TimeSpan t = TimeSpan.FromSeconds(millisecs);
 
