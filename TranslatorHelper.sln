@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorHelper", "TranslatorHelper\TranslatorHelper.csproj", "{31FB5D68-E757-4FD5-8DFE-272F246ED87F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestTranslatorHelper", "UnitTestTranslatorHelper\UnitTestTranslatorHelper.csproj", "{E4D26937-5FE5-4E65-AED9-F22F9FB72754}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{31FB5D68-E757-4FD5-8DFE-272F246ED87F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31FB5D68-E757-4FD5-8DFE-272F246ED87F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31FB5D68-E757-4FD5-8DFE-272F246ED87F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D26937-5FE5-4E65-AED9-F22F9FB72754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D26937-5FE5-4E65-AED9-F22F9FB72754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D26937-5FE5-4E65-AED9-F22F9FB72754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D26937-5FE5-4E65-AED9-F22F9FB72754}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
