@@ -337,12 +337,12 @@ namespace TranslatorHelper
       }
     }
 
-    private static string Plural(int number)
+    public static string Plural(int number)
     {
       return number > 1 ? "s" : string.Empty;
     }
 
-    private static string PluralWithWordChange(int number, string language = "fr")
+    public static string PluralWithWordChange(int number, string language = "fr")
     {
       if (language.ToLower() == "eng")
       {
@@ -352,7 +352,7 @@ namespace TranslatorHelper
       return number > 1 ? "s" : string.Empty;
     }
 
-    private static string IncreaseFileName(string fileName)
+    public static string IncreaseFileName(string fileName)
     {
       int fileNumber = 1;
       string result = AddAtTheEndOfFileName(fileName, fileNumber.ToString(CultureInfo.InvariantCulture));
@@ -365,7 +365,7 @@ namespace TranslatorHelper
       return result;
     }
 
-    private static string AddAtTheEndOfFileName(string fileName, string textToBeAdded)
+    public static string AddAtTheEndOfFileName(string fileName, string textToBeAdded)
     {
       string result = GetDirectoryFileNameAndExtension(fileName)[0] + Backslash
                                      + GetDirectoryFileNameAndExtension(fileName)[1]
