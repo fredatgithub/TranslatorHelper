@@ -78,7 +78,7 @@ namespace TranslatorHelper
                                        + GetDirectoryFileNameAndExtension(ofd.FileName)[2];
     }
 
-    private static string[] GetDirectoryFileNameAndExtension(string filePath)
+    public static string[] GetDirectoryFileNameAndExtension(string filePath)
     {
       string directory = Path.GetDirectoryName(filePath);
       string fileName = Path.GetFileNameWithoutExtension(filePath);
@@ -205,7 +205,14 @@ namespace TranslatorHelper
     {
       Assembly assembly = Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-      Text += string.Format(" V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
+      Text += string.Format("V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
+    }
+
+    public static string GetApplicationTitle()
+    {
+      Assembly assembly = Assembly.GetExecutingAssembly();
+      FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+      return string.Format(" V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
     }
 
     private void GetWindowValue()
@@ -545,7 +552,7 @@ namespace TranslatorHelper
       }
     }
 
-    private static string[] ConvertTextToArray(string chaine)
+    public static string[] ConvertTextToArray(string chaine)
     {
       return chaine.Split('\n');
     }
@@ -609,7 +616,7 @@ namespace TranslatorHelper
       tabControl1.SelectedIndex = 2;
     }
 
-    private static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
+    public static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
     {
       var queryResults = (from kp in unsortedDictionary
                           orderby kp.Key.Length descending
