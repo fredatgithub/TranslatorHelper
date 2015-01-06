@@ -27,11 +27,9 @@ using Novacode;
 using TranslatorHelper.Properties;
 using System.Linq;
 using System.Text;
-
+  using System.Globalization;
 namespace TranslatorHelper
 {
-  using System.Globalization;
-
   public partial class FormMain : Form
   {
     public FormMain()
@@ -238,7 +236,7 @@ namespace TranslatorHelper
       return result;
     }
 
-    private static string StripZeroTime(string theTimeToStripped)
+    public static string StripZeroTime(string theTimeToStripped)
     {
       string result = theTimeToStripped;
       for (int i = 1; i < 4; i++)
