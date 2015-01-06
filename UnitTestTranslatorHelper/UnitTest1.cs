@@ -38,14 +38,13 @@ namespace UnitTestTranslatorHelper
       unsortedDictionary.Add("problème", "problem");
       unsortedDictionary.Add("test", "test");
       Dictionary<string, string> sortedDictionary = new Dictionary<string, string>();
-      sortedDictionary.Add("test", "test");
-      sortedDictionary.Add("problème", "problem");
       sortedDictionary.Add("ceci est un test", "this is a test");
-
+      sortedDictionary.Add("problème", "problem");
+      sortedDictionary.Add("test", "test");
+      
       Assert.AreEqual(FormMain.SortDictionaryByLength(unsortedDictionary),
                       FormMain.SortDictionaryByLength(unsortedDictionary));
-      Assert.AreEqual(FormMain.SortDictionaryByLength(unsortedDictionary),
-                      unsortedDictionary);
+      Assert.AreEqual(FormMain.SortDictionaryByLength(unsortedDictionary), sortedDictionary);
     }
 
     [TestMethod]
