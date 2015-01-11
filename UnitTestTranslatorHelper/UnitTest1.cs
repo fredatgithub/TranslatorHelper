@@ -78,6 +78,7 @@ namespace UnitTestTranslatorHelper
       const string Result2 = @"C:\Temp\_testForUnitTestVS\test991.txt";
       Assert.AreEqual(Result2, FormMain.IncreaseFileName(FilePath2));
       File.Delete(FilePath2);
+      Directory.Delete(@"C:\Temp\_testForUnitTestVS\");
     }
 
     [TestMethod]
