@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TranslatorHelper;
 
 namespace UnitTestTranslatorHelper
@@ -49,16 +51,39 @@ namespace UnitTestTranslatorHelper
       result1 = FormMain.SortDictionaryByLength(unsortedDictionary);
       Dictionary<string, string> result2 = new Dictionary<string, string>();
       result2 = sortedDictionary;
+      
+      string[] dico1 = new string[result1.Count];
+      string[] dico2 = new string[result2.Count];
+      int compteur = 0;
+      foreach (KeyValuePair<string, string> entry in result1)
+      {
+        dico1[compteur] = entry.Value;
+        compteur++;
+      }
 
-      Assert.AreEqual(result1, result2);
+      compteur = 0;
+      foreach (KeyValuePair<string, string> entry in result2)
+      {
+        dico2[compteur] = entry.Value;
+        compteur++;
+      }
+
+      for (int i = 0; i < dico1.Length; i++)
+      {
+        Assert.AreEqual(dico1[i], dico2[i]);
+      }
     }
 
     [TestMethod]
     public void TestConvertTextToArray()
     {
-      string[] result = { "1", "2", "3", "4"};
+      string[] result1 = { "1", "2", "3", "4"};
       string[] result2 = FormMain.ConvertTextToArray("1\n2\n3\n4");
-      Assert.AreEqual(result, result2);
+      for (int i = 0; i < result2.Length; i++)
+      {
+        Assert.AreEqual(result1[i], result2[i]);
+      }
+      
     }
 
     [TestMethod]
@@ -127,14 +152,36 @@ namespace UnitTestTranslatorHelper
       string[] result = new string[3];
       result[0] = @"C:\Temp\_testForUnitTestVS"; 
       result[1] = "test";
-      result[2] = "txt";
+      result[2] = ".txt";
       string[] result2 = new string[3];
       result2 = FormMain.GetDirectoryFileNameAndExtension(filePath);
-      Assert.AreEqual(result, result2);
+      for (int i = 0; i < result.Length; i++)
+      {
+        Assert.AreEqual(result[i], result2[i]);
+      }
+    }
+
+    public bool CompareArrays(string[] array1, string[] array2)
+    {
+      bool result = true;
+      for (int i = 0; i < array1.Length; i++)
+      {
+        try
+        {
+          Assert.AreEqual(array1[i], array2[i]);
+        }
+        catch (Exception)
+        {
+          result = false;
+          break;
+        }
+      }
+
+      return result;
     }
 
     [TestMethod]
-    public void Testcx()
+    public void Test()
     {
       Assert.AreEqual(0, 0);
     }
