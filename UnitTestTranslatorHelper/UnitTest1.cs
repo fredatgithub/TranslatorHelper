@@ -34,33 +34,41 @@ namespace UnitTestTranslatorHelper
     public void TestSortDictionaryByLength()
     {
       Dictionary<string, string> unsortedDictionary = new Dictionary<string, string>();
-      unsortedDictionary.Add("ceci est un test", "this is a test");
-      unsortedDictionary.Add("problème", "problem");
       unsortedDictionary.Add("test", "test");
+      unsortedDictionary.Add("problème", "problem");
+      unsortedDictionary.Add("ceci est un test", "this is a test");
+
       Dictionary<string, string> sortedDictionary = new Dictionary<string, string>();
       sortedDictionary.Add("ceci est un test", "this is a test");
       sortedDictionary.Add("problème", "problem");
       sortedDictionary.Add("test", "test");
       
-      Assert.AreEqual(FormMain.SortDictionaryByLength(unsortedDictionary),
-                      FormMain.SortDictionaryByLength(unsortedDictionary));
-      Assert.AreEqual(FormMain.SortDictionaryByLength(unsortedDictionary), sortedDictionary);
+      //Assert.AreEqual(FormMain.SortDictionaryByLength(unsortedDictionary),
+        //              FormMain.SortDictionaryByLength(unsortedDictionary));
+      Dictionary<string, string> result1 = new Dictionary<string, string>();
+      result1 = FormMain.SortDictionaryByLength(unsortedDictionary);
+      Dictionary<string, string> result2 = new Dictionary<string, string>();
+      result2 = sortedDictionary;
+
+      Assert.AreEqual(result1, result2);
     }
 
     [TestMethod]
     public void TestConvertTextToArray()
     {
       string[] result = { "1", "2", "3", "4"};
-      Assert.AreEqual(result, FormMain.ConvertTextToArray("1\n2\n3\n4"));
+      string[] result2 = FormMain.ConvertTextToArray("1\n2\n3\n4");
+      Assert.AreEqual(result, result2);
     }
 
     [TestMethod]
     public void TestAddAtTheEndOfFileName()
     {
-      const string FilePath = "C:\\program files\\software\\application1.txt";
-      const string TextToBeAdded = "_backup.txt";
-      const string Result = "C:\\program files\\software\\application1.txt_backup.txt";
-      Assert.AreEqual(Result, FormMain.AddAtTheEndOfFileName(FilePath, TextToBeAdded));
+      const string filePath = "C:\\program files\\software\\application1.txt";
+      const string textToBeAdded = "_backup";
+      const string result = "C:\\program files\\software\\application1_backup.txt";
+      string result2 = FormMain.AddAtTheEndOfFileName(filePath, textToBeAdded);
+      Assert.AreEqual(result, result2);
     }
 
     [TestMethod]
@@ -71,14 +79,14 @@ namespace UnitTestTranslatorHelper
       File.Create(FilePath);
       const string Result = @"C:\Temp\_testForUnitTestVS\test1.txt";
       Assert.AreEqual(Result, FormMain.IncreaseFileName(FilePath));
-      File.Delete(FilePath);
+      //File.Delete(FilePath);
 
       const string FilePath2 = @"C:\Temp\_testForUnitTestVS\test99.txt";
-      File.Create(FilePath2);
+      //File.Create(FilePath2);
       const string Result2 = @"C:\Temp\_testForUnitTestVS\test991.txt";
       Assert.AreEqual(Result2, FormMain.IncreaseFileName(FilePath2));
-      File.Delete(FilePath2);
-      Directory.Delete(@"C:\Temp\_testForUnitTestVS\");
+      //File.Delete(FilePath2);
+      //Directory.Delete(@"C:\Temp\_testForUnitTestVS\");
     }
 
     [TestMethod]
@@ -108,19 +116,21 @@ namespace UnitTestTranslatorHelper
     {
       Assembly assembly = Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-      string result = string.Format("V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
+      string result = string.Format(" V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
       Assert.AreEqual(result, FormMain.GetApplicationTitle());
     }
 
     [TestMethod]
     public void TestGetDirectoryFileNameAndExtension()
     {
-      const string FilePath = @"C:\Temp\_testForUnitTestVS\test.txt";
+      const string filePath = @"C:\Temp\_testForUnitTestVS\test.txt";
       string[] result = new string[3];
-      result[0] = "C:\\Temp\\_testForUnitTestVS"; 
+      result[0] = @"C:\Temp\_testForUnitTestVS"; 
       result[1] = "test";
       result[2] = "txt";
-      Assert.AreEqual(result, FormMain.GetDirectoryFileNameAndExtension(FilePath));
+      string[] result2 = new string[3];
+      result2 = FormMain.GetDirectoryFileNameAndExtension(filePath);
+      Assert.AreEqual(result, result2);
     }
 
     [TestMethod]
