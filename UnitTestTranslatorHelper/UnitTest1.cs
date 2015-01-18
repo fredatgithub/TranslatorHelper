@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TranslatorHelper;
 
@@ -178,6 +179,13 @@ namespace UnitTestTranslatorHelper
       }
 
       return result;
+    }
+
+    [TestMethod]
+    public void AsyncSample()
+    {
+      // can I async await in here ?
+      Assert.AreEqual(0, 0);
     }
 
     [TestMethod]
