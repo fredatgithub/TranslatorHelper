@@ -45,7 +45,7 @@ namespace UnitTestTranslatorHelper
       sortedDictionary.Add("ceci est un test", "this is a test");
       sortedDictionary.Add("problème", "problem");
       sortedDictionary.Add("test", "test");
-      
+      CompareDictionary(unsortedDictionary, unsortedDictionary);
       //Assert.AreEqual(FormMain.SortDictionaryByLength(unsortedDictionary),
         //              FormMain.SortDictionaryByLength(unsortedDictionary));
       Dictionary<string, string> result1 = new Dictionary<string, string>();
@@ -100,17 +100,17 @@ namespace UnitTestTranslatorHelper
     [TestMethod]
     public void TestIncreaseFileName()
     {
-      const string FilePath = @"C:\Temp\_testForUnitTestVS\test.txt";
+      const string filePath = @"C:\Temp\_testForUnitTestVS\test.txt";
       Directory.CreateDirectory(@"C:\Temp\_testForUnitTestVS\");
-      File.Create(FilePath);
-      const string Result = @"C:\Temp\_testForUnitTestVS\test1.txt";
-      Assert.AreEqual(Result, FormMain.IncreaseFileName(FilePath));
+      File.Create(filePath);
+      const string result = @"C:\Temp\_testForUnitTestVS\test1.txt";
+      Assert.AreEqual(result, FormMain.IncreaseFileName(filePath));
       //File.Delete(FilePath);
 
-      const string FilePath2 = @"C:\Temp\_testForUnitTestVS\test99.txt";
+      const string filePath2 = @"C:\Temp\_testForUnitTestVS\test99.txt";
       //File.Create(FilePath2);
-      const string Result2 = @"C:\Temp\_testForUnitTestVS\test991.txt";
-      Assert.AreEqual(Result2, FormMain.IncreaseFileName(FilePath2));
+      const string result2 = @"C:\Temp\_testForUnitTestVS\test991.txt";
+      Assert.AreEqual(result2, FormMain.IncreaseFileName(filePath2));
       //File.Delete(FilePath2);
       //Directory.Delete(@"C:\Temp\_testForUnitTestVS\");
     }
@@ -162,9 +162,8 @@ namespace UnitTestTranslatorHelper
       }
     }
 
-    public bool CompareArrays(string[] array1, string[] array2)
+    public void CompareArrays(string[] array1, string[] array2)
     {
-      bool result = true;
       for (int i = 0; i < array1.Length; i++)
       {
         try
@@ -173,12 +172,15 @@ namespace UnitTestTranslatorHelper
         }
         catch (Exception)
         {
-          result = false;
           break;
         }
       }
+    }
 
-      return result;
+    public void CompareDictionary(Dictionary<string, string> dico1, Dictionary<string, string> dico2)
+    {
+      // TODO
+
     }
 
     [TestMethod]
