@@ -27,10 +27,10 @@ namespace UnitTestTranslatorHelper
     [TestMethod]
     public void TestToHourMinuteSecond()
     {
-      Assert.AreEqual("00h:00m:19s:000ms", FormMain.ToHourMinuteSecond(19));
-      Assert.AreEqual("00h:01m:00s:000ms", FormMain.ToHourMinuteSecond(60));
-      Assert.AreEqual("01h:00m:00s:000ms", FormMain.ToHourMinuteSecond(3600));
-      Assert.AreEqual("00h:00m:00s:000ms", FormMain.ToHourMinuteSecond(0));
+      Assert.AreEqual("00h:00m:00s:019ms", FormMain.ToHourMinuteSecondMillisecond(19));
+      Assert.AreEqual("00h:01m:00s:000ms", FormMain.ToHourMinuteSecondMillisecond(60000));
+      Assert.AreEqual("01h:00m:00s:000ms", FormMain.ToHourMinuteSecondMillisecond(3600000));
+      Assert.AreEqual("00h:00m:00s:000ms", FormMain.ToHourMinuteSecondMillisecond(0));
     }
 
     [TestMethod]
