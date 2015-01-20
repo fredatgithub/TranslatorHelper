@@ -114,4 +114,54 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FileWord2007Filter" xml:space="preserve">
+    <value>Fichiers Word 2007-2010 (*.docx)|*.docx</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>French (</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English (</value>
+  </data>
+  <data name="entry" xml:space="preserve">
+    <value> entr</value>
+  </data>
+  <data name="closingParenthesis" xml:space="preserve">
+    <value>)</value>
+  </data>
+  <data name="ErrorWhileCopying" xml:space="preserve">
+    <value>Error while copying the source file: </value>
+  </data>
+  <data name="ErrorWhileOpening" xml:space="preserve">
+    <value>There was an error while trying to open the newly translated document
+Cannot open: </value>
+  </data>
+  <data name="CarriageReturn" xml:space="preserve">
+    <value>
+</value>
+  </data>
+  <data name="NoFileSelected" xml:space="preserve">
+    <value>No file selected!</value>
+  </data>
+  <data name="NoEmptyTextBox" xml:space="preserve">
+    <value>Neither french nor english text boxes can be emptied</value>
+  </data>
+  <data name="ErrorWhileSavingToDictionary" xml:space="preserve">
+    <value>Error while saving to dictionary: </value>
+  </data>
+  <data name="PleaseSelectOneWord" xml:space="preserve">
+    <value>You have to select one word or one phrase</value>
+  </data>
+  <data name="DictionaryIsSorted" xml:space="preserve">
+    <value>The dictionary has been sorted by french phrase length</value>
+  </data>
+  <data name="SelectFrenchSentence" xml:space="preserve">
+    <value>You have to select a french sentence corresponding to your english translation</value>
+  </data>
+  <data name="TypeInText" xml:space="preserve">
+    <value>You have to type in some text corresponding to the translation of the french sentence</value>
+  </data>
+  <data name="TextFilesFilter" xml:space="preserve">
+    <value>Text Files (*.txt)|*.txt</value>
+  </data>
 </root>
