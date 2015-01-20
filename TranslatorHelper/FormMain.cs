@@ -40,13 +40,13 @@ namespace TranslatorHelper
 
     private const string Backslash = "\\";
     private const string Period = ".";
-    private bool sourceFileIsSmall = true; // thus load the source file in memory and working in memory
-    private int changeCount;
+    private const bool SourceFileIsSmall = true; // thus load the source file in memory and working in memory
+    private int _changeCount;
 
-    private string SourceDictionaryfileName = "MainDico.txt";
+    private string _sourceDictionaryfileName = "MainDico.txt";
 
-    private bool DictionaryIsSorted;
-    private Dictionary<string, string> sourceDictionary;
+    private bool _dictionaryIsSorted;
+    private Dictionary<string, string> _sourceDictionary;
 
     public bool DictionaryHasChanged { get; set; }
 
@@ -62,7 +62,7 @@ namespace TranslatorHelper
                              {
                                InitialDirectory =
                                  Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                               Filter = "Fichiers Word 2007-2010 (*.docx)|*.docx",
+                               Filter = Resources.FileWord2007Filter,
                                Multiselect = false
                              };
 
@@ -71,10 +71,10 @@ namespace TranslatorHelper
         return;
       }
 
-      this.textBoxfilePath.Text = ofd.FileName;
-      this.textBoxTranslatedFileName.Text = GetDirectoryFileNameAndExtension(ofd.FileName)[0] + Backslash
+      textBoxfilePath.Text = ofd.FileName;
+      textBoxTranslatedFileName.Text = GetDirectoryFileNameAndExtension(ofd.FileName)[0] + Backslash
                                        + GetDirectoryFileNameAndExtension(ofd.FileName)[1]
-                                       + this.textBoxSuffixeFileName.Text
+                                       + textBoxSuffixeFileName.Text
                                        + GetDirectoryFileNameAndExtension(ofd.FileName)[2];
     }
 
@@ -99,25 +99,25 @@ namespace TranslatorHelper
       GetWindowValue();
       progressBarTranslate.Visible = false;
       progressBarAutoLearning.Visible = false;
-      sourceDictionary = new Dictionary<string, string>();
+      _sourceDictionary = new Dictionary<string, string>();
       // loading dictionary
-      if (sourceFileIsSmall)
+      if (SourceFileIsSmall)
       {
-        if (!File.Exists(SourceDictionaryfileName))
+        if (!File.Exists(_sourceDictionaryfileName))
         {
-          using (StreamWriter sw = new StreamWriter(SourceDictionaryfileName, false, Encoding.UTF8))
+          using (StreamWriter sw = new StreamWriter(_sourceDictionaryfileName, false, Encoding.UTF8))
           {
             // do nothing just create a new file
-            sourceDictionary = new Dictionary<string, string>();
+            _sourceDictionary = new Dictionary<string, string>();
           }
         }
         else
         {
           // reading dictionary
           // the file must not have empty line
-          RemoveEmptyLine(SourceDictionaryfileName);
-          sourceDictionary = new Dictionary<string, string>();
-          StreamReader sr = new StreamReader(SourceDictionaryfileName);
+          RemoveEmptyLine(_sourceDictionaryfileName);
+          _sourceDictionary = new Dictionary<string, string>();
+          StreamReader sr = new StreamReader(_sourceDictionaryfileName);
           bool readingEnglishLine = true;
           string line1 = string.Empty;
           string line2 = string.Empty;
@@ -133,9 +133,9 @@ namespace TranslatorHelper
             {
               line2 = tmp;
               readingEnglishLine = true;
-              if (!sourceDictionary.ContainsKey(line1) && !sourceDictionary.ContainsValue(line2))
+              if (!_sourceDictionary.ContainsKey(line1) && !_sourceDictionary.ContainsValue(line2))
               {
-                sourceDictionary.Add(line1, line2);
+                _sourceDictionary.Add(line1, line2);
               }
             }
           }
@@ -190,15 +190,15 @@ namespace TranslatorHelper
       listBoxEditFrench.Items.Clear();
       listBoxEditEnglish.Items.Clear();
       int countLines = 0;
-      foreach (KeyValuePair<string, string> dicoEntry in sourceDictionary)
+      foreach (KeyValuePair<string, string> dicoEntry in _sourceDictionary)
       {
         listBoxEditFrench.Items.Add(dicoEntry.Key);
         listBoxEditEnglish.Items.Add(dicoEntry.Value);
         countLines++;
       }
 
-      labelEditFrench.Text = "French (" + countLines + " entr" + PluralWithWordChange(countLines, "eng") + ")";
-      labelEditEnglish.Text = "English (" + countLines + " entr" + PluralWithWordChange(countLines, "eng") + ")";
+      labelEditFrench.Text = Resources.French + countLines + Resources.entry + PluralWithWordChange(countLines, "eng") + Resources.closingParenthesis;
+      labelEditEnglish.Text = Resources.English + countLines + Resources.entry + PluralWithWordChange(countLines, "eng") + Resources.closingParenthesis;
     }
 
     private void DisplayTitle()
@@ -261,7 +261,7 @@ namespace TranslatorHelper
       return result;
     }
 
-    public static string ToHourMinuteSecondMillisecond(long millisecs)
+    public static string ToHourMinuteSecond(long millisecs)
     {
       TimeSpan t = TimeSpan.FromMilliseconds(millisecs);
 
@@ -276,17 +276,17 @@ namespace TranslatorHelper
     private void ButtonConvertClick(object sender, EventArgs e)
     {
       //comptage des changements
-      changeCount = 0;
+      _changeCount = 0;
       progressBarTranslate.Visible = true;
       // first copy the file
       try
       {
         if (File.Exists(textBoxTranslatedFileName.Text))
         {
-          const string Message = "The translated file already exists, do you want to overwrite it?";
-          const string Caption = "File already exists";
-          const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
-          DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+          const string message = "The translated file already exists, do you want to overwrite it?";
+          const string caption = "File already exists";
+          const MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+          DialogResult result = MessageBox.Show(this, message, caption, buttons);
           if (result == DialogResult.Yes)
           {
             File.Copy(textBoxTranslatedFileName.Text, IncreaseFileName(textBoxTranslatedFileName.Text + ".backup.txt")); // add a number if file already exist by method
@@ -302,7 +302,7 @@ namespace TranslatorHelper
       }
       catch (Exception exception)
       {
-        MessageBox.Show("Error while copying the source file: " + exception.Message);
+        MessageBox.Show(Resources.ErrorWhileCopying + exception.Message);
         return;
       }
 
@@ -310,10 +310,10 @@ namespace TranslatorHelper
       Stopwatch chrono = new Stopwatch();
       chrono.Start();
       progressBarTranslate.Minimum = 1;
-      progressBarTranslate.Maximum = sourceDictionary.Count;
+      progressBarTranslate.Maximum = _sourceDictionary.Count;
       progressBarTranslate.Value = progressBarTranslate.Minimum;
       int compteur = progressBarTranslate.Minimum;
-      foreach (KeyValuePair<string, string> dictionaryEntry in sourceDictionary)
+      foreach (KeyValuePair<string, string> dictionaryEntry in _sourceDictionary)
       {
         ReplaceStrings(textBoxTranslatedFileName.Text, dictionaryEntry.Key, dictionaryEntry.Value);
         progressBarTranslate.Value = compteur;
@@ -324,12 +324,12 @@ namespace TranslatorHelper
       progressBarTranslate.Visible = false;
       chrono.Stop();
       long duration = chrono.ElapsedMilliseconds;
-      string timeElapse = StripZeroTime(ToHourMinuteSecondMillisecond(duration));
-      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2}", this.changeCount, Plural(changeCount), timeElapse));
-      const string DialogMessage = "Do you want to open the newly translated document ?";
-      const string DialogCaption = "Open translated document";
-      const MessageBoxButtons MyBoxButtons = MessageBoxButtons.YesNo;
-      DialogResult dialogResult = MessageBox.Show(this, DialogMessage, DialogCaption, MyBoxButtons);
+      string timeElapse = StripZeroTime(ToHourMinuteSecond(duration));
+      MessageBox.Show(string.Format("End of translation operation\n{0} change{1} have been made\nIt took {2}", _changeCount, Plural(_changeCount), timeElapse));
+      const string dialogMessage = "Do you want to open the newly translated document ?";
+      const string dialogCaption = "Open translated document";
+      const MessageBoxButtons myBoxButtons = MessageBoxButtons.YesNo;
+      DialogResult dialogResult = MessageBox.Show(this, dialogMessage, dialogCaption, myBoxButtons);
       if (dialogResult == DialogResult.Yes)
       {
         try
@@ -338,7 +338,7 @@ namespace TranslatorHelper
         }
         catch (Exception exception)
         {
-          MessageBox.Show("There was an error while trying to open the newly translated document\nCannot open: " + textBoxTranslatedFileName.Text + "\n" + exception.Message);
+          MessageBox.Show(Resources.ErrorWhileOpening + textBoxTranslatedFileName.Text + Resources.CarriageReturn + exception.Message);
         }
 
       }
@@ -432,7 +432,7 @@ namespace TranslatorHelper
       }
       else
       {
-        MessageBox.Show("No file selected!");
+        MessageBox.Show(Resources.NoFileSelected);
         return;
       }
 
@@ -457,7 +457,7 @@ namespace TranslatorHelper
               if (wordtoBeReplaced != string.Empty)
               {
                 document.ReplaceText(s, wordtoBeReplaced);
-                changeCount++;
+                _changeCount++;
               }
             }
           }
@@ -487,22 +487,22 @@ namespace TranslatorHelper
 
     private void ButtonAddToDictionaryClick(object sender, EventArgs e)
     {
-      if (this.textBoxInputFrench.Text == string.Empty || this.textBoxInputEnglish.Text == string.Empty)
+      if (textBoxInputFrench.Text == string.Empty || textBoxInputEnglish.Text == string.Empty)
       {
-        MessageBox.Show("Neither french nor english text boxes can be emptied");
+        MessageBox.Show(Resources.NoEmptyTextBox);
         return;
       }
 
       try
       {
-        StreamWriter sw = new StreamWriter(SourceDictionaryfileName);
-        sw.WriteLine(this.textBoxInputFrench.Text);
-        sw.WriteLine(this.textBoxInputEnglish.Text);
+        StreamWriter sw = new StreamWriter(_sourceDictionaryfileName);
+        sw.WriteLine(textBoxInputFrench.Text);
+        sw.WriteLine(textBoxInputEnglish.Text);
         sw.Close();
       }
       catch (Exception exception)
       {
-        MessageBox.Show("Error while saving to dictionary: " + exception.Message);
+        MessageBox.Show(Resources.ErrorWhileSavingToDictionary + exception.Message);
       }
     }
 
@@ -516,7 +516,7 @@ namespace TranslatorHelper
       }
       else
       {
-        MessageBox.Show("No file selected!");
+        MessageBox.Show(Resources.NoFileSelected);
         return;
       }
 
@@ -586,7 +586,7 @@ namespace TranslatorHelper
       //copy to previous tab selected item
       if (listBoxEditFrench.SelectedIndex == -1)
       {
-        MessageBox.Show("You have to select one word or one phrase");
+        MessageBox.Show(Resources.PleaseSelectOneWord);
         return;
       }
 
@@ -608,10 +608,10 @@ namespace TranslatorHelper
     private void ButtonSortDictionaryClick(object sender, EventArgs e)
     {
       // sorting the dictionary from the bigest to the smallest phrase
-      sourceDictionary = SortDictionaryByLength(sourceDictionary);
-      DictionaryIsSorted = true;
-      this.DictionaryHasChanged = true;
-      MessageBox.Show("The dictionary has been sorted by french phrase length");
+      _sourceDictionary = SortDictionaryByLength(_sourceDictionary);
+      _dictionaryIsSorted = true;
+      DictionaryHasChanged = true;
+      MessageBox.Show(Resources.DictionaryIsSorted);
       LoadDictionaryIntoListBoxes();
       tabControl1.SelectedIndex = 2;
     }
@@ -628,7 +628,7 @@ namespace TranslatorHelper
     {
       if (e.TabPage == tabPageTool)
       {
-        textBoxCurrentDictionary.Text = SourceDictionaryfileName;
+        textBoxCurrentDictionary.Text = _sourceDictionaryfileName;
       }
     }
 
@@ -655,7 +655,7 @@ namespace TranslatorHelper
 
     private void ButtonRemoveDuplicateInDictionaryClick(object sender, EventArgs e)
     {
-      this.DictionaryHasChanged = true;
+      DictionaryHasChanged = true;
     }
 
     private void ListBoxAutoLearningFrenchSelectedIndexChanged(object sender, EventArgs e)
@@ -706,13 +706,13 @@ namespace TranslatorHelper
     {
       if (listBoxLiveLearningFrDocNotTranslated.SelectedIndex == -1)
       {
-        MessageBox.Show("You have to select a french sentence corresponding to your english translation");
+        MessageBox.Show(Resources.SelectFrenchSentence);
         return;
       }
 
       if (textBoxLiveLearningEnglishTranslation.Text == string.Empty)
       {
-        MessageBox.Show("You have to type in some text corresponding to the translation of the french sentence");
+        MessageBox.Show(Resources.TypeInText);
         return;
       }
 
@@ -734,10 +734,10 @@ namespace TranslatorHelper
       if (DictionaryHasChanged)
       {
         // ask if user wants to save it
-        const string Message = "The dictionary has changed\nDo you want to save it?";
-        const string Caption = "Dictionary has changed";
-        const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
-        DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+        const string message = "The dictionary has changed\nDo you want to save it?";
+        const string caption = "Dictionary has changed";
+        const MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+        DialogResult result = MessageBox.Show(this, message, caption, buttons);
         if (result == DialogResult.Yes)
         {
           DictionarySave();
@@ -746,10 +746,10 @@ namespace TranslatorHelper
       else
       {
         // ask user if he wants to backup the dictionary
-        const string Message = "Do you want to backup the dictionary ?";
-        const string Caption = "Backup the dictionary";
-        const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
-        DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+        const string message = "Do you want to backup the dictionary ?";
+        const string caption = "Backup the dictionary";
+        const MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+        DialogResult result = MessageBox.Show(this, message, caption, buttons);
         if (result == DialogResult.Yes)
         {
           BackupDictionary();
@@ -759,18 +759,18 @@ namespace TranslatorHelper
 
     private void BackupDictionary()
     {
-      File.Copy(SourceDictionaryfileName, IncreaseFileName(SourceDictionaryfileName), false);
+      File.Copy(_sourceDictionaryfileName, IncreaseFileName(_sourceDictionaryfileName), false);
     }
 
     private void DictionarySave()
     {
-      if (File.Exists(SourceDictionaryfileName))
+      if (File.Exists(_sourceDictionaryfileName))
       {
-        File.Delete(SourceDictionaryfileName);
+        File.Delete(_sourceDictionaryfileName);
       }
 
-      StreamWriter sw = new StreamWriter(SourceDictionaryfileName);
-      foreach (KeyValuePair<string, string> dicoEntry in sourceDictionary)
+      StreamWriter sw = new StreamWriter(_sourceDictionaryfileName);
+      foreach (KeyValuePair<string, string> dicoEntry in _sourceDictionary)
       {
         sw.WriteLine(dicoEntry.Key);
         sw.WriteLine(dicoEntry.Value);
@@ -796,10 +796,10 @@ namespace TranslatorHelper
       if (DictionaryHasChanged)
       {
         // ask if user wants to save it
-        const string Message = "The dictionary has changed\nDo you want to save it?";
-        const string Caption = "Dictionary has changed";
-        const MessageBoxButtons Buttons = MessageBoxButtons.YesNo;
-        DialogResult result = MessageBox.Show(this, Message, Caption, Buttons);
+        const string message = "The dictionary has changed\nDo you want to save it?";
+        const string caption = "Dictionary has changed";
+        const MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+        DialogResult result = MessageBox.Show(this, message, caption, buttons);
         if (result == DialogResult.Yes)
         {
           DictionarySave();
@@ -810,7 +810,7 @@ namespace TranslatorHelper
         OpenFileDialog ofd = new OpenFileDialog
         {
           //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-          Filter = "Text Files (*.txt)|*.txt",
+          Filter = Resources.TextFilesFilter,
           Multiselect = false
         };
 
@@ -819,9 +819,9 @@ namespace TranslatorHelper
           return;
         }
 
-        SourceDictionaryfileName = ofd.FileName;
-        sourceDictionary = new Dictionary<string, string>();
-        StreamReader sr = new StreamReader(SourceDictionaryfileName);
+        _sourceDictionaryfileName = ofd.FileName;
+        _sourceDictionary = new Dictionary<string, string>();
+        StreamReader sr = new StreamReader(_sourceDictionaryfileName);
         bool readingEnglishLine = true;
         string line1 = string.Empty;
         string line2 = string.Empty;
@@ -837,9 +837,9 @@ namespace TranslatorHelper
           {
             line2 = tmp;
             readingEnglishLine = true;
-            if (!sourceDictionary.ContainsKey(line1) && !sourceDictionary.ContainsValue(line2))
+            if (!_sourceDictionary.ContainsKey(line1) && !_sourceDictionary.ContainsValue(line2))
             {
-              sourceDictionary.Add(line1, line2);
+              _sourceDictionary.Add(line1, line2);
             }
           }
         }
