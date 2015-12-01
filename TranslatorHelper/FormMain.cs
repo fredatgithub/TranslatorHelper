@@ -27,7 +27,7 @@ using Novacode;
 using TranslatorHelper.Properties;
 using System.Linq;
 using System.Text;
-  using System.Globalization;
+using System.Globalization;
 namespace TranslatorHelper
 {
   public partial class FormMain : Form
@@ -59,12 +59,12 @@ namespace TranslatorHelper
     private void ButtonChooseFileClick(object sender, EventArgs e)
     {
       OpenFileDialog ofd = new OpenFileDialog
-                             {
-                               InitialDirectory =
+      {
+        InitialDirectory =
                                  Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                               Filter = Resources.FileWord2007Filter,
-                               Multiselect = false
-                             };
+        Filter = Resources.FileWord2007Filter,
+        Multiselect = false
+      };
 
       if (ofd.ShowDialog(this) != DialogResult.OK)
       {
@@ -319,7 +319,7 @@ namespace TranslatorHelper
         progressBarTranslate.Value = compteur;
         compteur++;
       }
-      
+
       progressBarTranslate.Value = progressBarTranslate.Minimum;
       progressBarTranslate.Visible = false;
       chrono.Stop();
@@ -388,32 +388,38 @@ namespace TranslatorHelper
 
     private void MenuLanguageTo(Language language)
     {
-      if (language == Language.French)
+      while (true)
       {
-        frenchToolStripMenuItem.Checked = true;
-        englishToolStripMenuItem.Checked = false;
-        fileToolStripMenuItem.Text = Settings.Default.FR_File;
-        quitToolStripMenuItem.Text = Settings.Default.FR_Quit;
-        languageToolStripMenuItem.Text = Settings.Default.FR_Language;
-        frenchToolStripMenuItem.Text = Settings.Default.FR_French;
-        englishToolStripMenuItem.Text = Settings.Default.FR_English;
-        helpToolStripMenuItem.Text = Settings.Default.FR_Help;
-        aboutToolStripMenuItem.Text = Settings.Default.FR_About;
+        switch (language)
+        {
+          case Language.French:
+            frenchToolStripMenuItem.Checked = true;
+            englishToolStripMenuItem.Checked = false;
+            fileToolStripMenuItem.Text = Settings.Default.FR_File;
+            quitToolStripMenuItem.Text = Settings.Default.FR_Quit;
+            languageToolStripMenuItem.Text = Settings.Default.FR_Language;
+            frenchToolStripMenuItem.Text = Settings.Default.FR_French;
+            englishToolStripMenuItem.Text = Settings.Default.FR_English;
+            helpToolStripMenuItem.Text = Settings.Default.FR_Help;
+            aboutToolStripMenuItem.Text = Settings.Default.FR_About;
 
-        return;
-      }
-
-      if (language == Language.English)
-      {
-        frenchToolStripMenuItem.Checked = false;
-        englishToolStripMenuItem.Checked = true;
-        fileToolStripMenuItem.Text = Settings.Default.US_File;
-        quitToolStripMenuItem.Text = Settings.Default.US_Quit;
-        languageToolStripMenuItem.Text = Settings.Default.US_Language;
-        frenchToolStripMenuItem.Text = Settings.Default.US_French;
-        englishToolStripMenuItem.Text = Settings.Default.US_English;
-        helpToolStripMenuItem.Text = Settings.Default.US_Help;
-        aboutToolStripMenuItem.Text = Settings.Default.US_About;
+            return;
+          case Language.English:
+            frenchToolStripMenuItem.Checked = false;
+            englishToolStripMenuItem.Checked = true;
+            fileToolStripMenuItem.Text = Settings.Default.US_File;
+            quitToolStripMenuItem.Text = Settings.Default.US_Quit;
+            languageToolStripMenuItem.Text = Settings.Default.US_Language;
+            frenchToolStripMenuItem.Text = Settings.Default.US_French;
+            englishToolStripMenuItem.Text = Settings.Default.US_English;
+            helpToolStripMenuItem.Text = Settings.Default.US_Help;
+            aboutToolStripMenuItem.Text = Settings.Default.US_About;
+            break;
+          default:
+            language = Language.English;
+            continue;
+        }
+        break;
       }
     }
 
@@ -530,9 +536,9 @@ namespace TranslatorHelper
     private void ButtonPickFrenchDocumentClick(object sender, EventArgs e)
     {
       var opendialog = new OpenFileDialog
-                         {
-                           Filter = @"Word Documents(*.docx)| *.docx"
-                         };
+      {
+        Filter = @"Word Documents(*.docx)| *.docx"
+      };
 
       if (opendialog.ShowDialog() == DialogResult.OK)
       {
@@ -547,7 +553,6 @@ namespace TranslatorHelper
           {
             listBoxAutoLearningFrench.Items.Add(tmpPhrases[i]);
           }
-
         }
       }
     }
@@ -618,9 +623,7 @@ namespace TranslatorHelper
 
     public static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
     {
-      var queryResults = (from kp in unsortedDictionary
-                          orderby kp.Key.Length descending
-                          select new KeyValuePair<string, string>(kp.Key, kp.Value));
+      var queryResults = (from kp in unsortedDictionary orderby kp.Key.Length descending select new KeyValuePair<string, string>(kp.Key, kp.Value));
       return queryResults.ToDictionary(x => x.Key, x => x.Value);
     }
 
@@ -717,7 +720,6 @@ namespace TranslatorHelper
       }
 
       // adding to the main dictionary
-
     }
 
     private void ButtonDictionaryIntegrityCheckClick(object sender, EventArgs e)
@@ -726,7 +728,6 @@ namespace TranslatorHelper
       int counter = 0;
       bool hasBlankLines = false;
       bool hadEvenLines = false;
-
     }
 
     private void NewToolStripMenuItemClick(object sender, EventArgs e)
@@ -788,7 +789,6 @@ namespace TranslatorHelper
     private void SaveAsToolStripMenuItemClick(object sender, EventArgs e)
     {
       // ask user what name to assign to new file with SavedialogBox
-
     }
 
     private void OpenToolStripMenuItemClick(object sender, EventArgs e)
@@ -810,8 +810,7 @@ namespace TranslatorHelper
         OpenFileDialog ofd = new OpenFileDialog
         {
           //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-          Filter = Resources.TextFilesFilter,
-          Multiselect = false
+          Filter = Resources.TextFilesFilter, Multiselect = false
         };
 
         if (ofd.ShowDialog(this) != DialogResult.OK)
